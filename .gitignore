@@ -1,0 +1,12 @@
+*~
+*.keep
+.DS_Store
+.sass-cache
+_assets
+node_modules
+bkp
+bkp/
+bkp/*
+css/config.rb
+scss/.sass-cache
+scss/.sass-cache/*
