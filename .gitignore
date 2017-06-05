@@ -10,7 +10,6 @@ bkp/*
 css/config.rb
 scss/.sass-cache
 scss/.sass-cache/*
-site/
 site/*
 
 
