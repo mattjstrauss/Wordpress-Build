@@ -18,7 +18,7 @@
  * @package WordPress
  */
 
-/** Site root directory */
+/** Project root directory */
 define('PROJECT_ROOT', dirname(__DIR__));
 
 /** Environment name */
@@ -27,10 +27,8 @@ define('PROJECT_ENV', getenv('SERVER_ENV'));
 /** Configuration specific to a local environment, sever environment or default */
 if ( file_exists(PROJECT_ROOT . '/config/servers/local.php') ) {
 	require PROJECT_ROOT . '/config/servers/local.php';
-} elseif ( isset(PROJECT_ENV) ) {
-	require PROJECT_ROOT . '/config/servers/' . PROJECT_ENV . '.php';
 } else {
-	require PROJECT_ROOT . '/config/servers/default.php';
+	require PROJECT_ROOT . '/config/servers/' . PROJECT_ENV . '.php';
 }
 
 /**
