@@ -1,0 +1,1 @@
+{"version":3,"file":"../scripts.js","sources":["scripts.js"],"names":["$","document","ready"],"mappings":"AAAA,AAAAA,EAAAC,UAAAC,MAAA;AACA;AACA","sourcesContent":["$(document).ready(function(){\n\n});"]}
