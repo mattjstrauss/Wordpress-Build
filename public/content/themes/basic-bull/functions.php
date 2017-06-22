@@ -13,4 +13,7 @@ require_once( __DIR__ . '/inc/custom-post-types.php');
 // Styles and scripts
 require_once( __DIR__ . '/inc/enqueue.php');
 
+// Custion navigation
+require_once( __DIR__ . '/inc/custom-navigation.php');
+
 ?>

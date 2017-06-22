@@ -98,7 +98,6 @@
 	   	// Registers the post type
 		public function register_post_type() {
 		     
-		    // Register the post type
 		    register_post_type( $this->post_type_name, $this->post_type_options );
 
 		}

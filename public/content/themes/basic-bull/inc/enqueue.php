@@ -4,16 +4,21 @@
 Enqueue scripts and styles.
 --------------------------------------------------------------*/
 
-	function theme_scripts() {
+if ( ! function_exists( 'bull_scripts' ) ) {
+
+	function bull_scripts() {
 
 		// Theme styles
 		wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css' );
+		
+		// Remove jQuery that Wordpress installs and add the desired version of jQuery
+		if ( !is_admin() ) {
 
-		// Remove jQuery that Wordpress installs
-		wp_deregister_script('jquery');
+			wp_deregister_script('jquery');
+			
+			wp_enqueue_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", array(), false, true);
 
-		// Add the desired version of jQuery
-		wp_enqueue_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", array(), false, true);
+		}
 
 		// Include compiled plugins
 		wp_enqueue_script('plugin', get_template_directory_uri() . '/js/plugins.js', array( 'jquery' ), false, true);
@@ -31,6 +36,8 @@ Enqueue scripts and styles.
 		}
 	}
 
-	add_action("wp_enqueue_scripts", "theme_scripts", 11);
+	add_action("wp_enqueue_scripts", "bull_scripts", 11);
+
+}
 
 ?>

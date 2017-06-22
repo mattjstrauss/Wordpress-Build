@@ -26,9 +26,13 @@ define('PROJECT_ENV', getenv('SERVER_ENV'));
 
 /** Configuration specific to a local environment, sever environment or default */
 if ( file_exists(PROJECT_ROOT . '/config/servers/local.php') ) {
+
 	require PROJECT_ROOT . '/config/servers/local.php';
+
 } else {
+
 	require PROJECT_ROOT . '/config/servers/' . PROJECT_ENV . '.php';
+	
 }
 
 /**
