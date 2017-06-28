@@ -1,0 +1,1 @@
+$(document).ready(function(){$wpNavBar=$("#wpadminbar"),$wpNavBar.addClass("hide"),$("#admin-trigger").on("click",function(){$(this).toggleClass("down"),$wpNavBar.toggleClass("hide show")})});

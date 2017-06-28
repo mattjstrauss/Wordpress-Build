@@ -28,6 +28,18 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('./css'));
 });
 
+// CSS - admin styles
+gulp.task('styles-admin', function () {
+  return gulp.src('./src/css/admin/*.scss')
+    .pipe(plugins.sourcemaps.init())
+      .pipe(plugins.sass({outputStyle: 'compressed'}).on('error', plugins.sass.logError))
+      .pipe(plugins.autoprefixer({
+          browsers: ['last 2 versions', 'safari 6', 'ie 9', 'ios 7', 'android 4']
+        }))
+    .pipe(plugins.sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./css'));
+});
+
 // JS - custom scripts
 gulp.task('scripts', function() {
   return gulp.src('./src/js/scripts.js')
@@ -55,14 +67,27 @@ gulp.task('scripts-lib', function() {
     .pipe(gulp.dest('./js/lib'));
 });
 
+// JS - plugins
+gulp.task('scripts-admin', function() {
+  return gulp.src('./src/js/admin/*.js')
+    .pipe(plugins.sourcemaps.init())
+      .pipe(plugins.concat('admin-scripts.js'))
+      .pipe(plugins.minify())
+    .pipe(plugins.sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./js'));
+});
+
 // Default Tasks
 gulp.task('default', ['scripts-lib', 'styles', 'scripts', 'svg-sprite','scripts-plugin']);
 
 // Watch tasks
 gulp.task('watch', function() {
 
-  // Watch .scss files
-  gulp.watch('src/css/**/*.scss', ['styles']);
+  // Watch general .scss files
+  gulp.watch('src/css/*.scss', ['styles']);
+
+    // Watch admin .scss files
+  gulp.watch('src/css/admin/*.scss', ['styles-admin']);
 
   // Watch scripts.js files
   gulp.watch('src/js/scripts.js', ['scripts']);
@@ -72,6 +97,9 @@ gulp.task('watch', function() {
 
   // Watch for .js library files
   gulp.watch('src/js/lib/*.js', ['scripts-lib']);
+
+    // Watch plugin .js files
+  gulp.watch('src/js/admin/*.js', ['scripts-admin']);
 
   // SVG files for spritemap
   gulp.watch('src/svg/**/*.svg', ['svg-sprite']);

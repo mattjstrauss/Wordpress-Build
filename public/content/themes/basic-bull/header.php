@@ -20,6 +20,20 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php 
+
+	// Adds a button to toggle the "WP Admin Bar"
+	if ( is_user_logged_in() ) : ?>
+
+	<a href="#" id="admin-trigger"></a>
+
+<?php 
+	
+	endif;
+	
+?>
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'bullinteractive-co' ); ?></a>
 

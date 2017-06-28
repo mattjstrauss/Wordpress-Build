@@ -8,12 +8,19 @@
  */
 
 // Custom post types
+
 require_once( __DIR__ . '/inc/custom-post-types.php');
 
 // Styles and scripts
+
 require_once( __DIR__ . '/inc/enqueue.php');
 
-// Custion navigation
-require_once( __DIR__ . '/inc/custom-navigation.php');
+// General setup
+
+require_once( __DIR__ . '/inc/general-setup.php');
+
+// Custom admin abilities
+
+require_once( __DIR__ . '/inc/custom-admin.php');
 
 ?>
