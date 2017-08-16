@@ -7,7 +7,7 @@
  * @package basic-bull
  */
 
-if ( ! function_exists( 'bullinteractive_co_setup' ) ) :
+if ( ! function_exists( 'basic_bull_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,7 +15,7 @@ if ( ! function_exists( 'bullinteractive_co_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function bullinteractive_co_setup() {
+function basic_bull_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -60,7 +60,7 @@ function bullinteractive_co_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'bullinteractive_co_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'basic_bull_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -69,7 +69,7 @@ function bullinteractive_co_setup() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 endif;
-add_action( 'after_setup_theme', 'bullinteractive_co_setup' );
+add_action( 'after_setup_theme', 'basic_bull_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -78,17 +78,17 @@ add_action( 'after_setup_theme', 'bullinteractive_co_setup' );
  *
  * @global int $content_width
  */
-function bullinteractive_co_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'bullinteractive_co_content_width', 640 );
+function basic_bull_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'basic_bull_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'bullinteractive_co_content_width', 0 );
+add_action( 'after_setup_theme', 'basic_bull_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function bullinteractive_co_widgets_init() {
+function basic_bull_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'bullinteractive-co' ),
 		'id'            => 'sidebar-1',
@@ -99,12 +99,12 @@ function bullinteractive_co_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'bullinteractive_co_widgets_init' );
+add_action( 'widgets_init', 'basic_bull_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function bullinteractive_co_scripts() {
+function basic_bull_scripts() {
 	wp_enqueue_style( 'bullinteractive-co-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'bullinteractive-co-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -115,7 +115,7 @@ function bullinteractive_co_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'bullinteractive_co_scripts' );
+add_action( 'wp_enqueue_scripts', 'basic_bull_scripts' );
 
 /**
  * Implement the Custom Header feature.

@@ -42,3 +42,11 @@
 		}
 	}
 }
+// Hides the "most used" tab on the format taxonomy options
+#format-tabs {
+	li {
+		&:last-child {
+			display: none;
+		}
+	}
+}

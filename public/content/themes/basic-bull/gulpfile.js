@@ -18,7 +18,7 @@ gulp.task('svg-sprite', function() {
 
 // CSS
 gulp.task('styles', function () {
-  return gulp.src('./src/css/*.scss')
+  return gulp.src('./src/css/**/*.scss')
     .pipe(plugins.sourcemaps.init())
       .pipe(plugins.sass({outputStyle: 'compressed'}).on('error', plugins.sass.logError))
       .pipe(plugins.autoprefixer({
@@ -84,7 +84,7 @@ gulp.task('default', ['scripts-lib', 'styles', 'scripts', 'svg-sprite','scripts-
 gulp.task('watch', function() {
 
   // Watch general .scss files
-  gulp.watch('src/css/*.scss', ['styles']);
+  gulp.watch('src/css/**/*.scss', ['styles']);
 
     // Watch admin .scss files
   gulp.watch('src/css/admin/*.scss', ['styles-admin']);
