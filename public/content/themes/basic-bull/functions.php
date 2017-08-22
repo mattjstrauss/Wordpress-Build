@@ -8,14 +8,22 @@
  */
 
 // Custom post types
+// ==================================
 
 require_once( __DIR__ . '/inc/custom-post-types.php');
 
 // Custom post formats
+// ==================================
 
 require_once( __DIR__ . '/inc/custom-format-types.php');
 
+// Custom shortcodes
+// ==================================
+
+require_once( __DIR__ . '/inc/custom-shortcodes.php');
+
 // Styles and scripts
+// ==================================
 
 require_once( __DIR__ . '/inc/enqueue.php');
 
@@ -24,6 +32,7 @@ require_once( __DIR__ . '/inc/enqueue.php');
 require_once( __DIR__ . '/inc/general-setup.php');
 
 // Custom admin abilities
+// ==================================
 
 require_once( __DIR__ . '/inc/custom-admin.php');
 

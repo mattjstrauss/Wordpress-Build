@@ -1,1 +1,1 @@
-$(document).ready(function(){});
+$(document).ready(function(){$("body").removeClass("loading")}),$(document).ready(function(){$(".site-header").headroom({offset:100,tolerance:0,tolerance:{up:5,down:10},classes:{initial:"header",pinned:"header-pinned",unpinned:"header-unpinned",top:"header-top",notTop:"header-not-top",bottom:"header-bottom",notBottom:"header-not-bottom"}})});

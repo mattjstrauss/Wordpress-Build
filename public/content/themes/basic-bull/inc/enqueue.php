@@ -4,9 +4,9 @@
 Enqueue "mandatory" scripts and styles.
 --------------------------------------------------------------*/
 
-if ( ! function_exists( 'bull_scripts_and_styles' ) ) {
+if ( ! function_exists( 'basic_bull_scripts_and_styles' ) ) {
 
-	function bull_scripts_and_styles() {
+	function basic_bull_scripts_and_styles() {
 
 		// Include theme styles
 
@@ -22,6 +22,14 @@ if ( ! function_exists( 'bull_scripts_and_styles' ) ) {
 
 		}
 
+		// Google maps
+
+		// wp_enqueue_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=API-KEY', array( 'jquery' ), null, true);
+
+		// Include TweenMax library
+
+		wp_enqueue_script('tweenmax', get_template_directory_uri() . '/js/lib/TweenMax.min.js', array( 'jquery' ), false, true);
+
 		// Include compiled plugins
 
 		wp_enqueue_script('plugin', get_template_directory_uri() . '/js/plugins.js', array( 'jquery' ), false, true);
@@ -30,11 +38,6 @@ if ( ! function_exists( 'bull_scripts_and_styles' ) ) {
 
 		wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), false, true);
 
-		// Google maps
-
-		// wp_register_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=API-KEY',null,null,true);
-		// wp_enqueue_script('googlemaps');
-
 		// Default commenting scripts
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -42,7 +45,7 @@ if ( ! function_exists( 'bull_scripts_and_styles' ) ) {
 		}
 	}
 
-	add_action("wp_enqueue_scripts", "bull_scripts_and_styles", 11);
+	add_action("wp_enqueue_scripts", "basic_bull_scripts_and_styles", 11);
 
 }
 

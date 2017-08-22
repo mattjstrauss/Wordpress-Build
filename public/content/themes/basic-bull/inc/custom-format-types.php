@@ -4,12 +4,12 @@
 Custom format types using taxonomies
 --------------------------------------------------------------*/
 
-if ( ! function_exists( 'bull_custom_formats' ) ) {
+if ( ! function_exists( 'basic_bull_custom_formats' ) ) {
 
 	// Post formats
 	// ==================================
 
-	function bull_custom_formats() {
+	function basic_bull_custom_formats() {
 
 		// Hook into the init action and call custom_post_formats_taxonomies when it fires
 		add_action( 'init', 'custom_post_formats_taxonomies', 0 );
@@ -137,7 +137,7 @@ if ( ! function_exists( 'bull_custom_formats' ) ) {
 
 	}
 
-	add_action( 'after_setup_theme', 'bull_custom_formats' );
+	add_action( 'after_setup_theme', 'basic_bull_custom_formats' );
 
 }
  ?>

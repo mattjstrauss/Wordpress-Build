@@ -40,9 +40,9 @@ gulp.task('styles-admin', function () {
     .pipe(gulp.dest('./css'));
 });
 
-// JS - custom scripts
+// JS - custom scripts (partials)
 gulp.task('scripts', function() {
-  return gulp.src('./src/js/scripts.js')
+  return gulp.src('./src/js/partials/*.js')
     .pipe(plugins.sourcemaps.init())
       .pipe(plugins.concat('scripts.js'))
       .pipe(plugins.minify())
@@ -89,8 +89,8 @@ gulp.task('watch', function() {
     // Watch admin .scss files
   gulp.watch('src/css/admin/*.scss', ['styles-admin']);
 
-  // Watch scripts.js files
-  gulp.watch('src/js/scripts.js', ['scripts']);
+  // Watch partials .js files
+  gulp.watch('src/js/partials/*.js', ['scripts']);
 
   // Watch plugin .js files
   gulp.watch('src/js/plugins/*.js', ['scripts-plugin']);

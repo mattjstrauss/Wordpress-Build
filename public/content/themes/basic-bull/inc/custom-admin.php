@@ -4,9 +4,9 @@
 Custom admin abilities
 --------------------------------------------------------------*/
 
-if ( ! function_exists( 'bull_custom_admin' ) ) {
+if ( ! function_exists( 'basic_bull_custom_admin' ) ) {
 
-	function bull_custom_admin() {
+	function basic_bull_custom_admin() {
 
 		// Make the admin logo on login link go the the site url instead of wordpress.org
 
@@ -50,26 +50,28 @@ if ( ! function_exists( 'bull_custom_admin' ) ) {
 
 	}
 
-	add_action( 'after_setup_theme', 'bull_custom_admin' );
+	add_action( 'after_setup_theme', 'basic_bull_custom_admin' );
 
 
 	// Adds compiled admin scripts and styles for the "frontend" when user is logged in
 
 	if ( is_user_logged_in() ) {
 		
-		function bull_admin_styles() {
+		function basic_bull_custom_backend_styles() {
 
 			wp_enqueue_style( 'admin_style', get_template_directory_uri() . '/css/admin-style.css' );
 		}
 
-		add_action("admin_enqueue_scripts", "bull_admin_styles", 11);
+		add_action("admin_enqueue_scripts", "basic_bull_custom_backend_styles", 11);
 
-		function bull_admin_scripts() {
+		function basic_bull_custom_admin_scripts_and_styles() {
+
+			wp_enqueue_style( 'admin_style', get_template_directory_uri() . '/css/admin-style.css' );
 			
 			wp_enqueue_script('admin_scripts', get_template_directory_uri() . '/js/admin-scripts.js', array( 'jquery' ), false, true);
 		}
 
-		add_action("wp_enqueue_scripts", "bull_admin_scripts", 11);
+		add_action("wp_enqueue_scripts", "basic_bull_custom_admin_scripts_and_styles", 11);
 
 	}
 

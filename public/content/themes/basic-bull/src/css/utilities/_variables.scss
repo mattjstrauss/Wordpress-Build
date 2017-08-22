@@ -6,8 +6,6 @@ $grayDark:              #121212;
 $grayMed:				#1c1c1c;
 $grayLight:				#414141;
 $gray:					#a4a4a4;
-$yellow: 				#ffff00;
-$purple:				#7f3f98;
 
 // Scaffolding
 // -------------------------
@@ -27,19 +25,11 @@ $pageTrans: 						cubic-bezier(.54,.06,.55,.97);
 
 // TYPOGRAPHY
 // -------------------------
-$fontFamily:			"Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$neutraLight:			"Neutraface Light", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$neutraTitle:			"Neutraface Title", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$neutraMedium:			"Neutraface Medium", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$neutraBold:			"Neutraface Bold", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$sansSerif:				"Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$serif:					Times, Georgia, serif;
 
 $baseFontSize:          16px !default;
-$baseFontFamily:        $fontFamily !default;
-$baseLineHeight:        23px !default;
-
-$headingsFontFamily:    $neutraBold !default;
-$headingsFontWeight:    900 !default;
-$headingsColor:         inherit !default;
+$baseLineHeight:        1.65 !default;
 
 // MEDIA QUERIES BREAKPOINTS
 // --------------------------------------------------
