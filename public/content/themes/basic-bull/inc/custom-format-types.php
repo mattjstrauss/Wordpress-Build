@@ -139,5 +139,6 @@ if ( ! function_exists( 'basic_bull_custom_formats' ) ) {
 
 	add_action( 'after_setup_theme', 'basic_bull_custom_formats' );
 
-}
- ?>
+} 
+
+?>

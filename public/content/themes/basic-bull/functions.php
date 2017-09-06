@@ -7,10 +7,30 @@
  * @package basic-bull
  */
 
+// Styles and scripts
+// ==================================
+
+require_once( __DIR__ . '/inc/enqueue.php');
+
+// Custom admin abilities
+// ==================================
+
+require_once( __DIR__ . '/inc/custom-admin.php');
+
+// General setup
+// ==================================
+
+require_once( __DIR__ . '/inc/general-setup.php');
+
 // Custom post types
 // ==================================
 
 require_once( __DIR__ . '/inc/custom-post-types.php');
+
+// Custom taxonomies
+// ==================================
+
+require_once( __DIR__ . '/inc/custom-taxonomies.php');
 
 // Custom post formats
 // ==================================
@@ -27,24 +47,19 @@ require_once( __DIR__ . '/inc/custom-images.php');
 
 require_once( __DIR__ . '/inc/custom-shortcodes.php');
 
-// Styles and scripts
-// ==================================
-
-require_once( __DIR__ . '/inc/enqueue.php');
-
-// General setup
-// ==================================
-
-require_once( __DIR__ . '/inc/general-setup.php');
-
 // Navigation(s)
 // ==================================
 
 require_once( __DIR__ . '/inc/navigation.php');
 
-// Custom admin abilities
+// Custom tinymce formats
 // ==================================
 
-require_once( __DIR__ . '/inc/custom-admin.php');
+require_once( __DIR__ . '/inc/custom-tinymce.php');
+
+// ACF functionality
+// ==================================
+
+require_once( __DIR__ . '/inc/acf-functions.php');
 
 ?>

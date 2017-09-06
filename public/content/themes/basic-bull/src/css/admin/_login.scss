@@ -1,8 +1,8 @@
 body.login #login h1 a {
-	background: url('".get_bloginfo('template_url')."/img/blink-182-logo.svg') no-repeat scroll center top transparent;
+	background: url('../img/logos/client-logo.svg') no-repeat scroll center top transparent;
 	background-size: cover;
-    height: 55px;
-    width: 320px;
+    height: 150px;
+    width: 300px;
 }
 body.login {
 	background: white;
