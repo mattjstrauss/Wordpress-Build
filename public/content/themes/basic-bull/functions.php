@@ -17,6 +17,11 @@ require_once( __DIR__ . '/inc/custom-post-types.php');
 
 require_once( __DIR__ . '/inc/custom-format-types.php');
 
+// Custom images
+// ==================================
+
+require_once( __DIR__ . '/inc/custom-images.php');
+
 // Custom shortcodes
 // ==================================
 
@@ -28,8 +33,14 @@ require_once( __DIR__ . '/inc/custom-shortcodes.php');
 require_once( __DIR__ . '/inc/enqueue.php');
 
 // General setup
+// ==================================
 
 require_once( __DIR__ . '/inc/general-setup.php');
+
+// Navigation(s)
+// ==================================
+
+require_once( __DIR__ . '/inc/navigation.php');
 
 // Custom admin abilities
 // ==================================
