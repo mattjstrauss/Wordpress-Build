@@ -18,45 +18,46 @@
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 
 <?php wp_head(); ?>
+
 </head>
 
-<body <?php body_class('loading'); ?>>
-
-<?php 
-
-	// Adds a button to toggle the "WP Admin Bar"
-	if ( is_user_logged_in() ) : ?>
-
-	<a href="#" id="admin-trigger"></a>
-
-<?php 
+<body <?php body_class('loading fixed-header-left'); ?>>
 	
-	endif;
-	
-?>
+	<?php 
 
-<div id="page" class="site">
-	
-	<a class="skip-link srt-only" href="#content">Skip to Main Content</a>
+	// Adds a button to toggle the "WP Admin Bar" 
+	// ===============================================
 
-	<div id="masthead" class="header site-header" role="banner">
-					
-		<div class="site-branding">
+	?>
 
-			<a href="<?php echo get_bloginfo('url'); ?>">
+	<?php if ( is_user_logged_in() ) : ?>
 
-				<?php get_template_part( 'template-parts/components/logo', 'company' ); ?>
+		<a href="#" id="admin-trigger"></a>
 
-			</a>
+	<?php endif; ?>
 
-		</div><!-- .site-branding -->
+	<div id="page" class="site">
+		
+		<a class="skip-link srt-only" href="#content">Skip to Main Content</a>
 
-		<div class="site-navigation">
-			
-			<?php get_template_part( 'template-parts/layout/header/navigation', 'main' ); ?>
+		<div id="masthead" class="header site-header" role="banner">
+						
+			<div class="site-branding">
 
-		</div><!-- .site-navigation -->
+				<a href="<?php echo get_bloginfo('url'); ?>">
 
-	</div><!-- #masthead -->
+					<?php get_template_part( 'template-parts/components/ui/company', 'logo' ); ?>
 
-	<div id="content" class="site-content">
+				</a>
+
+			</div><!-- .site-branding -->
+
+			<div class="site-navigation">
+				
+				<?php get_template_part( 'template-parts/layout/header/navigation', 'main' ); ?>
+
+			</div><!-- .site-navigation -->
+
+		</div><!-- #masthead -->
+
+		<div id="content" class="site-content">

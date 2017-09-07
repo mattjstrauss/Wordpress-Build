@@ -11,10 +11,15 @@
     'base/_typography',
     'base/_helpers';
 
-// 2. Base stuff
+// 3. Components
 @import
     'components/_forms',
     'components/_links',
     'components/_tables',
     'components/_lists';
+
+// 4. Layout
+@import
+    'layouts/_header',
+    'layouts/_content';
 

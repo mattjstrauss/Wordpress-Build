@@ -52,6 +52,8 @@ require_once( __DIR__ . '/inc/custom-shortcodes.php');
 
 require_once( __DIR__ . '/inc/navigation.php');
 
+require_once( __DIR__ . '/inc/custom-navigation-walker.php');
+
 // Custom tinymce formats
 // ==================================
 

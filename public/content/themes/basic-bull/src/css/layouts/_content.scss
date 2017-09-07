@@ -2,7 +2,12 @@
 # Content (.site-content)
 --------------------------------------------------------------*/
 .site-content {
-    padding: 130px 0 0;
+    float: left;
+    width: 100%;
+    display: none;
+    .fixed-header & {
+		padding: 100px 0 0;
+	}
 }
 .general-content {
 	h1, h2, h3, h4, h5, h6 {
