@@ -1,11 +1,16 @@
-/*--------------------------------------------------------------
+/*==============================================================
 # Header
---------------------------------------------------------------*/
+==============================================================*/
+
+// Sites header
+// --------------------------------------------------
+
 .site-header {
 	background: $white;
 	width: 100%;
 	z-index: 10;
 	transition: all .3s $cbTrans;
+	display: flex;
 	[class*="fixed-header-"] & {
 		position: fixed;
 	} 
@@ -31,6 +36,23 @@
 		@include breakFirst(medium) {
 			width: 30%;
 		}
+		.site-header-container {
+	    	width: 100%;
+	    	height: 100%;
+	    	display: flex;
+	    	flex-direction: column;
+	    	flex-shrink: 0;
+		}
+		.site-branding,
+		.site-search,
+		.site-social-links {
+			flex-shrink: 0;
+		}
+		.site-navigation {
+			flex-grow: 1;
+			overflow-y: auto;
+			padding: 20px;
+		}
 	}
 	.fixed-header-left & {
 		left: 0;
@@ -49,6 +71,10 @@
 		padding: 0;
 	}
 }
+
+// Sites branding
+// --------------------------------------------------
+
 .site-branding {
     display: block;
     width: 100%;
@@ -72,6 +98,10 @@
     	transition: all .3s $cbTrans;
     }
 }
+
+// Navigation buttons
+// --------------------------------------------------
+
 .site-menu-button {
 	width: 40px;
 	height: 40px;
@@ -117,6 +147,10 @@
 		background-color: $gray;
 	}
 }
+
+// Active navigation styles
+// --------------------------------------------------
+
 .active-menu {
 	overflow: hidden;
 	@include breakFirst(medium) {

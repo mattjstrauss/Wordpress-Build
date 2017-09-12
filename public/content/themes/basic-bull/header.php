@@ -40,23 +40,39 @@
 		
 		<a class="skip-link srt-only" href="#content">Skip to Main Content</a>
 
-		<div id="masthead" class="header site-header" role="banner">
+		<div id="masthead" class="section section-header site-header" role="banner">
+
+			<div class="site-header-container">
 						
-			<div class="site-branding">
+				<div class="site-branding">
 
-				<a href="<?php echo get_bloginfo('url'); ?>">
+					<a href="<?php echo get_bloginfo('url'); ?>">
 
-					<?php get_template_part( 'template-parts/components/ui/company', 'logo' ); ?>
+						<?php get_template_part( 'template-parts/components/ui/company', 'logo' ); ?>
 
-				</a>
+					</a>
 
-			</div><!-- .site-branding -->
+				</div><!-- .site-branding -->
 
-			<div class="site-navigation">
-				
-				<?php get_template_part( 'template-parts/layout/header/navigation', 'main' ); ?>
+				<div class="site-search">
 
-			</div><!-- .site-navigation -->
+					<?php get_template_part( 'template-parts/components/forms/site', 'search' ); ?>
+
+				</div><!-- .site-search -->
+
+				<div class="site-navigation">
+					
+					<?php get_template_part( 'template-parts/layout/header/navigation', 'main' ); ?>
+
+				</div><!-- .site-navigation -->
+
+				<div class="site-social-links">
+					
+					<?php get_template_part( 'template-parts/components/social-media/social', 'links' ); ?>
+
+				</div><!-- .site-social-links -->
+
+			</div><!-- .site-header-container -->
 
 		</div><!-- #masthead -->
 

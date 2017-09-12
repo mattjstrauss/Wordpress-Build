@@ -1,26 +1,26 @@
-/*--------------------------------------------------------------
+/*==============================================================
 # Forms
---------------------------------------------------------------*/
+==============================================================*/
+
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, .8);
-	font-size: 12px;
+	border: none;
+	border-radius: 0px;
+	background: $buttonBackground;
+	color: $buttonColor;
 	font-size: 0.75rem;
 	line-height: 1;
 	padding: .6em 1em .4em;
+	appearance: none;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
+	background: $buttonBackgroundHover;
 }
 
 button:focus,
@@ -31,7 +31,7 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb;
+
 }
 
 input[type="text"],
@@ -51,13 +51,13 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+	border: 1px solid $grayLight;
+	border-radius: 0px;
 	padding: 3px;
 }
 
 select {
-	border: 1px solid #ccc;
+	border: 1px solid $grayLight;
 }
 
 input[type="text"]:focus,
@@ -77,8 +77,50 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
 	color: #111;
+	outline: none;
 }
 
 textarea {
 	width: 100%;
+}
+
+// Site search form
+// --------------------------------------------------
+
+.site-search {
+	form {
+		width: 100%;
+		display: table;
+	}
+	.input-wrapper {
+		position: relative;
+		input[type="search"] {
+			padding: 10px 60px 10px 10px ;
+			width: 100%;
+		}
+		input[type="submit"] {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			height: 100%;
+			padding: 0;
+			width: 50px;
+			background-color: transparent;
+			border-left: 1px solid $grayLight;
+			z-index: 2;
+		}
+		.button-icon {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			z-index: 1;
+			@include translate(0, -50%);
+			svg {
+				display: inline-block;
+				max-height: 30px;
+				max-width: 30px;
+				float: left;
+			}
+		}
+	}
 }
