@@ -21,7 +21,7 @@
 
 </head>
 
-<body <?php body_class('loading fixed-header-left'); ?>>
+<body <?php body_class('loading fixed-header-left multi-level-push'); ?>>
 	
 	<?php 
 
@@ -48,27 +48,27 @@
 
 					<a href="<?php echo get_bloginfo('url'); ?>">
 
-						<?php get_template_part( 'template-parts/components/ui/company', 'logo' ); ?>
+						<?php get_template_part( 'template-parts/components/company', 'logo' ); ?>
 
 					</a>
 
 				</div><!-- .site-branding -->
 
-				<div class="site-search">
+				<div class="site-search" role="search">
 
-					<?php get_template_part( 'template-parts/components/forms/site', 'search' ); ?>
+					<?php get_template_part( 'template-parts/forms/site', 'search' ); ?>
 
 				</div><!-- .site-search -->
 
-				<div class="site-navigation">
+				<div class="site-navigation" role="navigation">
 					
-					<?php get_template_part( 'template-parts/layout/header/navigation', 'main' ); ?>
+					<?php get_template_part( 'template-parts/navigation/main', 'navigation' ); ?>
 
 				</div><!-- .site-navigation -->
 
-				<div class="site-social-links">
+				<div class="site-social-links" role="complementary">
 					
-					<?php get_template_part( 'template-parts/components/social-media/social', 'links' ); ?>
+					<?php get_template_part( 'template-parts/social-media/social', 'links' ); ?>
 
 				</div><!-- .site-social-links -->
 

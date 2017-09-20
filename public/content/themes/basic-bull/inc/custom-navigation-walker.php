@@ -30,7 +30,7 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
          */
         public function start_lvl( &$output, $depth = 0, $args = array() ) {
             $indent = str_repeat( "\t", $depth );
-            $output .= "\n$indent<ul role=\"menu\" class=\"sub-menu\" >\n";
+            $output .= "\n$indent<ul role=\"menu\" class=\"menu sub-menu\" >\n";
         }
         /**
          * Start El.
@@ -108,9 +108,9 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
                 // A filter hook that adds classes to the nav menu items
                 $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
-                // Adds .dropdown-menu class to the $class_names array for the "parent" li if it has children
+                // Adds .expandable-menu class to the $class_names array for the "parent" li if it has children
                 if ( $args->has_children ) {
-                    $class_names .= ' dropdown-menu';
+                    $class_names .= ' expandable-menu';
                 }
 
                 // Adds .current-page class to the $class_names array for the "current" page
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
                     // If you don't want to add a link uncomments below and comment the one afterwards
                     // $atts['href']        = '#';
                     $atts['href']           = ! empty( $item->url ) ? $item->url : '';
-                    $atts['class']          = 'dropdown-link';
+                    $atts['class']          = 'expandable-link';
                     $atts['aria-haspopup']  = 'true';
 
                 } else {
@@ -220,7 +220,7 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
                 $item_output .= $args->link_before . apply_filters( 'the_title', $linkText, $item->ID ) . $args->link_after;
 
                 // Adds a "icon" after the link text if theres are children
-                $item_output .= ( $args->has_children && 0 === $depth ) ? ' </a><span class="caret"></span>' : '</a>';
+                $item_output .= ( $args->has_children ) ? ' <span class="caret"></span></a>' : '</a>';
 
                 // Anything that would go ext after the link markup
                 $item_output .= $args->after;
