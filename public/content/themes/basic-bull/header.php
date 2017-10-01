@@ -48,7 +48,7 @@
 
 					<a href="<?php echo get_bloginfo('url'); ?>">
 
-						<?php get_template_part( 'template-parts/components/company', 'logo' ); ?>
+						<?php get_template_part( 'template-parts/components/logos/company', 'logo' ); ?>
 
 					</a>
 

@@ -4,6 +4,16 @@
 
 // Active navigation styles
 // --------------------------------------------------
+.breadcrumb {
+	display: none;
+	&:before {
+		display: inline-block;
+		content: "«";
+	}
+	&:last-of-type{
+		display: block;
+	}
+}
 
 .multi-level-push {
 	.navigation-container {
