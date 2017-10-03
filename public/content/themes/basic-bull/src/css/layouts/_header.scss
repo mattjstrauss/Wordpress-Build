@@ -71,6 +71,22 @@
 		padding: 0;
 	}
 }
+.fixed-header-left {
+	.site-content {
+		padding-left: 325px;
+		@include breakFirst(medium) {
+			padding-left: 30%;
+		}
+	}
+}
+.fixed-header-right{
+	.site-content {
+		padding-right: 325px;
+		@include breakFirst(medium) {
+			padding-right: 30%;
+		}
+	}
+}
 
 // Sites branding
 // --------------------------------------------------

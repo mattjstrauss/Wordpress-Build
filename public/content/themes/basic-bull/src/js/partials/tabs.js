@@ -4,14 +4,14 @@ $(document).ready(function(){
 	$('.tabs-component').each(function(){
 
 		$tabList = $('.tab-list');
-		$tabContent = $('.tab-content');
-		$tab = $('.tab-list a')
-		$contentLabel = $('.content-label');
+		$tabPanel = $('.tab-panel');
+		$tab = $('.tab-list button')
+		$panelLabel = $('.panel-label');
 
 		if ($(window).width() > 768) {
 
 			$tab.first().attr({"aria-selected": "true"}).addClass('active-tab');
-			$tabContent.first().attr({"aria-hidden": "true"}).addClass('active-content');
+			$tabPanel.first().attr({"aria-hidden": "true"}).addClass('active-content');
 
 		}
 
@@ -23,22 +23,22 @@ $(document).ready(function(){
 			$this = $(this);
 
 			$tabIndex = $tab.index($(this));
-			$tabTarget = $tabContent.eq($tabIndex);
+			$tabTarget = $tabPanel.eq($tabIndex);
 
 			$tab.attr({"aria-selected": "false"}).removeClass('active-tab');
 			$this.attr({"aria-selected": "true"}).addClass('active-tab');
 
-			$tabContent.attr({"aria-hidden": "false"}).removeClass('active-content');
+			$tabPanel.attr({"aria-hidden": "false"}).removeClass('active-content');
 			$tabTarget.attr({"aria-hidden": "true"}).addClass('active-content');
 
 		});
 
-		$contentLabel.on('click', function(e){
+		$panelLabel.on('click', function(e){
 
 			e.preventDefault();
 
 			$this = $(this);
-			$labelTarget = $this.closest($tabContent);
+			$labelTarget = $this.closest($tabPanel);
 
 			if( $labelTarget.hasClass('active-content') ) {
 
@@ -46,7 +46,7 @@ $(document).ready(function(){
 
 			} else {
 
-				$tabContent.attr({"aria-hidden": "false"}).removeClass('active-content');
+				$tabPanel.attr({"aria-hidden": "false"}).removeClass('active-content');
 				$labelTarget.attr({"aria-hidden": "true"}).addClass('active-content');
 
 				// Goes to the clicked item

@@ -6,6 +6,7 @@
 // --------------------------------------------------
 .breadcrumb {
 	display: none;
+	font-size: .85em;
 	&:before {
 		display: inline-block;
 		content: "«";
@@ -71,9 +72,15 @@
 .site-navigation {
 	display: block;
 	width: 100%;
+	a {
+		text-decoration: none;
+	}
 }
 #primary-menu {
 	background: $white;
+    position: relative;
+    top: 0;
+    transition: .3s ease $cbTrans;
 	li {
 		> a {
 			padding: 10px;

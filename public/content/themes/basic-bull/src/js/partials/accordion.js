@@ -3,9 +3,10 @@ $(document).ready(function(){
         // Accordion
         $accordion = $('.accordion-component')
         $accordionPanel = $('.accordion-panel');
-        $panelLabel = $('.panel-label');
+        $panelButton = $('.panel-heading button');
         $panelContent = $('.panel-content');
 
+        // Sets the states of the panels
         $accordionPanel.each(function() {
             
             $this = $(this);
@@ -20,17 +21,24 @@ $(document).ready(function(){
                     height: 0
                 });
 
+                $panelButton.attr({'aria-expanded': 'false'});
+                $panelContent.attr({'aria-hidden': 'true'});
+
             }
     
         });
 
-        $panelLabel.on('click', function(e){
+        $panelButton.on('click', function(e){
             
             e.preventDefault();
 
             $this = $(this);
-            $currentPanelContent = $this.next('.panel-content');
-            $currentPanel = $this.parent('.accordion-panel');
+
+            // Current panel of button clicked
+            $currentPanel = $this.closest('.accordion-panel');
+            // Closest content of the current button clicked
+            $currentPanelContent = $currentPanel.find('.panel-content');
+            // Header height compensation for the scrollto funciton
             $headerHeight = $('.site-header').outerHeight();
             
             function setHeight(){
@@ -38,6 +46,14 @@ $(document).ready(function(){
             }
 
             if ( $currentPanel.hasClass('closed') ) {
+
+                // Toggle accessibility for the button
+                $panelButton.attr({'aria-expanded': 'false'});
+                $this.attr({'aria-expanded': 'true'});
+
+                // Toggle accessibility for the content
+                $panelContent.attr({'aria-hidden': 'true'});
+                $currentPanelContent.attr({'aria-hidden': 'false'});
                 
                 // Closes "all" panels
                 $accordionPanel.removeClass('open').addClass('closed');
@@ -49,6 +65,7 @@ $(document).ready(function(){
                     height: "auto", 
                     onComplete: setHeight() 
                 });
+
                 // Goes to the clicked panel
                 setTimeout(function(){
                     
@@ -59,7 +76,14 @@ $(document).ready(function(){
                 }, 300);
 
             } else {
-               
+
+                // Toggle accessibility for the button
+                $this.attr({'aria-expanded': 'false'});
+                
+                // Toggle accessibility for the content
+                $currentPanelContent.attr({'aria-hidden': 'true'});
+                
+                // Closes this panels
                 TweenMax.to($currentPanelContent, 0.2, { height: 0 });
                 $currentPanel.addClass("closed").removeClass("open");
 

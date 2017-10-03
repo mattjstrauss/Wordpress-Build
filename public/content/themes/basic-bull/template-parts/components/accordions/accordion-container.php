@@ -1,20 +1,18 @@
 <?php // if( have_rows('accordion_panel') ): ?>
 
-    <div class="component accordion-component">
+    <div class="component accordion-component" role="presentation">
 
-        <div class="component-content">
+        <?php // while ( have_rows('accordion_panel') ) : the_row(); ?>
 
-            <div class="container">
+            <?php get_template_part( 'template-parts/components/accordions/accordion', 'panel' ); ?>
 
-                <?php // while ( have_rows('accordion_panel') ) : the_row(); ?>
+            <?php get_template_part( 'template-parts/components/accordions/accordion', 'panel' ); ?>
 
-                    <?php get_template_part( 'template-parts/accordions/accordion', 'panel' ); ?>
+            <?php get_template_part( 'template-parts/components/accordions/accordion', 'panel' ); ?>
 
-                <?php // endwhile; ?>
+            <?php get_template_part( 'template-parts/components/accordions/accordion', 'panel' ); ?>
 
-            </div>
-
-        </div>
+        <?php // endwhile; ?>
 
     </div>
 

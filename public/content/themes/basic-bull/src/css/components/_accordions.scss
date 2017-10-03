@@ -1,0 +1,81 @@
+/*==============================================================
+# Accordions
+==============================================================*/
+.accordion-component {
+    padding: 20px 20px 60px;
+    .accordion-panel {
+        background: $white;
+        box-shadow: -1px 0px 0px 0px $gray, 1px 0px 0px 0px $gray;
+        &:first-child {
+            .panel-heading {
+                border-top: 1px solid $gray;    
+            }
+        }
+        /*&:last-child {
+            border-top: 1px solid $gray;
+            border-bottom: none;
+        }*/
+    }
+    .panel-content {
+        overflow: hidden;
+        box-shadow: inset 0px -1px 0px 0px $gray;
+        .content-wrapper {
+            padding: 20px 30px;
+            width: 100%;
+        }
+    }
+    .panel-heading button {
+        text-decoration: none;
+        color: $grayDark;
+        padding: 20px 80px 20px 20px;
+        border-bottom: 1px solid $gray;
+        background: $grayLight;
+        display: block;
+        position: relative;
+        width: 100%;
+        text-align: left;
+        transition: all .3s $cbTrans;
+        @include breakFirst(medium) {
+            padding: 30px 80px 30px 20px;
+        }
+        h4 {
+            margin: 0;
+        }
+        .panel-button {
+            display: inline-block;
+            background: $gray;
+            padding: 10px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 80px;
+            transition: all .3s $cbTrans;
+        }
+        .icon {
+            fill: $white;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 40px;
+            height:40px;
+            transition: all .3s $cbTrans;
+            transform: translate(-50%, -50%) rotate(0deg);
+            svg {
+                width: 40px;
+                height:40px;
+                display: inline-block;
+            }
+        }
+    }
+    .open {
+        .icon {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    }
+}
+.description-module {
+    padding: 60px 0;
+    text-align: center;
+}

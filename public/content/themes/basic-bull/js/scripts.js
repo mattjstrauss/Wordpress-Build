@@ -3,9 +3,10 @@ $(document).ready(function(){
         // Accordion
         $accordion = $('.accordion-component')
         $accordionPanel = $('.accordion-panel');
-        $panelLabel = $('.panel-label');
+        $panelButton = $('.panel-heading button');
         $panelContent = $('.panel-content');
 
+        // Sets the states of the panels
         $accordionPanel.each(function() {
             
             $this = $(this);
@@ -20,17 +21,24 @@ $(document).ready(function(){
                     height: 0
                 });
 
+                $panelButton.attr({'aria-expanded': 'false'});
+                $panelContent.attr({'aria-hidden': 'true'});
+
             }
     
         });
 
-        $panelLabel.on('click', function(e){
+        $panelButton.on('click', function(e){
             
             e.preventDefault();
 
             $this = $(this);
-            $currentPanelContent = $this.next('.panel-content');
-            $currentPanel = $this.parent('.accordion-panel');
+
+            // Current panel of button clicked
+            $currentPanel = $this.closest('.accordion-panel');
+            // Closest content of the current button clicked
+            $currentPanelContent = $currentPanel.find('.panel-content');
+            // Header height compensation for the scrollto funciton
             $headerHeight = $('.site-header').outerHeight();
             
             function setHeight(){
@@ -38,6 +46,14 @@ $(document).ready(function(){
             }
 
             if ( $currentPanel.hasClass('closed') ) {
+
+                // Toggle accessibility for the button
+                $panelButton.attr({'aria-expanded': 'false'});
+                $this.attr({'aria-expanded': 'true'});
+
+                // Toggle accessibility for the content
+                $panelContent.attr({'aria-hidden': 'true'});
+                $currentPanelContent.attr({'aria-hidden': 'false'});
                 
                 // Closes "all" panels
                 $accordionPanel.removeClass('open').addClass('closed');
@@ -49,6 +65,7 @@ $(document).ready(function(){
                     height: "auto", 
                     onComplete: setHeight() 
                 });
+
                 // Goes to the clicked panel
                 setTimeout(function(){
                     
@@ -59,7 +76,14 @@ $(document).ready(function(){
                 }, 300);
 
             } else {
-               
+
+                // Toggle accessibility for the button
+                $this.attr({'aria-expanded': 'false'});
+                
+                // Toggle accessibility for the content
+                $currentPanelContent.attr({'aria-hidden': 'true'});
+                
+                // Closes this panels
                 TweenMax.to($currentPanelContent, 0.2, { height: 0 });
                 $currentPanel.addClass("closed").removeClass("open");
 
@@ -359,36 +383,68 @@ $(document).ready(function(){
 
 	// Multi level push menu
 	$(".main-menu .caret").on('click', function(e) {
+		
 		e.preventDefault();
 
-		// Get link text and create "breadcrumb" item
-		$breadcrumbItem = $(this).prev('.link-text');
-		$breadcrumbText = $breadcrumbItem.text();
-		$('<a href="#" class="breadcrumb">'+$breadcrumbText+'</a>' ).insertBefore('.main-menu');
+		$this = $(this);
+
+		// Breadcrumb wrapper
+		$breadcrumbWrapper = $('.breadcrumb-wrapper');
+		$breadcrumb = $('.breadcrumb');
+		$breadcrumbText = $this.prev('.link-text');
+		$breadcrumbText = $breadcrumbText.text();
+		$breadcrumbItem = $('<a href="#" class="breadcrumb">'+$breadcrumbText+'</a>' );
+		if( !$breadcrumbWrapper.length ) {
+
+			$('<div class="breadcrumb-wrapper"></div>').insertBefore('.main-menu').append($breadcrumbItem);
+			$breadcrumbHeight = $breadcrumbItem.height();
+
+		} else {
+
+			$breadcrumbWrapper.append($breadcrumbItem);
+			$breadcrumbHeight = $breadcrumbItem.height();
+		}
+
+		console.log($breadcrumbHeight);
+		$('.main-menu').css({top: $breadcrumbHeight});
 
 		// Make "all" menus not active
 		$menuGroup.removeClass('active-menu-group');
 
 		// Make current menu clicked "inactive" by pushing it the back of the line
-		$(this).closest('.menu').addClass('inactive-menu-group');
+		$this.closest('.menu').addClass('inactive-menu-group');
 
 		// Bring the next menu up to the front of the line and active
-		$(this).parent().next('.menu').addClass('active-menu-group');
+		$this.parent().next('.menu').addClass('active-menu-group');
 		
 	});
-
+	
+	// Breadcrumb triggers
 	$(document).on( 'click', '.breadcrumb', function(e) {
 		
-		$index = $(this).index('.breadcrumb');
-		console.log($index);
+		e.preventDefault();
+
+		$this = $(this);
+		
+		$index = $this.index('.breadcrumb');
+		$breadcrumbHeight = $this.outerHeight;
+		$breadcrumbWrapper = $('.breadcrumb-wrapper');
 
 		// Make "all" menus not active
 		$menuGroup.removeClass('active-menu-group');
 		$('.site-navigation').find('.menu').slice($index).removeClass('inactive-menu-group');
 		$('.site-navigation').find('.menu').eq($index).removeClass('inactive-menu-group').addClass('active-menu-group');
 
-		$(this).nextAll('.breadcrumb').fadeOut().remove();
-		$(this).fadeOut().remove();
+		if( $this.is(':first-child') ) {
+
+			$breadcrumbWrapper.fadeOut().remove();
+			$('.main-menu').css({top: 0});
+
+		} else {
+
+			$this.fadeOut().remove();		
+
+		}
 		
 	});
 
@@ -399,14 +455,14 @@ $(document).ready(function(){
 	$('.tabs-component').each(function(){
 
 		$tabList = $('.tab-list');
-		$tabContent = $('.tab-content');
-		$tab = $('.tab-list a')
-		$contentLabel = $('.content-label');
+		$tabPanel = $('.tab-panel');
+		$tab = $('.tab-list button')
+		$panelLabel = $('.panel-label');
 
 		if ($(window).width() > 768) {
 
 			$tab.first().attr({"aria-selected": "true"}).addClass('active-tab');
-			$tabContent.first().attr({"aria-hidden": "true"}).addClass('active-content');
+			$tabPanel.first().attr({"aria-hidden": "true"}).addClass('active-content');
 
 		}
 
@@ -418,22 +474,22 @@ $(document).ready(function(){
 			$this = $(this);
 
 			$tabIndex = $tab.index($(this));
-			$tabTarget = $tabContent.eq($tabIndex);
+			$tabTarget = $tabPanel.eq($tabIndex);
 
 			$tab.attr({"aria-selected": "false"}).removeClass('active-tab');
 			$this.attr({"aria-selected": "true"}).addClass('active-tab');
 
-			$tabContent.attr({"aria-hidden": "false"}).removeClass('active-content');
+			$tabPanel.attr({"aria-hidden": "false"}).removeClass('active-content');
 			$tabTarget.attr({"aria-hidden": "true"}).addClass('active-content');
 
 		});
 
-		$contentLabel.on('click', function(e){
+		$panelLabel.on('click', function(e){
 
 			e.preventDefault();
 
 			$this = $(this);
-			$labelTarget = $this.closest($tabContent);
+			$labelTarget = $this.closest($tabPanel);
 
 			if( $labelTarget.hasClass('active-content') ) {
 
@@ -441,7 +497,7 @@ $(document).ready(function(){
 
 			} else {
 
-				$tabContent.attr({"aria-hidden": "false"}).removeClass('active-content');
+				$tabPanel.attr({"aria-hidden": "false"}).removeClass('active-content');
 				$labelTarget.attr({"aria-hidden": "true"}).addClass('active-content');
 
 				// Goes to the clicked item
