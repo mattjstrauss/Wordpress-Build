@@ -3,10 +3,11 @@ $(document).ready(function(){
 	// Remove loading class
 	$('.tabs-component').each(function(){
 
-		$tabList = $('.tab-list');
-		$tabPanel = $('.tab-panel');
-		$tab = $('.tab-list button')
-		$panelLabel = $('.panel-label');
+		var $component = $(this);
+		var $tabList = $component.find('.tab-list');
+		var $tabPanel = $component.find('.tab-panel');
+		var $tab = $component.find('.tab-list button')
+		var $panelLabel = $component.find('.panel-label');
 
 		if ($(window).width() > 768) {
 
@@ -19,10 +20,10 @@ $(document).ready(function(){
 		$tab.on('click', function(e){
 
 			e.preventDefault();
-			
+
 			$this = $(this);
 
-			$tabIndex = $tab.index($(this));
+			$tabIndex = $this.index();
 			$tabTarget = $tabPanel.eq($tabIndex);
 
 			$tab.attr({"aria-selected": "false"}).removeClass('active-tab');

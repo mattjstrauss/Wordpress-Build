@@ -20,3 +20,7 @@
 
 <?php get_template_part( 'template-parts/components/tabs/tabs', 'container' ); ?>
 
+
+
+<?php get_template_part( 'template-parts/components/tabs/tabs', 'container' ); ?>
+

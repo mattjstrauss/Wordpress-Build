@@ -24,54 +24,60 @@
             width: 100%;
         }
     }
-    .panel-heading button {
-        text-decoration: none;
-        color: $grayDark;
-        padding: 20px 80px 20px 20px;
-        border-bottom: 1px solid $gray;
-        background: $grayLight;
-        display: block;
-        position: relative;
-        width: 100%;
-        text-align: left;
-        transition: all .3s $cbTrans;
-        @include breakFirst(medium) {
-            padding: 30px 80px 30px 20px;
-        }
-        h4 {
-            margin: 0;
-        }
-        .panel-button {
-            display: inline-block;
-            background: $gray;
-            padding: 10px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 80px;
+    .panel-heading {
+        button {
+            text-decoration: none;
+            color: $grayDark;
+            padding: 15px 40px 15px 15px;
+            border-bottom: 1px solid $gray;
+            background: $grayLight;
+            display: block;
+            position: relative;
+            width: 100%;
+            text-align: left;
             transition: all .3s $cbTrans;
+            @include breakFirst(medium) {
+                padding: 20px 40px 20px 20px;
+            }
         }
         .icon {
-            fill: $white;
-            position: relative;
+            display: inline-block;
+            position: absolute;
+            height: 25px;
+            width: 25px;
             top: 50%;
-            left: 50%;
-            display: block;
-            width: 40px;
-            height:40px;
-            transition: all .3s $cbTrans;
-            transform: translate(-50%, -50%) rotate(0deg);
-            svg {
-                width: 40px;
-                height:40px;
-                display: inline-block;
+            right: 20px;
+            transform: translateY(-50%);
+            &:before,
+            &:after {
+                content: "";
+                background: $black;
+                display: block;
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transition: .4s all $cbTrans;
+            }
+            &:before {
+                transform: translateY(-50%) rotate(0deg);
+            }
+            &:after {
+                transform: translateY(-50%) rotate(90deg);
             }
         }
     }
-    .open {
-        .icon {
-            transform: translate(-50%, -50%) rotate(45deg);
+    .active-panel {
+        .panel-heading {
+            .icon {
+                &:before {
+                    transform: translateY(-50%) rotate(-180deg);
+                }
+                &:after {
+                    transform: translateY(-50%) rotate(0deg);
+                }
+            }
         }
     }
 }

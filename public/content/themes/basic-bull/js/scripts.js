@@ -4,16 +4,16 @@ $(document).ready(function(){
         $accordion = $('.accordion-component')
         $accordionPanel = $('.accordion-panel');
         $panelButton = $('.panel-heading button');
-        $panelContent = $('.panel-content');
+        $panelContent = $('.accordion-panel .panel-content');
 
         // Sets the states of the panels
         $accordionPanel.each(function() {
             
             $this = $(this);
             
-            $this.addClass('closed');
+            $this.addClass('inactive-panel');
     
-            if ( $this.hasClass('closed') ) {
+            if ( $this.hasClass('inactive-panel') ) {
 
                 $currentPanelContent = $this.find('.panel-content');
 
@@ -45,7 +45,7 @@ $(document).ready(function(){
                   TweenMax.from($currentPanelContent, 0.3, { height: 0 });
             }
 
-            if ( $currentPanel.hasClass('closed') ) {
+            if ( $currentPanel.hasClass('inactive-panel') ) {
 
                 // Toggle accessibility for the button
                 $panelButton.attr({'aria-expanded': 'false'});
@@ -56,11 +56,11 @@ $(document).ready(function(){
                 $currentPanelContent.attr({'aria-hidden': 'false'});
                 
                 // Closes "all" panels
-                $accordionPanel.removeClass('open').addClass('closed');
+                $accordionPanel.removeClass('active-panel').addClass('inactive-panel');
                 TweenMax.to($panelContent, 0.3, { height: 0 });
 
                 // Opens this panel
-			    $currentPanel.removeClass("closed").addClass("open");
+			    $currentPanel.removeClass("inactive-panel").addClass("active-panel");
 			    TweenMax.set($currentPanelContent, { 
                     height: "auto", 
                     onComplete: setHeight() 
@@ -85,7 +85,7 @@ $(document).ready(function(){
                 
                 // Closes this panels
                 TweenMax.to($currentPanelContent, 0.2, { height: 0 });
-                $currentPanel.addClass("closed").removeClass("open");
+                $currentPanel.addClass("inactive-panel").removeClass("active-panel");
 
             }
     
@@ -454,10 +454,11 @@ $(document).ready(function(){
 	// Remove loading class
 	$('.tabs-component').each(function(){
 
-		$tabList = $('.tab-list');
-		$tabPanel = $('.tab-panel');
-		$tab = $('.tab-list button')
-		$panelLabel = $('.panel-label');
+		var $component = $(this);
+		var $tabList = $component.find('.tab-list');
+		var $tabPanel = $component.find('.tab-panel');
+		var $tab = $component.find('.tab-list button')
+		var $panelLabel = $component.find('.panel-label');
 
 		if ($(window).width() > 768) {
 
@@ -470,10 +471,10 @@ $(document).ready(function(){
 		$tab.on('click', function(e){
 
 			e.preventDefault();
-			
+
 			$this = $(this);
 
-			$tabIndex = $tab.index($(this));
+			$tabIndex = $this.index();
 			$tabTarget = $tabPanel.eq($tabIndex);
 
 			$tab.attr({"aria-selected": "false"}).removeClass('active-tab');
