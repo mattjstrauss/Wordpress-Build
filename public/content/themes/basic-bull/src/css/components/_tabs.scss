@@ -88,6 +88,9 @@
 	}
 	&:last-child {
 		border-bottom: 1px solid $gray;
+		@include breakFirst(medium) {
+			border-bottom: none;
+		}
 	}
 	.panel-label {
 		width: 100%;
