@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Custom Login by Cohere
+ * Plugin Name:       Custom Login by Bull Interactive
  * Description:       A plugin that replaces the WordPress login flow with a custom page.
  * Version:           1.0.0
- * Author:            By Cohere - Referred to Jarkko Laine
+ * Author:            By Bull Interactive - Referred to Jarkko Laine
  * License:           GPL-2.0+
  * Text Domain:       personalize-login
  */

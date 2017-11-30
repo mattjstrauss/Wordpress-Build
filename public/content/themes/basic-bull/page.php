@@ -9,30 +9,37 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package basic-bull
+ * @package cohere-foundation
  */
 
-get_header(); ?>
+	get_header();
+ ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div id="primary" class="content-area">
 
-			<?php
-			while ( have_posts() ) : the_post();
+	<div id="main" class="section section-main" role="main">
 
-				get_template_part( 'template-parts/page/content', 'page' );
+		<?php while ( have_posts() ) : the_post(); ?>
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+			<?php get_template_part( 'template-parts/tool/page/page', 'title' ); ?>
 
-			endwhile; // End of the loop.
-			?>
+			<?php get_template_part( 'template-parts/tool/page/page', 'content' ); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+			<?php get_template_part( 'template-parts/tool/page/page', 'sidebar' ); ?>
 
-<?php
-get_sidebar();
-get_footer();
+			<?php get_template_part( 'template-parts/page/page', 'components' ); ?>
+
+			<?php get_template_part( 'template-parts/tool/page/page', 'footer' ); ?>				
+
+			
+		<?php endwhile; ?>
+
+	</div><!-- #main -->
+
+	<?php edit_post_link('Edit', '', '','','admin-link button edit-button'); ?>
+
+	<?php get_template_part( 'template-parts/tool/components/view', 'counter' );  ?>
+
+</div><!-- #primary -->
+
+<?php get_footer(); ?>

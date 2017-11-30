@@ -2,6 +2,7 @@
 
 /*--------------------------------------------------------------
 Custom post types
+Based off of: https://code.tutsplus.com/articles/custom-post-type-helper-class--wp-25104
 --------------------------------------------------------------*/
 
 	class Custom_Post_Type {
@@ -106,8 +107,162 @@ Custom post types
 
 		}
 
+		public function add_taxonomy( $name, $args = array(), $labels = array() ) {
+		    
+		    if( ! empty( $name ) ) {
+		        
+		        // We need to know the post type name, so the new taxonomy can be attached to it.
+		        $post_type_name = $this->post_type_name;
+		 
+		        // Taxonomy properties
+		        $taxonomy_name      = strtolower( str_replace( ' ', '_', $name ) );
+		        $taxonomy_labels    = $labels;
+		        $taxonomy_args      = $args;
+		 
+		        /* More code coming */
+		        if( ! taxonomy_exists( $taxonomy_name ) ) {
+    				
+    				//Capitilize the words and make it plural
+					$name = self::beautify( $name );
+					$plural = self::pluralize( $name );
+					 
+					// Default labels, overwrite them with the given labels.
+					$labels = array_merge(
+					 
+					    // Default
+					    array(
+					        'name'                  => _x( $plural, 'taxonomy general name' ),
+					        'singular_name'         => _x( $name, 'taxonomy singular name' ),
+					        'search_items'          => __( 'Search ' . $plural ),
+					        'all_items'             => __( 'All ' . $plural ),
+					        'parent_item'           => __( 'Parent ' . $name ),
+					        'parent_item_colon'     => __( 'Parent ' . $name . ':' ),
+					        'edit_item'             => __( 'Edit ' . $name ),
+					        'update_item'           => __( 'Update ' . $name ),
+					        'add_new_item'          => __( 'Add New ' . $name ),
+					        'new_item_name'         => __( 'New ' . $name . ' Name' ),
+					        'menu_name'             => __( $plural ),
+					    ),
+					 
+					    // Given labels
+					    $taxonomy_labels
+					 
+					);
+					 
+					// Default arguments, overwritten with the given arguments
+					$args = array_merge(
+					 
+					    // Default
+					    array(
+					        'label'                 => $plural,
+					        'labels'                => $labels,
+					        'public'                => true,
+					        'hierarchical'          => true,
+					        'show_ui'               => true,
+					        'show_in_nav_menus'     => true,
+					        'show_admin_column'     => true,
+					        'show_tagcloud'         => false,
+					        '_builtin'              => false,
+					    ),
+					 
+					    // Given
+					    $taxonomy_args
+					 
+					);
+					 
+					// Add the taxonomy to the post type
+					add_action( 'init', function() use( $taxonomy_name, $post_type_name, $args ) {
+					        
+						register_taxonomy( $taxonomy_name, $post_type_name, $args );
+
+					});
+
+				} else {
+    				
+    				add_action( 'init', function() use( $taxonomy_name, $post_type_name ) {
+
+        				register_taxonomy_for_object_type( $taxonomy_name, $post_type_name );
+
+    				});
+
+				}
+		    }
+
+		}
+
+
 	}
 
-	$sample = new Custom_Post_Type( 'custom_post' , [], []);
+	$POST_TYPE_NAME_VARIABLE = new Custom_Post_Type( 'POST_TYPE_NAME' ,
+		[
+			'menu_icon' => 'dashicons-calendar-alt',
+			'has_archive' => true,
+			'publicly_queryable' => true,
+			'hierarchical' => true,
+		], 
+		[
+			'name' => 'Custom Name', 
+			'singular_name' => 'Custom Single Name',
+			'all_items' => 'All Custom Name', 
+			'add_new' => 'Add New Custom Name', 
+			'add_new_item' => 'Add New Custom Name',
+			'edit_item' => 'Edit Custom Name', 
+			'view' => 'View Custom Name', 
+			'view_item' => 'View Custom Name'
+		]
+	);
+
+	$POST_TYPE_NAME_VARIABLE->add_taxonomy( 'custom_taxonomy' );
+
+	// Makes columns sortable
+
+	add_filter("manage_edit-POST_TYPE_NAME_sortable_columns", 'POST_TYPE_NAME_sort');
+	function stars_sort($columns) {
+		$custom = array(
+			'taxonomy-TAXONOMNY_NAME' => 'taxonomy-TAXONOMNY_NAME',
+		);
+		return wp_parse_args($custom, $columns);
+	}
+
+
+	// Filter by taxonomy
+
+	add_action('restrict_manage_posts', 'TAXONOMY_NAME_filter_post_type_by_taxonomy');
+	
+	// Filter by taxonomy results
+
+	function TAXONOMY_NAME_filter_post_type_by_taxonomy() {
+		global $typenow;
+		$post_type = 'POST_TYPE_NAME'; // change to your post type
+		$taxonomy  = 'TAXONOMY_NAME'; // change to your taxonomy
+		if ($typenow == $post_type) {
+			$selected      = isset($_GET[$taxonomy]) ? $_GET[$taxonomy] : '';
+			$info_taxonomy = get_taxonomy($taxonomy);
+			wp_dropdown_categories(array(
+				'show_option_all' => __("All {$info_taxonomy->label}"),
+				'taxonomy'        => $taxonomy,
+				'name'            => $taxonomy,
+				'orderby'         => 'name',
+				'selected'        => $selected,
+				'show_count'      => false,
+				'hide_empty'      => true,
+			));
+		};
+	}
+
+	// Creates filter by taxonomy dropdown
+
+	add_filter('parse_query', 'TAXONOMY_NAME_convert_id_to_term_in_query');
+
+	function TAXONOMY_NAME_convert_id_to_term_in_query($query) {
+		global $pagenow;
+		$post_type = 'POST_TYPE_NAME'; // change to your post type
+		$taxonomy  = 'TAXONOMY_NAME'; // change to your taxonomy
+		$q_vars    = &$query->query_vars;
+		if ( $pagenow == 'edit.php' && isset($q_vars['post_type']) && $q_vars['post_type'] == $post_type && isset($q_vars[$taxonomy]) && is_numeric($q_vars[$taxonomy]) && $q_vars[$taxonomy] != 0 ) {
+			$term = get_term_by('id', $q_vars[$taxonomy], $taxonomy);
+			$q_vars[$taxonomy] = $term->slug;
+		}
+	}
 
 ?>

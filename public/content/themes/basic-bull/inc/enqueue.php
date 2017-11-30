@@ -28,7 +28,7 @@ if ( ! function_exists( 'basic_bull_scripts_and_styles' ) ) {
 
 		// Include TweenMax library
 
-		wp_enqueue_script('tweenmax', get_template_directory_uri() . '/js/lib/TweenMax.min.js', array( 'jquery' ), false, true);
+		wp_enqueue_script('tweenmax', get_template_directory_uri() . '/js/lib/tween-max.min.js', array( 'jquery' ), false, true);
 
 		// Include compiled plugins
 

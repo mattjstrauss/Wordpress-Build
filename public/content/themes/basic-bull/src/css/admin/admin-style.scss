@@ -1,3 +1,6 @@
-@import '_variables';
-@import '_login';
-@import '_utilities';
+// 1. Admin and backend styles
+@import
+	'_variables',
+    '_login',
+    '_utilities',
+    '_tinymce';
