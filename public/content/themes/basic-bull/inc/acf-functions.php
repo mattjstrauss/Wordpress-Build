@@ -112,6 +112,47 @@ if ( ! function_exists( 'basic_bull_acf_functions' ) ) {
 
 		add_action('acf/init', 'my_acf_init');
 
+		// Escape HTML in code_snippet ACF field.
+		// ==================================
+		
+		function escapeHTML($arr) {
+		    if (version_compare(PHP_VERSION, '5.2.3') >= 0) {
+		        $output = htmlspecialchars($arr[2], ENT_NOQUOTES, get_bloginfo('charset'), false);
+		    }
+		    else {
+		        $specialChars = array(
+		            '&' => '&amp;',
+		            '<' => '&lt;',
+		            '>' => '&gt;'
+		        );
+		        // decode already converted data
+		        $data = htmlspecialchars_decode($arr[2]);
+		        // escapse all data inside <pre>
+		        $output = strtr($data, $specialChars);
+		    }
+		    if (! empty($output)) {
+		        return  $arr[1] . $output . $arr[3];
+		    }   else    {
+		        return  $arr[1] . $arr[2] . $arr[3];
+		    }
+		}
+
+		function my_acf_update_value( $value, $post_id, $field  ) {
+			
+			if (!preg_match('(&amp;|&lt;|&gt;)', $value)) {
+		    	
+		    	$value = preg_replace_callback('@()(.*)()@isU', 'escapeHTML', $value);
+
+		    }
+			
+			// return
+		    return $value;
+		    
+		}
+
+		// acf/update_value/name={$field_name} - filter for a specific field based on it's name
+		add_filter('acf/update_value/name=code_snippet', 'my_acf_update_value', 10, 3);
+
 	}
 
 	add_action( 'after_setup_theme', 'basic_bull_acf_functions' );
