@@ -1,4 +1,4 @@
-<?php // if( get_sub_field('panel_heading') && get_sub_field('panel_content') ):?>
+<?php if( get_sub_field('panel_heading') && get_sub_field('panel_content') ): ?>
 
     <div class="accordion-panel">
 
@@ -8,4 +8,4 @@
 
     </div>
 
-<?php // endif; ?>
+<?php endif; ?>

@@ -34,7 +34,11 @@ if ( ! function_exists( 'basic_bull_scripts_and_styles' ) ) {
 
 		wp_enqueue_script('plugin', get_template_directory_uri() . '/js/plugins.js', array( 'jquery' ), false, true);
 
-		// Include scripts
+		// Include compiled partials
+
+		wp_enqueue_script('partials', get_template_directory_uri() . '/js/partials.js', array( 'jquery' ), false, true);
+
+		// Include general scripts
 
 		wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), false, true);
 

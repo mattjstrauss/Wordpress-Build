@@ -23,8 +23,8 @@
             "sub_fields": [
                 {
                     "key": "field_5a1591bad3770",
-                    "label": "Panel Label",
-                    "name": "panel_label",
+                    "label": "Panel Heading",
+                    "name": "panel_heading",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -79,5 +79,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1511905023
+    "modified": 1512487879
 }

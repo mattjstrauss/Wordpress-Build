@@ -40,9 +40,9 @@ gulp.task('styles-admin', function () {
     .pipe(gulp.dest('./css'));
 });
 
-// JS - custom scripts (partials)
+// JS - general scripts (global)
 gulp.task('scripts', function() {
-  return gulp.src('./src/js/partials/*.js')
+  return gulp.src('./src/js/scripts.js')
     .pipe(plugins.sourcemaps.init())
       .pipe(plugins.concat('scripts.js'))
       .pipe(plugins.minify())
@@ -50,8 +50,19 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./js'));
 });
 
+// JS - custom plugins (partials)
+gulp.task('scripts-partials', function() {
+  return gulp.src('./src/js/partials/*.js')
+    .pipe(plugins.sourcemaps.init())
+      .pipe(plugins.concat('partials.js'))
+      .pipe(plugins.minify())
+    .pipe(plugins.sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./js'));
+});
+
+
 // JS - plugins
-gulp.task('scripts-plugin', function() {
+gulp.task('scripts-plugins', function() {
   return gulp.src('./src/js/plugins/*.js')
     .pipe(plugins.sourcemaps.init())
       .pipe(plugins.concat('plugins.js'))
@@ -62,7 +73,7 @@ gulp.task('scripts-plugin', function() {
 
 // JS - library files
 // Copy these files from /src/js/lib to /js/lib to maintain full file
-gulp.task('scripts-lib', function() {
+gulp.task('scripts-libs', function() {
   gulp.src('./src/js/lib/**/*')
     .pipe(gulp.dest('./js/lib'));
 });
@@ -78,7 +89,7 @@ gulp.task('scripts-admin', function() {
 });
 
 // Default Tasks
-gulp.task('default', ['scripts-lib', 'styles', 'scripts', 'svg-sprite','scripts-plugin']);
+gulp.task('default', ['svg-sprite', 'styles', 'scripts', 'scripts-partials', 'scripts-plugins', 'scripts-libs', 'scripts-admin' ]);
 
 // Watch tasks
 gulp.task('watch', function() {
@@ -89,14 +100,17 @@ gulp.task('watch', function() {
     // Watch admin .scss files
   gulp.watch('src/css/admin/*.scss', ['styles-admin']);
 
+  // Watch scripts .js files
+  gulp.watch('src/js/scripts.js', ['scripts']);
+
   // Watch partials .js files
-  gulp.watch('src/js/partials/*.js', ['scripts']);
+  gulp.watch('src/js/partials/*.js', ['scripts-partials']);
 
   // Watch plugin .js files
-  gulp.watch('src/js/plugins/*.js', ['scripts-plugin']);
+  gulp.watch('src/js/plugins/*.js', ['scripts-plugins']);
 
   // Watch for .js library files
-  gulp.watch('src/js/lib/*.js', ['scripts-lib']);
+  gulp.watch('src/js/lib/*.js', ['scripts-libs']);
 
     // Watch plugin .js files
   gulp.watch('src/js/admin/*.js', ['scripts-admin']);

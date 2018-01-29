@@ -5,7 +5,10 @@
 define('WP_HOME', 'http://wordpress.localhost');
 
 /** Default Wordpress directory */
-define('WP_SITEURL', WP_HOME . '/site');
+// define('WP_SITEURL', WP_HOME );
+
+/** Replace above if not in the Wordpress root already */
+define('WP_SITEURL', WP_HOME . '/site/');
 
 /** Overridden Wordpress content directory */
 define('WP_CONTENT_DIR', PROJECT_ROOT . '/public/content');
