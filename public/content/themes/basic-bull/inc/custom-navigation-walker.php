@@ -1,14 +1,16 @@
 <?php
-/**
- * WP Custom Navwalker
- *
+
+/*==============================================================
+WP Custom Navwalker
+==============================================================*/
+
+/*
  * @package WP Custom Navwalker
- */
-/**
  * Plugin URI:  https://github.com/wp-bootstrap/wp-bootstrap-navwalker
  * Description: A custom WordPress nav walker class to implement the custom markup
  * Author: Edward McIntyre - @twittem, WP Bootstrap
  */
+
 /* Check if Class Exists. */
 if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
     /**
@@ -60,21 +62,29 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
              */
 
             // Empty li by adding divider to an items "Title Attribute" in the Appearance > Menus dashboard
+            // ==================================
+
             if ( 0 === strcasecmp( $item->attr_title, 'divider' ) && 1 === $depth ) {
 
                 $output .= $indent . '<li role="presentation" class="divider">';
 
             // Empty li by adding divider to an items "Navigation Label" in the Appearance > Menus dashboard
+                // ==================================
+
             } elseif ( 0 === strcasecmp( $item->title, 'divider' ) && 1 === $depth ) {
 
                 $output .= $indent . '<li role="presentation" class="divider">';
 
             // Plain li (without a link) by adding dropdown-header to an items "Title Attribute" in the Appearance > Menus dashboard
+                // ==================================
+
             } elseif ( 0 === strcasecmp( $item->attr_title, 'dropdown-header' ) && 1 === $depth ) {
 
                 $output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
 
             // Hashtag anchor link by adding disabled to the "Title Attribue" in the Appearance > Menus dashboard
+                // ==================================
+
             } elseif ( 0 === strcasecmp( $item->attr_title, 'disabled' ) ) {
 
                 $output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
@@ -82,63 +92,103 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
             } else {
 
                 // Gets the initial slug based on the title
+                // ==================================
+
                 $slug = $item->title;
+
                 // Lower case everything the title
+                // ==================================
+
                 $slug = strtolower($slug);
+
                 // Removes all characters beyond letters and numbers
+                // ==================================
+
                 $slug = preg_replace("/[^a-z0-9_\s-]/", "", $slug);
+
                 // Clean up multiple dashes or whitespace
+                // ==================================
+
                 $slug = preg_replace("/[\s-]+/", " ", $slug);
+
                 //Convert whitespace and/or underscore to dash
+                // ==================================
+
                 $slug = preg_replace("/[\s_]/", "-", $slug);
 
                 // Creates the empty value variable
+                // ==================================
+
                 $value = '';
                 $class_names = $value;
 
                 $classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
                 // Removes default Wordpress classes for both menu, page and current states
+                // ==================================
+
                 $classes = preg_replace('/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', '', $classes);
                 $classes = preg_replace('/^((menu|page)[-_\w+]+)+/', '', $classes);
 
                 // Adds .menu-item and slug to the classes array
+                // ==================================
+
                 $classes[] = 'menu-item '.$slug;
 
                 // A filter hook that adds classes to the nav menu items
+                // ==================================
+
                 $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
                 // Adds .expandable-menu class to the $class_names array for the "parent" li if it has children
-                if ( $args->has_children ) {
+                // ==================================
+
+                $args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
+
+                if ( isset( $args->has_children ) && $args->has_children ) {
                     $class_names .= ' expandable-menu';
                 }
 
                 // Adds .current-page class to the $class_names array for the "current" page
-                if ( in_array( 'current-menu-item', $item->classes, true ) ) {
+                // ==================================
+
+                if ( in_array( 'current-menu-item', $classes, true ) || in_array( 'current-menu-parent', $classes, true ) ) {
                     $class_names .= ' current-page';
                 }
 
                 // Adds .current-page-ancestor class to the $class_names array for the "ancestor" page of the current page
-                if ( in_array( 'current-page-ancestor', $item->classes, true ) ) {
+                // ==================================
+
+                if ( in_array( 'current-page-ancestor', $classes, true ) || in_array( 'current-menu-ancestor', $classes, true ) ) {
                     $class_names .= ' current-page-ancestor';
                 }
 
                 // Applies the classes to the class selector
+                // ==================================
+
                 $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
                  // A filter hook that applies the id to the "menu-item" id selector
                 $id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
 
                 // Applies the id to the id selector
+                // ==================================
+
                 $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
                 // Output for the li element with classes, id's and values applied
+                // ==================================
+
                 $output .= $indent . '<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"' . $id . $value . $class_names . '>';
 
                 // Creates the empty array to store potential data to the links
+                // ==================================
+
                 $atts = array();
 
                 // Link title attribute
+                // ==================================
+
                 if ( empty( $item->attr_title ) ) {
                     $atts['title']  = ! empty( $item->title )   ? strip_tags( $item->title ) : '';
                 } else {
@@ -146,16 +196,24 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
                 }
 
                 // Link target attribute
+                // ==================================
+
                 $atts['target'] = ! empty( $item->target ) ? $item->target : '';
 
                 // Link rel attribute
+                // ==================================
+
                 $atts['rel']    = ! empty( $item->xfn )    ? $item->xfn    : '';
 
                 // If item has_children establish specific attributes and values
-                if ( $args->has_children && 0 === $depth ) {
+                // ==================================
+
+                if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1 ) {
 
                     // If you don't want to add a link uncomments below and comment the one afterwards
                     // $atts['href']        = '#';
+                    // ==================================
+
                     $atts['href']           = ! empty( $item->url ) ? $item->url : '';
                     $atts['class']          = 'expandable-link';
                     $atts['aria-haspopup']  = 'true';
@@ -163,15 +221,22 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
                 } else {
 
                     $atts['href'] = ! empty( $item->url ) ? $item->url : '';
+
                 }
 
                 // A filter hook that applies the attributes to the "menu-item" link
+                // ==================================
+
                 $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
                 // Creates the empty attribute variable
+                // ==================================
+
                 $attributes = '';
 
                 // Loops through and returns the values
+                // ==================================
+
                 foreach ( $atts as $attr => $value ) {
                     
                     if ( ! empty( $value ) ) {
@@ -184,7 +249,9 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
                 }
 
                 // The begining of the the link markup.
-                $item_output = $args->before;
+                // ==================================
+
+                $item_output = isset( $args->before ) ? $args->before : '';
                 
                 /*
                 * Glyphicons/Font-Awesome
@@ -214,18 +281,31 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
                 }
 
                 // Link text
-                $linkText = '<span class="link-text">'.$item->title.'</span>';
+                // ==================================
+
+                $title = apply_filters( 'the_title', $item->title, $item->ID );
+                $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
+
+                $linkText = '<span class="link-text">'.$title.'</span>';
 
                 // Puts the link together
-                $item_output .= $args->link_before . apply_filters( 'the_title', $linkText, $item->ID ) . $args->link_after;
+                // ==================================
+
+                // $item_output .= $args->link_before . apply_filters( 'the_title', $title, $item->ID ) . $args->link_after;
+
+                $item_output .= isset( $args->link_before ) ? $args->link_before . $icon_html . $linkText . $args->link_after : '';
 
                 // Adds a "icon" after the link text if theres are children
-                $item_output .= ( $args->has_children ) ? ' <span class="caret"></span></a>' : '</a>';
+                // ==================================
+
+                $item_output .= ( isset( $args->has_children ) && $args->has_children ) ? ' <span class="caret"></span></a>' : '</a>';
 
                 // Anything that would go ext after the link markup
-                $item_output .= $args->after;
+                $item_output .= isset( $args->after ) ? $args->after : '';
 
                 // The hook that outputs the link
+                // ==================================
+
                 $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 
             }

@@ -21,7 +21,7 @@
 
 </head>
 
-<body <?php body_class('loading fixed-header-left multi-level-push'); ?>>
+<body <?php body_class('loading fixed-header-left multi-level-push open-navigation'); ?>>
 	
 	<?php 
 
@@ -46,9 +46,15 @@
 						
 				<div class="site-branding">
 
-					<a href="<?php echo get_bloginfo('url'); ?>">
+					<a href="<?php echo get_bloginfo('url'); ?>" class="logo">
 
 						<?php get_template_part( 'template-parts/components/logos/company', 'logo' ); ?>
+
+					</a>
+
+					<a href="#" class="menu-button">
+						
+						<span class="bars"></span>
 
 					</a>
 
