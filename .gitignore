@@ -11,5 +11,5 @@ css/config.rb
 scss/.sass-cache
 scss/.sass-cache/*
 site/*
-
+config/servers/local.php
 
