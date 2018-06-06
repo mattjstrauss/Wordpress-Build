@@ -2,10 +2,13 @@
 
 // ** Override settings for the project ** //
 /** Site "root" URL */
-define('WP_HOME', 'http://wpbuild.localhost');
+define('WP_HOME', 'http://wordpress.localhost');
 
 /** Default Wordpress directory */
-define('WP_SITEURL', WP_HOME . '/site');
+// define('WP_SITEURL', WP_HOME );
+
+/** Replace above if not in the Wordpress root already */
+define('WP_SITEURL', WP_HOME . '/site/');
 
 /** Overridden Wordpress content directory */
 define('WP_CONTENT_DIR', PROJECT_ROOT . '/public/content');
@@ -15,7 +18,7 @@ define('WP_CONTENT_URL', WP_HOME . '/content');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wpbuild');
+define('DB_NAME', 'wordpress');
 
 /** MySQL database username */
 define('DB_USER', 'root');

@@ -14,34 +14,32 @@ $(document).ready(function(){
                 $distanceX = $table.scrollLeft();
                 $distanceY = $table.scrollTop();
                 
-                if($distanceX > 0 ){
+                if( !$currentTable.hasClass('scroll-y') ) {
 
                     $rowLabel = $table.find('tr th:first-child');
                     $columnLabel = $table.find('thead tr');
-
-                    if( !$currentTable.hasClass('scroll-y') ) {
+                    
+                    if($distanceX > 0 ){
 
                         $currentTable.addClass('scroll-x');
                         $rowLabel.each(function(){
                             $(this).css({transform: 'translateX(' + $distanceX +'px)'});
                         });
                         
-                    } 
+                    } else {
 
-                } else {
-                    $rowLabel.each(function(){
-                        $(this).removeAttr('style');
-                    });
-                    $currentTable.removeClass('scroll-x');
+                        $currentTable.removeClass('scroll-x');
+
+                    }
 
                 }
 
-                if($distanceY > 0 ){
+                if( !$currentTable.hasClass('scroll-x') ) {
 
                     $rowLabel = $table.find('tbody tr th:first-child');
                     $columnLabel = $table.find('thead tr');
-                    
-                    if( !$currentTable.hasClass('scroll-x') ) {
+
+                    if($distanceY > 0 ){
 
                         $currentTable.addClass('scroll-y');
                         $columnLabel.each(function(){
@@ -49,16 +47,13 @@ $(document).ready(function(){
                         });
                        
 
-                    }
+                    } else {
+                       
+                        $currentTable.removeClass('scroll-y');
 
-                 } else {
+                    } 
 
-                    $columnLabel.each(function(){
-                        $(this).removeAttr('style');
-                    });
-                    $currentTable.removeClass('scroll-y');
-
-                } 
+                 }
 
             });
 

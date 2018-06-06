@@ -23,6 +23,11 @@
             padding: 20px 30px;
             width: 100%;
         }
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
     .panel-heading {
         button {
@@ -30,6 +35,9 @@
             color: $grayDark;
             padding: 15px 40px 15px 15px;
             border-bottom: 1px solid $gray;
+            border-left: none;
+            border-right: none;
+            border-top: none;
             background: $grayLight;
             display: block;
             position: relative;
@@ -80,8 +88,4 @@
             }
         }
     }
-}
-.description-module {
-    padding: 60px 0;
-    text-align: center;
 }
