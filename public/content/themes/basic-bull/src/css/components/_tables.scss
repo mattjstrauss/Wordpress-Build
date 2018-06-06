@@ -122,6 +122,15 @@ table {
     		box-shadow: 1px 0px 0px 0px $gray;
 		}
 	}
+	&.scroll-y {
+		thead {
+			tr {
+    			position: relative;
+    			background: $white;
+    			box-shadow: 0px 1px 0px 0px $gray;
+    		}
+		}
+	}
 	tbody {
 		tr {
 			&:last-child {
@@ -137,5 +146,6 @@ table {
 		border-bottom: none;
 		min-width: 190px;
 		border-right: 1px solid $gray;
+		vertical-align: middle;
 	}
 }

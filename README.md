@@ -1,5 +1,15 @@
 # Project Build w/ Wordpress and Gulp.js
 
+## Overview
+The idea behind this project is to have a boilerplate setup and ready to go that uses my preferred/current workflow (The theme will have another README.md for theme specific functionality).
+
+This one consists of keeping Wordpress's core issolated from the working files as a Submodule so that Wordpress can continue to be updated and not create extra bloat to a projects repository. 
+
+The projects configuration is different as it allows the developer to create independent configuration files so that certain constants are in place. For example, the staging and production environments will most likely have similar configuration settings but everyone works in different environments locally. This allows the developer to set up their local envoirment with different paremeters and won't effect other developers throughout the process.
+
+This workflow also use Gulp for automating certain tasks such as linting, autoprefixing and compiling my CSS and Javascript, while also constructing a SVG spritemap based off of individual SVG files located in the specified directory.
+
+
 ## Steps for getting Wordpress where it needs to be via the Terminal
 1. If site folder exists proceed to step 2. If not follow the commands below:<br />
 `cd PROJECT-ROOT/public/`
