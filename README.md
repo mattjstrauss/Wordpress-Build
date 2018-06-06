@@ -1,5 +1,29 @@
 # Project Build w/ Wordpress and Gulp.js
 
+## Overview
+The idea behind this project is to have a boilerplate setup and ready to go that uses my preferred/current workflow (The theme will have another README.md for theme specific functionality).
+
+This one consists of keeping Wordpress's core isolated from the working files as a Submodule so that Wordpress can continue to be updated and not create extra bloat to a projects repository. 
+
+The projects configuration is different as it allows the developer to create independent configuration files so that certain constants are in place. For example, the staging and production environments will most likely have similar configuration settings but everyone works in different environments locally. This allows the developer to set up their local environments  with different parameters and won't effect other developers throughout the process.
+
+This workflow also use Gulp for automating certain tasks such as linting, autoprefixing and compiling my CSS and Javascript, while also constructing a SVG spritemap based off of individual SVG files located in the specified directory.
+
+## Default Wordpress Plugins:
+Below are some of the common plugins that I start with. The only real one that is "required" is ACF. Others simply extend certain commonly requested functions.
+1. Advanced Custom Fields Pro: Used to customize and extend Wordpress' authoring capabilities
+2. ACF to REST API: Used to expose ACF content to the Wordpress REST API
+3. Custom Login by Bull Interactive: Used to brand the login screen
+4. Custom TinyMCE Editor by Bull Interactive: Used to customize the built in WYSIWYG
+5. iThemes Security: Used to offer an additional layer of security and preform scheduled database backups
+6. Ninja Forms: Used to create simple forms
+7. Regenerate Thumbnails: Used to regenerate images after custom images have been applied to the build
+8. Search Everything: Used to extend Wordpress' core search functionality to include ACF content and modified returned results
+9. Simple Page Ordering: Used to drag and drop page/post content for potential displays on the front end
+10. Smush: Used to offer additional image optimization on upload
+11. WP REST Filter: Used to extend the endpoints to allow filter queries
+Yoast SEO: Used to extend the customization of SEO aspects
+
 ## Steps for getting Wordpress where it needs to be via the Terminal
 1. If site folder exists proceed to step 2. If not follow the commands below:<br />
 `cd PROJECT-ROOT/public/`
@@ -73,6 +97,7 @@ Include SVG’s using via the code below:
 <svg>
 ```
 The FILE-NAME above should not include .svg at the end of it just as it is above.
+
 
 ## Ignored from this repository are the following
 - *~
