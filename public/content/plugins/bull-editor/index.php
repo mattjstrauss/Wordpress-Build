@@ -8,23 +8,6 @@
  * Text Domain:       personalize-login
  */
 
-/**
- * Plugin activation hook.
- *
- * Creates all WordPress pages needed by the plugin.
- */
-
-
-// function restrict_post_deletion($post_ID){
-//  $role = get_role('administrator');
-//  $role->remove_cap('delete_pages');
-
-//         echo "You are not authorized to delete this page.";
-//         exit;
-// }
-// add_action('wp_trash_post', 'restrict_post_deletion', 10, 1);
-// add_action('before_delete_post', 'restrict_post_deletion', 10, 1);
-
 // =============================================================================
 // Redirects to the login page if not logged in and not already on the page
 // =============================================================================

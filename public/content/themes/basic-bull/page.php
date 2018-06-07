@@ -30,8 +30,6 @@
 			<?php get_template_part( 'template-parts/page/page', 'components' ); ?>
 
 			<?php get_template_part( 'template-parts/tool/page/page', 'footer' ); ?>				
-
-			
 		<?php endwhile; ?>
 
 	</div><!-- #main -->

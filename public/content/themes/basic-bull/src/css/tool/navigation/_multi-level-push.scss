@@ -246,10 +246,11 @@
 			transition: all 0.5s $cbTrans;
 		}
 		.logo {
-			padding: 0 50px 0 0;
 			display: block;
 			float: left;
-			width: 190px;
+			width: 80px;
+    		height: 80px;
+    		padding: 0;
 	    }
 	    svg {
 	    	height: 100%;

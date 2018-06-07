@@ -219,11 +219,14 @@ add_action( 'login_form_register', 'do_register_user' ) ;
 function do_register_user() {
 
     if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
+
         $redirect_url = home_url( '/register-user' );
  
         if ( ! get_option( 'users_can_register' ) ) {
+
             // Registration closed, display error
             $redirect_url = add_query_arg( 'register-errors', 'closed', $redirect_url );
+            
         } else {
 
             $email = $_POST['email'];

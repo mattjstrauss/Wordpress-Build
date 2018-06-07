@@ -1,9 +1,10 @@
 <?php 
 
-/*--------------------------------------------------------------
-Custom post types
-Based off of: https://code.tutsplus.com/articles/custom-post-type-helper-class--wp-25104
---------------------------------------------------------------*/
+// =============================================================================
+// Custom post types
+// Based off of: https://code.tutsplus.com/articles/custom-post-type-helper-class--wp-25104
+// =============================================================================
+
 
 	class Custom_Post_Type {
 

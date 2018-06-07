@@ -1,13 +1,6 @@
-<?php 
+<div class="block block-content">
 
-if ( !empty( get_the_content() ) ) :
+	<?php get_template_part( 'template-parts/page/content', 'page' ); ?>
 
-?>
+</div>
 
-	<div class="block block-content">
-
-		<?php get_template_part( 'template-parts/page/content', 'page' ); ?>
-
-	</div>
-
-<?php endif; ?>

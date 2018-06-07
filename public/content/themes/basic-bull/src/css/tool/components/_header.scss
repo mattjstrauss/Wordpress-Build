@@ -19,7 +19,7 @@
     transform: translateX(-75%);
 	transition: all 0.5s $cbTrans;
 	&.header-unpinned {
-		padding: 0;
+		/*padding: 0;*/
 	}
 	ul {
 		list-style: none;

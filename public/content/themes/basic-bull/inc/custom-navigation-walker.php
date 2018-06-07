@@ -293,7 +293,7 @@ if ( ! class_exists( 'Custom_Menu_Walker' ) ) {
 
                 // $item_output .= $args->link_before . apply_filters( 'the_title', $title, $item->ID ) . $args->link_after;
 
-                $item_output .= isset( $args->link_before ) ? $args->link_before . $icon_html . $linkText . $args->link_after : '';
+                $item_output .= isset( $args->link_before ) ? $args->link_before . $linkText . $args->link_after : '';
 
                 // Adds a "icon" after the link text if theres are children
                 // ==================================
