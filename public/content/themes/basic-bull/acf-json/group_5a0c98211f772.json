@@ -1,13 +1,13 @@
 {
     "key": "group_5a0c98211f772",
-    "title": "Page Options",
+    "title": "Custom Code Snippets",
     "fields": [
         {
-            "key": "field_5a0c982ae8209",
-            "label": "Title",
-            "name": "title_option",
-            "type": "true_false",
-            "instructions": "Would you like to exclude the title from the page?",
+            "key": "field_5ac26c537b771",
+            "label": "Code Snippets",
+            "name": "code_snippets",
+            "type": "repeater",
+            "instructions": "Purpose: This is used in the case where you would like to include certain Javascript snippets either globally or specific to a page, such as unique event tracking.<br>\r\nNote: You <strong>CANNOT<\/strong> and <strong>DO NOT<\/strong> have to include the <script><\/script> tags. They will be included by default.<br>\r\nDisclaimer: It is important to consult the technical administrator before publishing any code within this field.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,11 +15,59 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Code",
+            "sub_fields": [
+                {
+                    "key": "field_5ac28b7fb8601",
+                    "label": "Confirmation",
+                    "name": "code_confirmation",
+                    "type": "true_false",
+                    "instructions": "Are you sure you would like to proceed?",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5ac282ac3f34c",
+                    "label": "Code Snippet",
+                    "name": "code_snippet",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5ac28b7fb8601",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -37,7 +85,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1510960634
+    "active": 0,
+    "description": "Used to include custom conversions and tracking at the global and page\/post level.",
+    "modified": 1522699245
 }

@@ -35,6 +35,26 @@ if ( ! function_exists( 'basic_bull_acf_functions' ) ) {
 			
 		}
 
+		// Replaces the field title and allows 
+		// custom component label for backend readability
+		// ==================================
+
+		function acf_flexible_content_layout_label( $title, $field, $layout, $i ) {
+
+			if( $componentLabel = get_sub_field('component_label') ) {	
+
+				// remove layout title from text
+				$title = '';
+
+				$title .= $componentLabel;		
+			}	
+			
+			return $title;
+
+		}
+
+		add_filter('acf/fields/flexible_content/layout_title/name=components', 'acf_flexible_content_layout_label', 10, 4);
+
 		// ACF set address to certain field(s)
 		// ==================================
 

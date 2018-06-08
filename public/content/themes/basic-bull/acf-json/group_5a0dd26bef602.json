@@ -1,10 +1,10 @@
 {
     "key": "group_5a0dd26bef602",
-    "title": "Site Options",
+    "title": "Footer",
     "fields": [
         {
-            "key": "field_5a0dd2fde8f1e",
-            "label": "Link Settings",
+            "key": "field_5b1ae918cd249",
+            "label": "Site Info",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -15,15 +15,15 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "placement": "left",
             "endpoint": 0
         },
         {
-            "key": "field_5a0dd31ee8f1f",
-            "label": "Popular Links",
-            "name": "popular_links",
-            "type": "true_false",
-            "instructions": "Do you want to show popular links if there are no suggested ones available?<br>\r\n<small>It is currently set to start at 100 \"page views\"<\/small>",
+            "key": "field_5b1ae923cd24a",
+            "label": "Copyright",
+            "name": "copyright",
+            "type": "text",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -31,11 +31,11 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -43,7 +43,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "site-settings"
+                "value": "acf-options-footer"
             }
         ]
     ],
@@ -55,5 +55,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1510960647
+    "modified": 1528490380
 }

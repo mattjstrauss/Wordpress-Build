@@ -1,14 +1,14 @@
 <?php
 
-/*==============================================================
-WP Custom Navwalker
-==============================================================*/
+// =============================================================================
+// WP Custom Navwalker
+// =============================================================================
 
 /*
  * @package WP Custom Navwalker
  * Plugin URI:  https://github.com/wp-bootstrap/wp-bootstrap-navwalker
- * Description: A custom WordPress nav walker class to implement the custom markup
- * Author: Edward McIntyre - @twittem, WP Bootstrap
+ * Description: A custom WordPress nav walker class to implement the custom markup based on the one found at the url above!
+ * Author: Edward McIntyre - @twittem, WP Bootstrap THANK YOU EDWARD!
  */
 
 /* Check if Class Exists. */

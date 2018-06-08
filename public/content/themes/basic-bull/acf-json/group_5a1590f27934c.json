@@ -54,9 +54,9 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
+                    "tabs": "visual",
                     "toolbar": "full",
-                    "media_upload": 1,
+                    "media_upload": 0,
                     "delay": 0
                 }
             ]
@@ -77,7 +77,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1512487879
+    "active": 0,
+    "description": "A stand alone accordion.",
+    "modified": 1522699817
 }
