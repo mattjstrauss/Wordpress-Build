@@ -48,6 +48,37 @@ if ( ! function_exists( 'basic_bull_custom_admin' ) ) {
 
 		}
 
+		// Remove/replace Wordpress branding - Admin Bar
+		// ==================================
+
+		function remove_wp_logo( $wp_admin_bar ) {
+			$wp_admin_bar->remove_node( 'wp-logo' );
+			$wp_admin_bar->remove_node( 'comments' );
+			$wp_admin_bar->remove_node( 'customize' );
+		}
+
+		add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+
+		function custom_admin_bar_logo( $wp_admin_bar ) {
+			$args = array(
+				'id'    => 'client-logo',
+				'meta'  => array( 'class' => 'client-logo', 'title' => 'Bull Interactive Logo' )
+			);
+			
+			$wp_admin_bar->add_node( $args );
+		}
+
+		add_action( 'admin_bar_menu', 'custom_admin_bar_logo', 1 );
+
+		// Remove/replace Wordpress branding - Admin Footer
+		// ==================================
+  
+		function remove_footer_admin ()  {
+		    echo '<span id="footer-thankyou">Website Designed and Developed by <a href="http://bullinteractive.co" target="_blank">Bull Interactive</a></span>';
+		}
+		 
+		add_filter('admin_footer_text', 'remove_footer_admin');
+
 	}
 
 	add_action( 'after_setup_theme', 'basic_bull_custom_admin' );

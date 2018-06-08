@@ -59,14 +59,19 @@ require_once( __DIR__ . '/inc/custom-navigation-walker.php');
 
 require_once( __DIR__ . '/inc/custom-tinymce.php');
 
-// ACF functionality
-// ==================================
-
-require_once( __DIR__ . '/inc/acf-functions.php');
-
 // Custom Wordpress dashboard
 // ==================================
 
 require_once( __DIR__ . '/inc/custom-wp-dashboard.php');
+
+// Custom admin menu
+// ==================================
+
+require_once( __DIR__ . '/inc/custom-admin-menu.php');
+
+// ACF functionality
+// ==================================
+
+require_once( __DIR__ . '/inc/acf-functions.php');
 
 ?>
