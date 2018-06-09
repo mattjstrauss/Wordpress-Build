@@ -1,45 +1,39 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
-
-_s
+Basic Bull
 ===
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+## Overview
+The idea behind this theme is to create a scaleable base in which I can start from to customize and extend to meet the projects needs. It has some common features built in and is meant to be an always expanding and improving idea.
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
 
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A helpful 404 template.
-* A custom header implementation in `inc/custom-header.php` just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/extras.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
 
-Getting Started
----------------
+### General Features
+* Customizable Wordpress dashboard to include widgets to offer some website onboading
+* Customizable backend menu item names and order based on user role permissions to offer more clarity (to remove/edit these features locate the custom-admin-menu.php file)
+* Customizable branding moments that override Wordpress' defaults such as the login screen logo, small logo at the top and the footer text/link as well as create a branded color pallete for all of the UI
+* Page View field that is displayed on the backend to use to determine what "poplular" content is. It can be used for insights or to query content. For example, you can have a "popular pages" section that uses these page counts. They can also be reset invidually or bulk edited.
+* Scalable and reusable components with various visual options built with ACF Pro
+* Improved formatting of iFrame content upon placing the code in the WYSIWYG by programatically wrapping them in a div
+* Improved WordPress images w/ caption shortcode to make the markup have better accessibility
+* Custom user role creation and user role capabilities to allow for an adjusted level of permissions beyond the default. The purpose for this is to offer a level of restrictions for certin Wordpress admin areas
+* Improved formatting for WYSIWIG text styles to allow for simpler content authoring as well as more flexibility. The following is what is currently in place:
+  * Stripped down buttons to remove certain formats (blockquote, spellchecker, superscript, subscript, charmap, wp_more, wp_adv, undo, redo, dfw).
+  * Added custom format dropdown with the following:
+    * Modified labels for the h1-h6
+    * The ability to change the type of ul or ol to show different marks such as squares, roman numerals, etc.
+    * The ability to make inline links buttons and change the style of links in general
+    * Add a different method to incorporate blockquote with "cites"
+    * The ability to format Q & A content (temporaray)
+    * Change the fonts between serif and sans serif
+  * Added the ability to include tool tips within the content
+  * Added a forground color button with stripped down options to limit the user from going off brand
 
-If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
+### Components
+* Tabs
+* Accordion
+* Background Image, Video, Color w/ Overlay Options
 
-If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a five-step find and replace on the name in all the templates.
+### ACF Flexible Content Fields with the following components and options
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain.
-2. Search for `_s_` to capture all the function names.
-3. Search for `Text Domain: _s` in style.css.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-5. Search for `_s-` to capture prefixed handles.
-
-OR
-
-* Search for: `'_s'` and replace with: `'megatherium-is-awesome'`
-* Search for: `_s_` and replace with: `megatherium_is_awesome_`
-* Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium-is-awesome` in style.css.
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium_is_Awesome</code>
-* Search for: `_s-` and replace with: `megatherium-is-awesome-`
-
-Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
-
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
-
-Good luck!
+* Tabbed sections for organization. By default all components have a "Overview" tab to over a description and authoring instructions and a "Styles" tab to adjust certain visuals specific to the component itself.
+* A text input field used to replace/overrides the components label for better readability when authoring content. For example, if you would like to add a "Accordion" component you can create you own label for it that may be contextual so that when you adding other content you can determine what the intended usage of the accordion is without having to review the content within it.
+* Changed "Add to gallery" button text with the gallery to say Add Image(s) and remove the "No Image Selected" text on single image fields
