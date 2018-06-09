@@ -16,12 +16,6 @@
 
 		<div class="content-container">
 
-			<p>Tab Content</p>
-
-			<p>Tab Content</p>
-
-			<p>Tab Content</p>
-
 			<?php get_template_part( 'template-parts/components/tabs/tab', 'content' );  ?>
 
 		</div>

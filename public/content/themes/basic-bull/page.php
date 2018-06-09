@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * Template Name: Home
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -17,19 +17,12 @@
 
 <div id="primary" class="content-area">
 
-	<div id="main" class="section section-main" role="main">
+	<div id="main" class="main-container" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'template-parts/tool/page/page', 'title' ); ?>
+			<?php get_template_part( 'template-parts/page/page', 'components' ); ?>	
 
-			<?php get_template_part( 'template-parts/tool/page/page', 'content' ); ?>
-
-			<?php get_template_part( 'template-parts/tool/page/page', 'sidebar' ); ?>
-
-			<?php get_template_part( 'template-parts/page/page', 'components' ); ?>
-
-			<?php get_template_part( 'template-parts/tool/page/page', 'footer' ); ?>				
 		<?php endwhile; ?>
 
 	</div><!-- #main -->

@@ -54,15 +54,15 @@ require_once( __DIR__ . '/inc/navigation.php');
 
 require_once( __DIR__ . '/inc/custom-navigation-walker.php');
 
-// Custom tinymce formats
-// ==================================
-
-require_once( __DIR__ . '/inc/custom-tinymce.php');
-
 // Custom Wordpress dashboard
 // ==================================
 
 require_once( __DIR__ . '/inc/custom-wp-dashboard.php');
+
+// Custom content utilities
+// ==================================
+
+require_once( __DIR__ . '/inc/custom-content-utilities.php');
 
 // Custom admin menu
 // ==================================

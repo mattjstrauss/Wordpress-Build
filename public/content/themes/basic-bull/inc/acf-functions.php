@@ -55,6 +55,37 @@ if ( ! function_exists( 'basic_bull_acf_functions' ) ) {
 
 		add_filter('acf/fields/flexible_content/layout_title/name=components', 'acf_flexible_content_layout_label', 10, 4);
 
+		// Change "Add to gallery" button text with the gallery field within the Carousel Component
+		// Remove the "No Image Selected" text
+		// ==================================
+
+		function my_acf_admin_footer() { ?>
+			
+			<script type="text/javascript">
+				
+				(function($) {
+					
+					// Changes "Add to Gallery" text for the gallery field
+					$('.acf-field-5acb72ad5388b a.acf-gallery-add').text('Add Image(s)');
+
+					// Changes "No image selected" text for the image field
+					$(".acf-image-uploader .hide-if-value p").each(function(){
+                		$(this).replaceWith($(this).html().replace("No image selected", ""));
+            		});
+
+            		// Changes "No file selected" text for the file field
+					$(".acf-file-uploader .hide-if-value p").each(function(){
+                		$(this).replaceWith($(this).html().replace("No file selected", ""));
+            		});
+				
+				})(jQuery);	
+
+			</script>
+			
+		<?php }
+
+		add_action('acf/input/admin_footer', 'my_acf_admin_footer');
+
 		// ACF set address to certain field(s)
 		// ==================================
 
