@@ -50,7 +50,7 @@ a {
 }
 a:active,
 a:hover {
-	color: #e25f70;
+	color: $red;
 }
 .wp-core-ui .button-primary.focus,
 .wp-core-ui .button-primary.hover,
@@ -61,8 +61,10 @@ a:hover {
     color: #fff;
 }
 .login #login_error, 
-.login .message, .login .success {
-	border-left: 4px solid #e25f70;
+.login .message, .login .success,
+.plugin-update-tr.active td,
+.plugins .active th.check-column {
+	border-left: 4px solid $red;
 }
 input[type=checkbox]:checked:before {
 	color: lighten($grayDark, 10%);
@@ -74,7 +76,11 @@ input[type=checkbox]:checked:before {
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 .folded #adminmenu li.current.menu-top,
 .folded #adminmenu li.wp-has-current-submenu {
-	background: #e25f70;
+	background: $red;
+}
+.plugins .active td,
+.plugins .active th {
+	background: lighten($red, 35%);
 }
 #adminmenu,
 #adminmenu .wp-submenu,
@@ -83,13 +89,28 @@ input[type=checkbox]:checked:before {
 	background: lighten($grayDark, 10%);
 }
 .view-switch a.current:before {
-	color: #e25f70;
+	color: $red;
 }
-.acf-button-group label.selected {
-	background: #e25f70 !important;
-	border-color: lighten(#e25f70, 10%) !important;
+.acf-button-group label.selected,
+.acf-switch.-on  {
+	background: $red !important;
+	border-color: lighten($red, 10%) !important;
 }
-
+.acf-switch.-on .acf-switch-slider {
+	border-color: lighten($red, 10%) !important;
+}
+.acf-switch .acf-switch-on {
+	text-shadow: lighten($red, 10%) 0 1px 0 !important;
+}
+.acf-switch.-focus .acf-switch-slider {
+	border-color: #ccc !important;
+    box-shadow: none !important;
+}
+.acf-field-object.open > .handle {
+	background: $red !important;
+    border: lighten($red, 10%) solid 1px !important;
+    text-shadow: lighten($red, 10%) 0 1px 0 !important;
+}
 #wp-admin-bar-client-logo {
 	cursor: none;
 	&:hover {
@@ -135,6 +156,10 @@ input[type=checkbox]:checked:before {
 #wpadminbar.nojs .quicklinks .menupop:hover ul li a:focus, 
 #wpadminbar.nojs .quicklinks .menupop:hover ul li a:hover {
     color: $white !important;
+}
+
+#wpadminbar {
+	background: #32373c;
 }
 
 // WP admin hide and show
