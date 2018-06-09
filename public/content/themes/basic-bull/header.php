@@ -40,46 +40,6 @@
 		
 		<a class="skip-link srt-only" href="#content">Skip to Main Content</a>
 
-		<div id="masthead" class="section section-header site-header" role="banner">
-
-			<div class="site-header-container">
-						
-				<div class="site-branding">
-
-					<a href="<?php echo get_bloginfo('url'); ?>" class="logo">
-
-						<?php get_template_part( 'template-parts/components/logos/company', 'logo' ); ?>
-
-					</a>
-
-					<a href="#" class="menu-button">
-						
-						<span class="bars"></span>
-
-					</a>
-
-				</div><!-- .site-branding -->
-
-				<div class="site-search" role="search">
-
-					<?php get_template_part( 'template-parts/forms/site', 'search' ); ?>
-
-				</div><!-- .site-search -->
-
-				<div class="site-navigation" role="navigation">
-					
-					<?php get_template_part( 'template-parts/navigation/main', 'navigation' ); ?>
-
-				</div><!-- .site-navigation -->
-
-				<div class="site-social-links" role="complementary">
-					
-					<?php get_template_part( 'template-parts/social-media/social', 'links' ); ?>
-
-				</div><!-- .site-social-links -->
-
-			</div><!-- .site-header-container -->
-
-		</div><!-- #masthead -->
+		<?php get_template_part( 'template-parts/tool/components/tool', 'header' ); ?>
 
 		<div id="content" class="site-content">

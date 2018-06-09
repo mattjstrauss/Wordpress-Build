@@ -87,6 +87,11 @@ textarea {
 // --------------------------------------------------
 
 .site-search {
+	width: 100%;
+	transition: all .3s $cbTrans;
+	.closed-navigation & {
+		width: 50%;
+	}
 	form {
 		width: 100%;
 		display: table;

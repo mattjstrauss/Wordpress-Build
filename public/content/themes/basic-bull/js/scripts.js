@@ -12,6 +12,9 @@ $(document).ready(function(){
 	// Accordions
 	accordions();
 
+	// Navigation
+	navigation();
+
 	// Add admin-link to Wordpress link to prevent Barba
  	$('a').each( function() {
        
@@ -54,12 +57,12 @@ $(document).ready(function(){
 
 
 	// Barba.Dispatcher.on('linkClicked', function() {
- //  		$('body').removeClass('page-loaded').addClass('page-loading');
+	//  		$('body').removeClass('page-loaded').addClass('page-loading');
 	// });
 	// Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
 
 	// 	setTimeout(function(){
- //  			$('body').removeClass('page-loading').addClass('page-loaded');
+	//  			$('body').removeClass('page-loading').addClass('page-loaded');
 	// 	}, 500);
 
 	// 	// Syntax highlighter on after page load

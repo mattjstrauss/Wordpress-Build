@@ -27,6 +27,14 @@ The idea behind this theme is to create a scaleable base in which I can start fr
   * Added the ability to include tool tips within the content
   * Added a forground color button with stripped down options to limit the user from going off brand
 
+### Extended Features
+* Pages/templates are created for custom user login, settings and registration incase the "Custom Login by Bull Interactive plugin" is enabled
+* Front end display of the following admin UI:
+  * Hidden WP admin bar with button toggle to show/hide
+  * Log out, profile, user registration (If "Custom Login by Bull Interactive plugin" is active) and edit admin links 
+* When the "Custom Login by Bull Interactive plugin" is active it is set up to prevent anyone from seeing the site unless logged in. It is currently set up as a gateway but can be altered to just create custom login screens.
+
+
 ### Components
 * Tabs
 * Accordion

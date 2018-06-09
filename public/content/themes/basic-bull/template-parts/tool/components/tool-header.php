@@ -1,39 +1,43 @@
-<div id="masthead" class="site-header" role="banner">
+<div id="masthead" class="section section-header site-header" role="banner">
 
 	<div class="site-header-container">
-		
-		<div class="site-branding">
-			
-			<a href="/" class="logo">
 				
-				<?php get_template_part( 'template-parts/tool/components/logo', 'cohere' ); ?>
+		<div class="site-branding">
+
+			<a href="<?php echo get_bloginfo('url'); ?>" class="logo">
+
+				<?php get_template_part( 'template-parts/components/logos/company', 'logo' ); ?>
 
 			</a>
 
 			<a href="#" class="menu-button">
-						
+				
 				<span class="bars"></span>
 
 			</a>
 
 		</div><!-- .site-branding -->
 
-		<?php if ( is_user_logged_in() ) : ?>
+		<div class="site-search" role="search">
 
-			<div class="site-navigation main-navigation" role="navigation">
+			<?php get_template_part( 'template-parts/forms/site', 'search' ); ?>
 
-				<div class="navigation-container">
-					
-					<?php get_template_part( 'template-parts/tool/navigation/main', 'navigation' ); ?>
+		</div><!-- .site-search -->
 
-				</div>
-
-			</div><!-- #site-navigation -->
-
-		<?php endif; ?>
-
-		<?php if ( is_user_logged_in() ) : ?>
+		<div class="site-navigation" role="navigation">
 			
+			<?php get_template_part( 'template-parts/navigation/main', 'navigation' ); ?>
+
+		</div><!-- .site-navigation -->
+
+		<div class="site-social-links" role="complementary">
+			
+			<?php get_template_part( 'template-parts/social-media/social', 'links' ); ?>
+
+		</div><!-- .site-social-links -->
+
+		<?php if ( is_user_logged_in() ) : ?>
+	
 			<div class="site-navigation site-utilities inactive-utilities" role="complementary">
 			
 				<?php wp_loginout( home_url() ); ?> 
@@ -69,8 +73,8 @@
 			</div>
 
 		<?php endif; ?>
-	
-	</div>
+
+	</div><!-- .site-header-container -->
 
 </div><!-- #masthead -->
 
