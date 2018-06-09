@@ -64,6 +64,11 @@ require_once( __DIR__ . '/inc/custom-wp-dashboard.php');
 
 require_once( __DIR__ . '/inc/custom-content-utilities.php');
 
+// Custom user roles and permissions
+// ==================================
+
+require_once( __DIR__ . '/inc/custom-user-role-permissions.php');
+
 // Custom admin menu
 // ==================================
 
