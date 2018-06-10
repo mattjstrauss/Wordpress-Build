@@ -2,10 +2,14 @@
 
 	// Count page views and update the field
 
-	$count = (int) get_field('field_5a0cb1934903f');
+	if( class_exists('acf') ){ 
 
-	$count++;
+		$count = (int) get_field('field_5a0cb1934903f');
 
-	update_field('field_5a0cb1934903f', $count);
+		$count++;
+
+		update_field('field_5a0cb1934903f', $count);
+
+	}
 
 ?>

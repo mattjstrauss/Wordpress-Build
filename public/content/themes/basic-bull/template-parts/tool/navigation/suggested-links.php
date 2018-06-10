@@ -76,21 +76,17 @@
                     
                     <?php foreach( $popularLinks as $post ): ?>
 
-                        <?php setup_postdata( $post ); ?>
+                    <?php setup_postdata( $post ); ?>
 
-                       
+                        <a href="<?php the_permalink(); ?>">
 
-                            <a href="<?php the_permalink(); ?>">
+                            <span class="link-text">
 
-                                <span class="link-text">
+                                <?php the_title(); ?>
 
-                                    <?php the_title(); ?>
+                            </span>
 
-                                </span>
-
-                            </a>
-
-                        
+                        </a> 
                     
                     <?php endforeach; ?>
                 

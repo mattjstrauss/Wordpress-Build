@@ -6,7 +6,7 @@
 
 		<div class="input-wrapper">
 			
-			<input id="main-search" type="search" class="search-field" placeholder="Search" autocomplete="off" value="" name="s">
+			<input type="search" class="search-field" placeholder="Search" autocomplete="off" value="" name="s">
 			
 			<input type="submit" class="search-submit" value="">
 

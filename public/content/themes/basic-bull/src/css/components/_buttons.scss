@@ -2,7 +2,7 @@
 # Buttons
 ==============================================================*/
 
-.button, 
+.buttons, 
 button,
 input[type="button"],
 input[type="reset"],
@@ -14,7 +14,7 @@ input[type="submit"] {
 	border: 1px solid;
 	display: inline-block;
 	padding: 8px 12px;
-	background-color: $gray;
+	background-color: $grayDark;
 	color: $white;
 	cursor: pointer;
 	transition: all .3s $cbTrans;

@@ -85,7 +85,7 @@ function multiLevelPush() {
 		$breadcrumbItem = $('<a href="#" class="breadcrumb">'+$breadcrumbText+'</a>' );
 		if( !$breadcrumbWrapper.length ) {
 
-			$('<div class="breadcrumb-wrapper"></div>').prependTo('.main-navigation').first().append($breadcrumbItem);
+			$('<div class="breadcrumb-wrapper"></div>').prependTo('.site-navigation').first().append($breadcrumbItem);
 			$breadcrumbHeight = $breadcrumbItem.height();
 
 		} else {

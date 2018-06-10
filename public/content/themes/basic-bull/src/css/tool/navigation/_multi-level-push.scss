@@ -300,6 +300,7 @@
 		}
 		a {
 			position: relative;
+			display: block;
 			transition: all 0.5s $cbTrans;
 		}
 		.caret {
@@ -312,6 +313,12 @@
 				display: block;
 				content: "•••";
 			}
+		}
+	}
+	.site-header {
+		.site-search {
+			width: 100%;
+			transition: all 0.5s $cbTrans;
 		}
 	}
 	&.closed-navigation {
@@ -332,6 +339,11 @@
 				svg {
 					opacity: 0;
 				}
+			}
+		}
+		.site-header {
+			.site-search {
+				width: 50%;
 			}
 		}
 	}	

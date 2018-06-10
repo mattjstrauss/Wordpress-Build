@@ -125,9 +125,9 @@ if ( ! function_exists( 'basic_bull_custom_admin' ) ) {
 
 	function my_custom_columns($column) {
 	
-		if($column == 'page_views') {
+		if( $column == 'page_views') {
 
-			if(get_field('page_views')) {
+			if( class_exists('acf') && get_field('page_views') ) {
 				
 				$value = get_field('page_views');
 				echo $value;

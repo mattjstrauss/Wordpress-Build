@@ -21,13 +21,15 @@
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'template-parts/page/page', 'components' ); ?>	
+			<h1><?php the_title(); ?></h1>
+
+			<?php get_template_part( 'template-parts/page/page', 'components' ); ?>
 
 		<?php endwhile; ?>
 
 	</div><!-- #main -->
 
-	<?php edit_post_link('Edit', '', '','','admin-link button edit-button'); ?>
+	<?php edit_post_link('Edit', '', '','','admin-link buttons edit-button'); ?>
 
 	<?php get_template_part( 'template-parts/tool/components/view', 'counter' );  ?>
 

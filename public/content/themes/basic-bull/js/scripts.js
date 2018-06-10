@@ -15,6 +15,8 @@ $(document).ready(function(){
 	// Navigation
 	navigation();
 
+	multiLevelPush();
+
 	// Add admin-link to Wordpress link to prevent Barba
  	$('a').each( function() {
        
@@ -24,54 +26,54 @@ $(document).ready(function(){
         }
     });
 
-	// Barba.Pjax.originalPreventCheck = Barba.Pjax.preventCheck;
+	Barba.Pjax.originalPreventCheck = Barba.Pjax.preventCheck;
 
-	// Barba.Pjax.preventCheck = function(evt, element) {
-	// 	if (!Barba.Pjax.originalPreventCheck(evt, element)) {
-	// 		return false;
-	// 	}
+	Barba.Pjax.preventCheck = function(evt, element) {
+		if (!Barba.Pjax.originalPreventCheck(evt, element)) {
+			return false;
+		}
 
-	// 	// No need to check for element.href -
-	// 	// originalPreventCheck does this for us! (and more!)
-	// 	if (/.pdf/.test(element.href.toLowerCase())) {
-	// 		return false;
-	// 	}
+		// No need to check for element.href -
+		// originalPreventCheck does this for us! (and more!)
+		if (/.pdf/.test(element.href.toLowerCase())) {
+			return false;
+		}
 
-	// 	if (element.classList.contains('caret')){
-	// 		return false;
-	// 	}
+		if (element.classList.contains('caret')){
+			return false;
+		}
 
-	// 	if (element.classList.contains('admin-link')){
-	// 		return false;
-	// 	}
+		if (element.classList.contains('admin-link')){
+			return false;
+		}
 
-	// 	// if ($('li').hasClass('expandable-menu')){
-	// 	// 	return false;
-	// 	// }
+		// if ($('li').hasClass('expandable-menu')){
+		// 	return false;
+		// }
 
-	// 	return true;
-	// };
-	// Barba.Pjax.Dom.wrapperId = 'content';
-	// Barba.Pjax.Dom.containerClass = 'content-container';
-	// Barba.Pjax.start();
+		return true;
+	};
+	Barba.Pjax.Dom.wrapperId = 'content';
+	Barba.Pjax.Dom.containerClass = 'content-area';
+	Barba.Pjax.start();
 
 
-	// Barba.Dispatcher.on('linkClicked', function() {
-	//  		$('body').removeClass('page-loaded').addClass('page-loading');
-	// });
-	// Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
+	Barba.Dispatcher.on('linkClicked', function() {
+	 		$('body').removeClass('page-loaded').addClass('page-loading');
+	});
+	Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
 
-	// 	setTimeout(function(){
-	//  			$('body').removeClass('page-loading').addClass('page-loaded');
-	// 	}, 500);
+		setTimeout(function(){
+	 			$('body').removeClass('page-loading').addClass('page-loaded');
+		}, 500);
 
-	// 	// Syntax highlighter on after page load
-	// 	prism();
+		// // Syntax highlighter on after page load
+		// prism();
 
-	// 	// Accordion component
-	// 	accordion();
+		// // Accordion component
+		// accordion();
 
-	// });
+	});
 	
 });
 //# sourceMappingURL=maps/scripts.js.map

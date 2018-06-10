@@ -40,22 +40,11 @@
 @import
     'tool/components/_global',
     'tool/components/_buttons',
-    'tool/components/_forms',
-    'tool/components/_links',
-    'tool/components/_tables',
     'tool/components/_loader',
-    'tool/components/_lists',
     'tool/components/_header',
-    'tool/components/_search',
-    'tool/components/_loader',
     'tool/components/_prism',
     'tool/components/_code';
 
 // 8. Tool - Navigation
 @import
     'tool/navigation/_multi-level-push';
-
-// 9. Tool - Page(s)
-@import
-    'tool/page/_general';  
-

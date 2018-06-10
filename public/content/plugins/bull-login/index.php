@@ -63,7 +63,7 @@ function profile_redirect() {
 	
 	global $pagenow;
 		
-	if(!current_user_can('create_users')) {
+	if(!current_user_can('administrator')) {
 
 		if ($pagenow == 'profile.php') {
 		    wp_redirect( $account_url);
