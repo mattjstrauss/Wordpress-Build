@@ -12,19 +12,19 @@ I build each component individually, make it inactive and then when its ready I 
 
 There is still a lot that needs to be done. I need to create a more stripped down version that is way more optimized but that will come next. This prototype is strictly for progress demonstration purposes.
 
-Multi-level Push Nav w/ Breadcrumbs and Barba.js
+#### Multi-level Push Nav w/ Breadcrumbs and Barba.js
 ![Multi-level Push Nav w/ Breadcrumbs and Barba.js](http://bullinteractive.co/img/multilevel-push-menu.gif)
-Theme and Publishing Utilities
+#### Theme and Publishing Utilities
 ![Theme Utilties w/ User Management Capabilities](http://bullinteractive.co/img/theme-utilities.gif)
-Custom Login User Flow
+#### Custom Login User Flow
 ![User Workflow](http://bullinteractive.co/img/user-management-flow.gif)
-Components - General w/ Background Video, Share and Tabs
+#### Components - General w/ Background Video, Share and Tabs
 ![Components](http://bullinteractive.co/img/menu-general-tab.gif)
-Components - WYSIWYG Format Options and Accordion
+#### Components - WYSIWYG Format Options and Accordion
 ![Components](http://bullinteractive.co/img/wysiwyg-formatting-accordion.gif)
-Components - Custom Audio Player and Image Carousel
+#### Components - Custom Audio Player and Image Carousel
 ![Components](http://bullinteractive.co/img/slick-images-audio-general.gif)
-Components - Text Carousel and Custom Embed Video Styling w/ Plyr
+#### Components - Text Carousel and Custom Embed Video Styling w/ Plyr
 ![Components](http://bullinteractive.co/img/slick-text-video-styling-finish.gif)
 
 ### General Features
