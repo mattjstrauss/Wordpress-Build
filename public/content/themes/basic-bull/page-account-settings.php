@@ -232,7 +232,7 @@ get_header(); ?>
 
 			                    <div class="input-group">
 			                        
-			                        <input name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php _e('Update', 'profile'); ?>" />
+			                        <input name="updateuser" type="submit" id="updateuser" class="submit edit-button" value="<?php _e('Update', 'profile'); ?>" />
 			                        
 			                        <?php wp_nonce_field( 'update-user_'. $current_user->ID ) ?>
 			                        

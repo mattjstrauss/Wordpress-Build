@@ -147,7 +147,7 @@
          
                 <div class="input-group">
 
-                    <input type="submit" name="submit" class="button white-button" value="<?php _e( 'Register', 'personalize-login' ); ?>"/>
+                    <input type="submit" name="submit" class="edit-button" value="<?php _e( 'Register', 'personalize-login' ); ?>"/>
 
                  </div>
 

@@ -1,7 +1,7 @@
 # Project Build w/ Wordpress and Gulp.js
 
 ## Overview
-The idea behind this project is to have a boilerplate setup and ready to go that uses my preferred/current workflow (The theme will have another README.md for theme specific functionality).
+The idea behind this project is to have a boilerplate setup and ready to go that uses my preferred/current workflow (The theme will have another README.md for theme specific functionality with all the animated gifs).
 
 This one consists of keeping Wordpress's core isolated from the working files as a Submodule so that Wordpress can continue to be updated and not create extra bloat to a projects repository. 
 
@@ -9,9 +9,7 @@ The projects configuration is different as it allows the developer to create ind
 
 This workflow also use Gulp for automating certain tasks such as linting, autoprefixing and compiling my CSS and Javascript, while also constructing a SVG spritemap based off of individual SVG files located in the specified directory.
 
-![Multi-level Push Nav w/ Breadcrumbs and Barba.js](http://bullinteractive.co/img/multilevel-push-menu.gif)
-![Theme Utilties w/ User Management Capabilities](http://bullinteractive.co/img/theme-utilities.gif)
-![User Workflow and Component Sample](http://bullinteractive.co/img/user-management-and-component-sample.gif)
+
 
 ## Default Wordpress Plugins:
 Below are some of the common plugins that I start with. The only real one that is "required" is ACF. Others simply extend certain commonly requested functions.
