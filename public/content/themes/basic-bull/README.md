@@ -13,9 +13,9 @@ I build each component individually, make it inactive and then when its ready I 
 There is still a lot that needs to be done. I need to create a more stripped down version that is way more optimized but that will come next. This prototype is strictly for progress demonstration purposes.
 
 #### Multi-level Push Nav w/ Breadcrumbs and Barba.js
-![Multi-level Push Nav w/ Breadcrumbs and Barba.js](http://bullinteractive.co/img/multilevel-push-menu.gif)
+![Multi-level Push Nav w/ Breadcrumbs and Barba.js](http://bullinteractive.co/img/multilevel-push-menu-reduced.gif)
 #### Theme and Publishing Utilities
-![Theme Utilties w/ User Management Capabilities](http://bullinteractive.co/img/theme-utilities.gif)
+![Theme Utilties w/ User Management Capabilities](http://bullinteractive.co/img/theme-utilities-reduced.gif)
 #### Custom Login User Flow
 ![User Workflow](http://bullinteractive.co/img/user-management-flow-reduced.gif)
 #### Components - General w/ Background Video, Share and Tabs
