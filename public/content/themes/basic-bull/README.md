@@ -17,13 +17,13 @@ There is still a lot that needs to be done. I need to create a more stripped dow
 #### Theme and Publishing Utilities
 ![Theme Utilties w/ User Management Capabilities](http://bullinteractive.co/img/theme-utilities.gif)
 #### Custom Login User Flow
-![Theme Utilties w/ User Management Capabilities](http://bullinteractive.co/img/theme-utilities.gif)
+![User Workflow](http://bullinteractive.co/img/user-management-flow-reduced.gif)
 #### Components - General w/ Background Video, Share and Tabs
 ![Components](http://bullinteractive.co/img/menu-general-tab-reduced.gif)
 #### Components - WYSIWYG Format Options and Accordion
-![Theme Utilties w/ User Management Capabilities](http://bullinteractive.co/img/theme-utilities.gif)
+![Components](http://bullinteractive.co/img/wysiwyg-formatting-accordion-reduced.gif)
 #### Components - Custom Audio Player and Image Carousel
-![Theme Utilties w/ User Management Capabilities](http://bullinteractive.co/img/theme-utilities.gif)
+![Components](http://bullinteractive.co/img/slick-images-audio-general-reduced.gif)
 #### Components - Text Carousel and Custom Embed Video Styling w/ Plyr
 ![Components](http://bullinteractive.co/img/slick-text-video-styling-finish-reduced.gif)
 
