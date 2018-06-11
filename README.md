@@ -9,6 +9,10 @@ The projects configuration is different as it allows the developer to create ind
 
 This workflow also use Gulp for automating certain tasks such as linting, autoprefixing and compiling my CSS and Javascript, while also constructing a SVG spritemap based off of individual SVG files located in the specified directory.
 
+![Multi-level Push Nav w/ Breadcrumbs and Barba.js](https://bullinteractive.co/image/multilevel-push-menu.gif)
+![Theme Utilties w/ User Management Capabilities](https://bullinteractive.co/image/theme-utilities.gif)
+![User Workflow and Component Sample](https://bullinteractive.co/image/user-management-and-component-sample.gif)
+
 ## Default Wordpress Plugins:
 Below are some of the common plugins that I start with. The only real one that is "required" is ACF. Others simply extend certain commonly requested functions.
 1. Advanced Custom Fields Pro: Used to customize and extend Wordpress' authoring capabilities
@@ -22,7 +26,7 @@ Below are some of the common plugins that I start with. The only real one that i
 9. Simple Page Ordering: Used to drag and drop page/post content for potential displays on the front end
 10. Smush: Used to offer additional image optimization on upload
 11. WP REST Filter: Used to extend the endpoints to allow filter queries
-Yoast SEO: Used to extend the customization of SEO aspects
+12. Yoast SEO: Used to extend the customization of SEO aspects
 
 ## Steps for getting Wordpress where it needs to be via the Terminal
 1. If site folder exists proceed to step 2. If not follow the commands below:<br />

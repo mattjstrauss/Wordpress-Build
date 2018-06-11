@@ -1673,7 +1673,7 @@ function tabs() {
 function videos() {
 	
 	const players = Array.from($('.video-object')).map(player => new Plyr(player, {
-		iconUrl: 'http://wpbuild.localhost/content/themes/basic-bull/img/spritemap.svg',
+		iconUrl: 'http://wordpress.bullinteractive.co/content/themes/basic-bull/img/spritemap.svg',
 		iconPrefix: "icon-ui-media",
 	}));
 
