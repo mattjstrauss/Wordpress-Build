@@ -39,7 +39,7 @@ function accordions() {
         // Closest content of the current button clicked
         $currentPanelContent = $currentPanel.find('.panel-content');
         // Header height compensation for the scrollto funciton
-        $headerHeight = $('.site-header').outerHeight();
+        $headerHeight = $('.header-search').outerHeight();
         
         function setHeight(){
               TweenMax.from($currentPanelContent, 0.3, { height: 0 });

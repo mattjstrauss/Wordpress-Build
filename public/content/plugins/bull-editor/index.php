@@ -96,9 +96,10 @@ if ( ! function_exists( 'bull_custom_tinymce' ) ) {
 				"121212", "Dark Gray",
 				"1c1c1c", "Gray",
 				"f5f5f5", "Light Gray",
-				"ff5a5f", "Pink",
-				"fff7eb", "Beige",
-				"2a3151", "Blue",
+				"f66969", "Red",
+				"f6ea69", "Yellow",
+				"698af6", "Blue",
+				"69f6ba", "Green",
 			';
 
 			$custom_colours = '';
@@ -263,9 +264,9 @@ if ( ! function_exists( 'bull_custom_tinymce' ) ) {
 	            'title' => 'Links',
 	            'items' => array(
 					array(  
-						'title' => 'Pink Button',
+						'title' => 'Red Button',
 						'selector' => 'a',
-						'classes' => 'button pink-button',
+						'classes' => 'button red-button',
 					),
 					array(  
 						'title' => 'Blue Button',  
@@ -273,19 +274,19 @@ if ( ! function_exists( 'bull_custom_tinymce' ) ) {
 						'classes' => 'button blue-button',
 					),
 					array(
-						'title' => 'Beige Button',
+						'title' => 'Yellow Button',
 						'selector' => 'a',
-						'classes' => 'button beige-button',
+						'classes' => 'button yellow-button',
 					),
 					array(
-						'title' => 'Gray Button',
+						'title' => 'Green Button',
 						'selector' => 'a',
-						'classes' => 'button gray-button',
+						'classes' => 'button green-button',
 					),
 					array(  
-						'title' => 'Transparent Pink Button',
+						'title' => 'Transparent Red Button',
 						'selector' => 'a',
-						'classes' => 'button trans-pink-button',
+						'classes' => 'button trans-red-button',
 					),
 					array(  
 						'title' => 'Transparent Blue Button',
@@ -293,19 +294,19 @@ if ( ! function_exists( 'bull_custom_tinymce' ) ) {
 						'classes' => 'button trans-blue-button',
 					),
 					array(  
-						'title' => 'Transparent Beige Button',
+						'title' => 'Transparent Yellow Button',
 						'selector' => 'a',
-						'classes' => 'button trans-beige-button',
+						'classes' => 'button trans-yellow-button',
 					),
 					array(  
-						'title' => 'Transparent Gray Button',
+						'title' => 'Transparent Green Button',
 						'selector' => 'a',
-						'classes' => 'button trans-gray-button',
+						'classes' => 'button trans-green-button',
 					),
 					array(
 						'title' => 'Arrow Link',  
 						'selector' => 'a',
-						'classes' => 'arrow-link pink-link',
+						'classes' => 'arrow-link red-link',
 					),
 				)
             ),

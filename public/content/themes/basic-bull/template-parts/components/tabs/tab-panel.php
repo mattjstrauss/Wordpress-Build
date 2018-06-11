@@ -14,7 +14,7 @@
 
 	<div class="panel-content">
 
-		<div class="content-container">
+		<div class="content-wrapper">
 
 			<?php get_template_part( 'template-parts/components/tabs/tab', 'content' );  ?>
 

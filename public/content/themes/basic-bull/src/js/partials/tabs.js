@@ -1,6 +1,5 @@
-$(document).ready(function(){
+function tabs() {
 
-	// Remove loading class
 	$('.tabs-component').each(function(){
 
 		var $component = $(this);
@@ -67,5 +66,4 @@ $(document).ready(function(){
 
 	});
 
-
-});
+}

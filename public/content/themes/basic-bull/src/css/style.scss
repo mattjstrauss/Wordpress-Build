@@ -2,6 +2,7 @@
 @import
     'utilities/_fonts',
     'utilities/_variables',
+    'utilities/_color-schemes',
     'utilities/_mixins',
     'utilities/_grid';
 
@@ -11,7 +12,11 @@
     'base/_typography',
     'base/_helpers';
 
-// 3. Components
+// 3. Tool - Layouts
+@import
+    'layouts/_main';
+
+// 4. Components
 @import
     'components/_buttons',
     'components/_forms',
@@ -22,29 +27,31 @@
     'components/_tooltips',
     'components/_accordions',
     'components/_tabs',
-    'components/_social-media';
+    'components/_social-media',
+    'components/_media',
+    'components/_maps',
+    'components/_carousels';
 
-// 4. Tool - Configuration and helpers
+// 5. Tool - Configuration and helpers
 @import
     'tool/utilities/_variables';
 
-// 5. Tool - Base
+// 6. Tool - Base
 @import
     'tool/base/_typography';
 
-// 6. Tool - Layouts
+// 7. Tool - Layouts
 @import
     'tool/layouts/_main';
 
-// 7. Tool - Components
+// 8. Tool - Components
 @import
-    'tool/components/_global',
     'tool/components/_buttons',
     'tool/components/_loader',
     'tool/components/_header',
     'tool/components/_prism',
     'tool/components/_code';
 
-// 8. Tool - Navigation
+// 9. Tool - Navigation
 @import
     'tool/navigation/_multi-level-push';

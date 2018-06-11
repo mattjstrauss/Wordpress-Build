@@ -111,7 +111,7 @@ if ( ! function_exists( 'basic_bull_acf_functions' ) ) {
 
 						var componentsLongName={};
 
-						console.log(address_components);
+						// console.log(address_components);
 						
 						$.each(address_components, function(k,v1) {
 							$.each(v1.types, function(k2, v2){
@@ -133,15 +133,14 @@ if ( ! function_exists( 'basic_bull_acf_functions' ) ) {
 		                var locationZip = componentsLongName.postal_code;
 		                
 		                // set it to a text field(s)
-
-		                // street address
-		                $(".acf-field-59a585dfa00e9 input").val(locationAddress);
-		                // city
-		                $(".acf-field-59a5864ba00eb input").val(locationCity);
-		                // state
-		                $(".acf-field-59a58652a00ec input").val(locationState);
-		                // zip
-	                	$(".acf-field-59a58659a00ed input").val(locationZip);
+		                // Street address
+		                $field.next('.acf-field-group').find('.acf-field-5ad8eac208b97 input').val(locationAddress);
+		                // City
+		                $field.next('.acf-field-group').find('.acf-field-5ad8eacc08b98 input').val(locationCity);
+		                // State
+		                $field.next('.acf-field-group').find('.acf-field-5ad8eada08b99 input').val(locationState);
+		                // Zip
+	                	$field.next('.acf-field-group').find('.acf-field-5ad8eaee08b9a input').val(locationZip);
 				    
 					});
 		                    

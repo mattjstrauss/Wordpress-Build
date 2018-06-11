@@ -33,13 +33,13 @@
 
 			</div><!-- .site-search -->
 
+			<div class="site-navigation" role="navigation">
+				
+				<?php get_template_part( 'template-parts/navigation/main', 'navigation' ); ?>
+
+			</div><!-- .site-navigation -->
+
 		<?php endif; ?>
-
-		<div class="site-navigation" role="navigation">
-			
-			<?php get_template_part( 'template-parts/navigation/main', 'navigation' ); ?>
-
-		</div><!-- .site-navigation -->
 
 		<div class="site-social-links" role="complementary">
 			

@@ -76,11 +76,6 @@ strong  {
 	font-weight: bold;
 }
 
-blockquote {
-	margin: 0 1.5em;
-	font-style: italic; 
-}
-
 blockquote:before,
 blockquote:after,
 q:before,
@@ -92,12 +87,29 @@ blockquote,
 q {
 	quotes: "" "";
 }
-
+blockquote {
+	margin: 1em 1.5em;
+	font-style: italic;
+	h6 {
+		margin: 5px 0 10px;
+	}
+	p {
+		font-size: 1.728em;
+		line-height: 1.35;
+		.cite {
+			font-size: 22px;
+			font-family: $serif;
+			color: $red;
+			display: inline-block;
+			margin: 10px 0;
+		}
+	}
+}
 hr {
 	background-color: #ccc;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
+	margin: 2.25em 0;
 }
 
 address {
@@ -143,4 +155,26 @@ big {
 
 small {
   font-size: 65%;
+}
+.question {
+	font-weight: bold;
+	color: $blue;
+	margin: 0 0 .75em;
+	> *:first-child {
+		&:before {
+			content: "Q:";
+			display: inline-block;
+			margin: 0 10px 0 0;
+		}
+	}
+}
+.answer {
+	margin: 0 0 2em;
+	> *:first-child {
+		&:before {
+			content: "A:";
+			display: inline-block;
+			margin: 0 10px 0 0;
+		}
+	}
 }

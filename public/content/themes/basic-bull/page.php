@@ -21,7 +21,13 @@
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<h1><?php the_title(); ?></h1>
+			<div class="section section-page-intro">
+
+				<h1><?php the_title(); ?></h1>
+
+				<?php get_template_part( 'template-parts/components/social-media/social', 'share-links' ); ?>
+
+			</div>
 
 			<?php get_template_part( 'template-parts/page/page', 'components' ); ?>
 
@@ -29,7 +35,7 @@
 
 	</div><!-- #main -->
 
-	<?php edit_post_link('Edit', '', '','','admin-link buttons edit-button'); ?>
+	<?php edit_post_link('Edit', '', '','','admin-link edit-button'); ?>
 
 	<?php get_template_part( 'template-parts/tool/components/view', 'counter' );  ?>
 

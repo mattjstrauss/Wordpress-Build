@@ -23,25 +23,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5ace6a11f3a42",
-                            "label": "Component Label",
-                            "name": "component_label",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5acbc6275b58b",
                             "label": "Overview",
                             "name": "",
@@ -73,6 +54,25 @@
                             "message": "<h4>The \"Accordion\" component is used to house content in a format that allows it to be hidden or shown to maximize screen real estate.<\/h4>\r\nThis can be used to display content such as FAQ.\r\n<h5>You have the following options with this component found in the tabs above:<\/h5>\r\n<ul>\r\n<li>Panel Label - The text that appears as the interactive element to open and close the \"drawer\"<\/li>\r\n<li>Panel Content - The text that is within the drawer that can be hidden or shown by clicking on the Panel Label<\/li>\r\n<\/ul>",
                             "new_lines": "wpautop",
                             "esc_html": 0
+                        },
+                        {
+                            "key": "field_5ace6a11f3a42",
+                            "label": "Component Label",
+                            "name": "component_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_5acbc6f85b58c",
@@ -180,25 +180,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5ace6a24f3a43",
-                            "label": "Component Label",
-                            "name": "component_label",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5ac7d43e05a3a",
                             "label": "Overview",
                             "name": "",
@@ -227,9 +208,28 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "<h4>The \"Carousel\" component is used to house slides containing either copy (text) or images.<\/h4>\r\nThis can be used to display content such as image galleries and testimonial carousels.\r\nYou have the following options with this component found in the tabs above:\r\n<ul>\r\n<li>Carousel Type<\/li>\r\n<li>Color Schemes<\/li>\r\n<li>Layout and Positioning<\/li>\r\n<\/ul>\r\nBelow is an example of what a testimonial component should look like:",
+                            "message": "<h4>The \"Carousel\" component is used to house slides containing either copy (text) or images.<\/h4>",
                             "new_lines": "wpautop",
                             "esc_html": 0
+                        },
+                        {
+                            "key": "field_5ace6a24f3a43",
+                            "label": "Component Label",
+                            "name": "component_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_5ac7d3360b555",
@@ -419,25 +419,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5ade37594089f",
-                            "label": "Component Label",
-                            "name": "component_label",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5ade3759408a0",
                             "label": "Overview",
                             "name": "",
@@ -466,9 +447,28 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "<h4>The \"General\" component is used to house any\/all content that doesn't specifically have a function or use that requires any unique layout or interactions<\/h4>\r\nYou have the following options with this component found in the tabs above:\r\n<ul>\r\n<li>Color Schemes<\/li>\r\n<li>Color, Image or Video Backgrounds<\/li>\r\n<li>Color Overlays<\/li>\r\n<\/ul>\r\nBelow is an example of what a General component should look like:",
+                            "message": "<h4>The \"General\" component is used to house any\/all content that doesn't specifically have a function or use that requires any unique layout or interactions<\/h4>",
                             "new_lines": "wpautop",
                             "esc_html": 0
+                        },
+                        {
+                            "key": "field_5ade37594089f",
+                            "label": "Component Label",
+                            "name": "component_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_5ade3759408a2",
@@ -595,25 +595,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5ae371de3935e",
-                            "label": "Component Label",
-                            "name": "component_label",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5ae371de3935f",
                             "label": "Overview",
                             "name": "",
@@ -645,6 +626,25 @@
                             "message": "<h4>The \"Map\" component is used create a Google Map with a single marker.<\/h4>",
                             "new_lines": "wpautop",
                             "esc_html": 0
+                        },
+                        {
+                            "key": "field_5ae371de3935e",
+                            "label": "Component Label",
+                            "name": "component_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_5ae371de39361",
@@ -752,25 +752,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5b1ae6536e37f",
-                            "label": "Component Label",
-                            "name": "component_label",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5b1ae6536e380",
                             "label": "Overview",
                             "name": "",
@@ -802,6 +783,25 @@
                             "message": "<h4>The \"Media\" component is used to house single images, videos or other \"stand alone\" embeddable content<\/h4>",
                             "new_lines": "wpautop",
                             "esc_html": 0
+                        },
+                        {
+                            "key": "field_5b1ae6536e37f",
+                            "label": "Component Label",
+                            "name": "component_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_5b1ae6536e382",
@@ -909,25 +909,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5ad8a8b7ceaf0",
-                            "label": "Component Label",
-                            "name": "component_label",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5ad8a8b7ceaf1",
                             "label": "Overview",
                             "name": "",
@@ -959,6 +940,25 @@
                             "message": "<h4>The \"Tabs\" component is used to organize and house content in a format that allows one item to be shown at a time.<\/h4>\r\nYou have the following options with this component found in the tabs above:\r\n<ul>\r\n<li>Tab Label - The text that appears as the interactive element show the relative content<\/li>\r\n<li>Tab Content - The text that is relative to the active tab<\/li>\r\n<\/ul>",
                             "new_lines": "wpautop",
                             "esc_html": 0
+                        },
+                        {
+                            "key": "field_5ad8a8b7ceaf0",
+                            "label": "Component Label",
+                            "name": "component_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_5ad8a8b7ceaf3",
@@ -1119,5 +1119,5 @@
     ],
     "active": 1,
     "description": "A collection of all components that are available.",
-    "modified": 1528489639
+    "modified": 1528677587
 }

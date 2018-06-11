@@ -38,7 +38,27 @@ The idea behind this theme is to create a scaleable base in which I can start fr
 ### Components
 * Tabs
 * Accordion
-* Background Image, Video, Color w/ Overlay Options
+* Carousel(s)
+  * Text
+  * Image
+  * Video (Coming soon)
+* Share Modal
+* Media Players (Local or embeded)
+  * Audio (Local can be branded with CSS)
+  * Video (Both local or embeded can be branded with CSS utilizing [https://plyr.io]Plyr)
+* Google Map(s)
+  * Location information is dynamically injected within the backend upon map change
+
+### Component Options (Options vary per comonent)
+* Background Image
+  * Color overlay option
+  * Background position for focal point adjustments
+* Background Video
+  * Local or embeded video
+  * Embedded video poster image override
+* Background Color
+* Spacing
+  * Top and bottom (Default, Small, Medium or Large)
 
 ### ACF Flexible Content Fields with the following components and options
 

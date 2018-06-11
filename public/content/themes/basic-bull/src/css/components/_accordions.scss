@@ -2,7 +2,6 @@
 # Accordions
 ==============================================================*/
 .accordion-component {
-    padding: 20px 20px 60px;
     .accordion-panel {
         background: $white;
         box-shadow: -1px 0px 0px 0px $gray, 1px 0px 0px 0px $gray;
@@ -34,7 +33,7 @@
             text-decoration: none;
             color: $grayDark;
             padding: 15px 40px 15px 15px;
-            border-bottom: 1px solid $gray;
+            border-bottom: 1px solid darken($gray, 20%);
             border-left: none;
             border-right: none;
             border-top: none;
@@ -44,6 +43,7 @@
             width: 100%;
             text-align: left;
             transition: all .3s $cbTrans;
+            margin: 0;
             @include breakFirst(medium) {
                 padding: 20px 40px 20px 20px;
             }

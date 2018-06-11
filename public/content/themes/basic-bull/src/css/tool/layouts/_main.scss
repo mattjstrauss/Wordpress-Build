@@ -20,7 +20,7 @@ body {
     }
     .closed-navigation & {
         @include breakFirst(large) {
-            transform: translateX(-150px);
+            transform: translateX(-115px);
         }
     }
     .is-loading & {

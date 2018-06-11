@@ -24,7 +24,7 @@ if ( ! function_exists( 'basic_bull_scripts_and_styles' ) ) {
 
 		// Google maps
 
-		// wp_enqueue_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=API-KEY', array( 'jquery' ), null, true);
+		wp_enqueue_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC5GKwjbFzIKnBlp-tktYQnusP6At1jD5Q', array( 'jquery' ), null, true);
 
 		// Include TweenMax library
 

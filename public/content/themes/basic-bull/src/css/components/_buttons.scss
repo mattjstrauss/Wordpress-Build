@@ -2,18 +2,17 @@
 # Buttons
 ==============================================================*/
 
-.buttons, 
+.button, 
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	font-size: 12.8px;
 	font-weight: 400;
-	letter-spacing: 3px;
-	text-transform: uppercase;
+	letter-spacing: 1px;
 	border: 1px solid;
 	display: inline-block;
 	padding: 8px 12px;
+	margin: 10px 0 15px;
 	background-color: $grayDark;
 	color: $white;
 	cursor: pointer;
@@ -25,6 +24,42 @@ input[type="submit"] {
 		background-color: $white;
 		border-color: $gray;
 		color: $gray;
+	}
+	&.red-button {
+		background-color: $red;
+    	color: $white;
+    	&:hover {
+    		background-color: $white;
+    		border-color: $red;
+    		color: $red;
+    	}
+	}
+	&.blue-button {
+		background-color: $blue;
+    	color: $white;
+    	&:hover {
+    		background-color: $white;
+    		border-color: $blue;
+    		color: $blue;
+    	}
+	}
+	&.green-button {
+		background-color: $green;
+    	color: $white;
+    	&:hover {
+    		background-color: $white;
+    		border-color: $green;
+    		color: $green;
+    	}
+	}
+	&.yellow-button {
+		background-color: $yellow;
+    	color: $white;
+    	&:hover {
+    		background-color: $white;
+    		border-color: $yellow;
+    		color: $yellow;
+    	}
 	}
 	&.white-button {
 		background-color: $white;
@@ -46,7 +81,9 @@ input[type="submit"] {
 	    }
 	}
 }
-
+.edit-button {
+	@extend .button;
+}
 button:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,

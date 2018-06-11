@@ -82,35 +82,9 @@
 
             <?php elseif( get_row_layout() == 'card_group_component' ):  ?>
 
-                <?php get_template_part( 'template-parts/components/cards/card-group', 'container' );  ?>
+            <?php elseif( get_row_layout() == 'map_component' ):  ?>
 
-            <?php elseif( get_row_layout() == 'featured_card_component' ):  ?>
-
-                <?php get_template_part( 'template-parts/components/cards/featured-card', 'container' );  ?>
-
-            <?php elseif( get_row_layout() == 'featured_post_component' ):  ?>
-
-                <?php get_template_part( 'template-parts/components/cards/featured-post', 'container' );  ?>
-
-            <?php elseif( get_row_layout() == 'featured_video_component' ):  ?>
-
-                <?php get_template_part( 'template-parts/components/media/featured-video', 'container' );  ?>
-
-            <?php elseif( get_row_layout() == 'events_component' ):  ?>
-
-                <?php get_template_part( 'template-parts/components/cards/events', 'container' );  ?>
-
-            <?php elseif( get_row_layout() == 'profiles_component' ):  ?>
-
-                <?php get_template_part( 'template-parts/components/cards/profiles', 'container' );  ?>
-
-            <?php elseif( get_row_layout() == 'news_component' ):  ?>
-
-                <?php get_template_part( 'template-parts/components/cards/news', 'container' );  ?>
-
-             <?php elseif( get_row_layout() == 'timeline_component' ):  ?>
-
-                <?php get_template_part( 'template-parts/components/timeline/timeline', 'container' ); ?>
+                <?php get_template_part( 'template-parts/components/maps/single', 'marker-map' ); ?>
 
             <?php endif; ?>
 

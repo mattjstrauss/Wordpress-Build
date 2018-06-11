@@ -3,8 +3,8 @@ $(document).ready(function(){
 	// Remove loading class
 	$('body').removeClass('loading');
 
-	// Syntax highlighter on load
-	prism();
+	// SVG4Everybody
+	svg4everybody();
 
 	// Scroll to links that don't have URL
 	scrollToLinks();
@@ -12,10 +12,35 @@ $(document).ready(function(){
 	// Accordions
 	accordions();
 
+	// Tabs
+	tabs();
+	
 	// Navigation
 	navigation();
 
+	// Push navigation with breadcrumbs
 	multiLevelPush();
+
+	// Sharing modal
+	sharingPopout();
+
+	// Convert img to inline svg
+	imgToInlineSvg();
+
+	// Syntax highlighter on load
+	prism();
+
+	// Audio players
+	audioPlayers();
+
+	// Video players
+	videos();
+
+	// General carousels
+	generalCarousels();
+
+	// Maps
+	maps();
 
 	// Add admin-link to Wordpress link to prevent Barba
  	$('a').each( function() {
@@ -67,11 +92,44 @@ $(document).ready(function(){
 	 			$('body').removeClass('page-loading').addClass('page-loaded');
 		}, 500);
 
-		// // Syntax highlighter on after page load
-		// prism();
+		// SVG4Everybody
+		svg4everybody();
 
-		// // Accordion component
-		// accordion();
+		// Scroll to links that don't have URL
+		scrollToLinks();
+
+		// Accordions
+		accordions();
+
+		// Tabs
+		tabs();
+
+		// Navigation
+		navigation();
+
+		// Push navigation with breadcrumbs
+		multiLevelPush();
+
+		// Sharing modal
+		sharingPopout();
+
+		// Convert img to inline svg
+		imgToInlineSvg();
+
+		// Syntax highlighter on load
+		prism();
+
+		// Audio players
+		audioPlayers();
+
+		// Video players
+		videos();
+
+		// General carousels
+		generalCarousels();
+
+		// Maps
+		maps();
 
 	});
 	

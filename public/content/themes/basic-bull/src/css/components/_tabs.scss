@@ -1,9 +1,6 @@
 /*==============================================================
 # Tabs
 ==============================================================*/
-.tabs-component {
-	padding: 20px 20px 60px;
-}
 .tab-list {
 	list-style: none;
 	margin: 0;
@@ -20,31 +17,34 @@
 	}
 	.tab {
 		margin: 0;
-		color: $grayDark;
+		color: $white;
 		@include breakFirst(medium) {
 			flex: 1 1 auto;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			text-decoration: none;
-			background: $grayLight;
-			border-left: 1px solid $gray;
-			border-top: 1px solid $gray;
-			border-bottom: 1px solid $gray;
+			background: $grayDark;
+			border-left: 1px solid $grayLight;
+			border-top: 1px solid $grayLight;
+			border-bottom: 1px solid $grayLight;
+			border-right: none;
 			width: 100%;
     		text-align: left;
     		padding: 20px 0px;
     		appearance: none;
 			&:hover {
 				background: darken($grayLight, 8);
+				color: $grayDark;
 			}
     		&.active-tab {
     			background: $white;
+    			color: $grayDark;
     			border-bottom: 1px solid $white;
     		}
 		}
 		&:last-child {
-			border-right: 1px solid $gray;
+			border-right: 1px solid $grayLight;
 		}
 
 	}
@@ -178,7 +178,7 @@
 			}
 		}
 	}
-	.content-container {
+	.content-wrapper {
 		padding: 20px;
 		border-left: 1px solid $gray;
 		border-top: 1px solid $gray;
