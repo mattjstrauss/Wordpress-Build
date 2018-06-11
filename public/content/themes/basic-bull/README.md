@@ -2,9 +2,7 @@ Basic Bull
 ===
 
 ## Overview
-The idea behind this theme is to create a scaleable base in which I can start from to customize and extend to meet the projects needs. It has some common features built in and is meant to be an always expanding and improving idea.
-
-
+The idea behind this theme is to create a scaleable base in which I can start from to customize and extend to meet the projects needs. It has some common features built in and is meant to be an always expanding and improving idea. There still needs to be a more stripped down version that is way more optimized but that will come next. This prototype is strictly for progress demonstration purposes.
 
 ### General Features
 * Customizable Wordpress dashboard to include widgets to offer some website onboading
@@ -26,6 +24,8 @@ The idea behind this theme is to create a scaleable base in which I can start fr
     * Change the fonts between serif and sans serif
   * Added the ability to include tool tips within the content
   * Added a forground color button with stripped down options to limit the user from going off brand
+* Custom navigation class to adjust markup to make it more semantic and accessible
+
 
 ### Extended Features
 * Pages/templates are created for custom user login, settings and registration incase the "Custom Login by Bull Interactive plugin" is enabled
@@ -33,11 +33,16 @@ The idea behind this theme is to create a scaleable base in which I can start fr
   * Hidden WP admin bar with button toggle to show/hide
   * Log out, profile, user registration (If "Custom Login by Bull Interactive plugin" is active) and edit admin links 
 * When the "Custom Login by Bull Interactive plugin" is active it is set up to prevent anyone from seeing the site unless logged in. It is currently set up as a gateway but can be altered to just create custom login screens.
+* Incorporating barba.js which focuces on PJAX (aka push state ajax) to enhance the user's experience (Still a work in progress)
+* Multi-level push navigation with dynamic breadcrumbs (Still a work in progress)
+* Component specific layout and appearance options
+* On theme activation, create Home and Blog page and assign them to the front and posts page
+* Custom post type and custom taxonomy classes to quickly create new content types
 
 
-### Components
+### Components 
 * Tabs
-* Accordion
+* Accordions
 * Carousel(s)
   * Text
   * Image
@@ -48,6 +53,7 @@ The idea behind this theme is to create a scaleable base in which I can start fr
   * Video (Both local or embeded can be branded with CSS utilizing [https://plyr.io]Plyr)
 * Google Map(s)
   * Location information is dynamically injected within the backend upon map change
+  * Style can be custmomized via js/partials/maps.js
 
 ### Component Options (Options vary per comonent)
 * Background Image
