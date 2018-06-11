@@ -51,7 +51,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "<h4>The \"Accordion\" component is used to house content in a format that allows it to be hidden or shown to maximize screen real estate.<\/h4>\r\nThis can be used to display content such as FAQ.\r\n<h5>You have the following options with this component found in the tabs above:<\/h5>\r\n<ul>\r\n<li>Panel Label - The text that appears as the interactive element to open and close the \"drawer\"<\/li>\r\n<li>Panel Content - The text that is within the drawer that can be hidden or shown by clicking on the Panel Label<\/li>\r\n<\/ul>",
+                            "message": "<h4>The \"Accordion\" component is used to house content in a format that allows it to be hidden or shown to maximize screen real estate.<\/h4>",
                             "new_lines": "wpautop",
                             "esc_html": 0
                         },
@@ -937,7 +937,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "<h4>The \"Tabs\" component is used to organize and house content in a format that allows one item to be shown at a time.<\/h4>\r\nYou have the following options with this component found in the tabs above:\r\n<ul>\r\n<li>Tab Label - The text that appears as the interactive element show the relative content<\/li>\r\n<li>Tab Content - The text that is relative to the active tab<\/li>\r\n<\/ul>",
+                            "message": "<h4>The \"Tabs\" component is used to organize and house content in a format that allows one item to be shown at a time.<\/h4>",
                             "new_lines": "wpautop",
                             "esc_html": 0
                         },
@@ -1119,5 +1119,5 @@
     ],
     "active": 1,
     "description": "A collection of all components that are available.",
-    "modified": 1528677587
+    "modified": 1528688467
 }

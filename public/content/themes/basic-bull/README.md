@@ -2,7 +2,15 @@ Basic Bull
 ===
 
 ## Overview
-The idea behind this theme is to create a scaleable base in which I can start from to customize and extend to meet the projects needs. It has some common features built in and is meant to be an always expanding and improving idea. There still needs to be a more stripped down version that is way more optimized but that will come next. This prototype is strictly for progress demonstration purposes.
+The idea behind this theme is to create a scaleable base in which I can start from to customize and extend to meet the projects needs. It has some common features built in and is meant to be an always expanding and improving idea.
+
+I utilize ACF Pro's local JSON feature which saves field group and field settings as .json files within your theme. The idea is similar to caching, and both dramatically speeds up ACF and allows for version control over your field settings! 
+
+The idea is that I can build components in chuncks while versioning each and expanding on them as necessary.
+
+I build each component individually, make it inactive and then when its ready I "clone" it inside of a Flexible Content Field to allow for a modular based template that can be ordered however the publisher sees fit.
+
+There is still a lot that needs to be done. I need to create a more stripped down version that is way more optimized but that will come next. This prototype is strictly for progress demonstration purposes.
 
 ### General Features
 * Customizable Wordpress dashboard to include widgets to offer some website onboading

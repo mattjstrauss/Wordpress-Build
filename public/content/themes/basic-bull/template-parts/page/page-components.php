@@ -13,7 +13,7 @@
 
     <?php while ( have_rows('components') ) : the_row(); ?>
 
-        <?php get_template_part( 'template-parts/components/general/component', 'label' ); ?>
+        <?php get_template_part( 'template-parts/components/labels/component', 'label' ); ?>
 
         <?php 
 
