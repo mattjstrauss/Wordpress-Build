@@ -587,26 +587,28 @@ function imgToInlineSvg() {
 
 }
 function maps() {
+
+	if($('.map-container').length) {
 	
 	/*
-*  new_map
-*
-*  This function will render a Google Map onto the selected jQuery element
-*
-*  @type	function
-*  @date	8/11/2013
-*  @since	4.3.0
-*
-*  @param	$el (jQuery element)
-*  @return	n/a
-*/
+	*  new_map
+	*
+	*  This function will render a Google Map onto the selected jQuery element
+	*
+	*  @type	function
+	*  @date	8/11/2013
+	*  @since	4.3.0
+	*
+	*  @param	$el (jQuery element)
+	*  @return	n/a
+	*/
 
-function new_map( $el ) {
+	function new_map( $el ) {
 
 	// var
 	var $markers = $el.find('.marker');
-	
-	
+
+
 	// vars
 	var args = {
 		zoom		: 16,
@@ -787,20 +789,20 @@ function new_map( $el ) {
 		    }
 		]
 	};
-	
-	
+
+
 	// create map	        	
 	var map = new google.maps.Map( $el[0], args);
-	
-	
+
+
 	// add a markers reference
 	map.markers = [];
-	
-	
+
+
 	// add markers
 	$markers.each(function(i){
 		
-    	add_marker( $(this), map, infowindow, i );
+	  	add_marker( $(this), map, infowindow, i );
 		
 	});
 
@@ -809,29 +811,29 @@ function new_map( $el ) {
 
 	// return
 	return map;
-	
-}
 
-// create info window
-var infowindow = new google.maps.InfoWindow({
+	}
+
+	// create info window
+	var infowindow = new google.maps.InfoWindow({
 	content		: ""
-});
+	});
 
-/*
-*  add_marker
-*
-*  This function will add a marker to the selected Google Map
-*
-*  @type	function
-*  @date	8/11/2013
-*  @since	4.3.0
-*
-*  @param	$marker (jQuery element)
-*  @param	map (Google Map object)
-*  @return	n/a
-*/
+	/*
+	*  add_marker
+	*
+	*  This function will add a marker to the selected Google Map
+	*
+	*  @type	function
+	*  @date	8/11/2013
+	*  @since	4.3.0
+	*
+	*  @param	$marker (jQuery element)
+	*  @param	map (Google Map object)
+	*  @return	n/a
+	*/
 
-function add_marker( $marker, map, infowindow, i) {
+	function add_marker( $marker, map, infowindow, i) {
 
 	// var
 	var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
@@ -842,10 +844,10 @@ function add_marker( $marker, map, infowindow, i) {
 	var image = {
 		url: '/content/themes/images/marker.svg',
 		size: new google.maps.Size(40, 40),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(40/2, 40/2)
-    }
-    var markerCategory = $marker.attr('data-category');
+	      origin: new google.maps.Point(0, 0),
+	      anchor: new google.maps.Point(40/2, 40/2)
+	  }
+	  var markerCategory = $marker.attr('data-category');
 	var marker = new google.maps.Marker({
 		position	: latlng,
 		map			: map,
@@ -859,13 +861,13 @@ function add_marker( $marker, map, infowindow, i) {
 			fillOpacity: 1,
 			scale: .75,
 		}
-        
+	      
 	});
 
- 	// Marker category variable
- 	marker.markerCategory = $marker.attr('data-category');
- 	marker.markerType = $marker.attr('data-type');
- 	// marker.setVisible(false);
+		// Marker category variable
+		marker.markerCategory = $marker.attr('data-category');
+		marker.markerType = $marker.attr('data-type');
+		// marker.setVisible(false);
 
 
 
@@ -962,22 +964,22 @@ function add_marker( $marker, map, infowindow, i) {
 	//   infowindow.open(map, marker);
 	// });
 
-}
+	}
 
-/*
-*  center_map
-*
-*  This function will center the map, showing all markers attached to this map
-*
-*  @type	function
-*  @date	8/11/2013
-*  @since	4.3.0
-*
-*  @param	map (Google Map object)
-*  @return	n/a
-*/
+	/*
+	*  center_map
+	*
+	*  This function will center the map, showing all markers attached to this map
+	*
+	*  @type	function
+	*  @date	8/11/2013
+	*  @since	4.3.0
+	*
+	*  @param	map (Google Map object)
+	*  @return	n/a
+	*/
 
-function center_map( map ) {
+	function center_map( map ) {
 
 	// vars
 	var bounds = new google.maps.LatLngBounds();
@@ -1011,27 +1013,27 @@ function center_map( map ) {
 		map.fitBounds( bounds );
 	}
 
-}
+	}
 
-// popup is shown and map is not visible
-google.maps.event.trigger(map, 'resize');
+	// popup is shown and map is not visible
+	google.maps.event.trigger(map, 'resize');
 
-/*
-*  document ready
-*
-*  This function will render each map when the document is ready (page has loaded)
-*
-*  @type	function
-*  @date	8/11/2013
-*  @since	5.0.0
-*
-*  @param	n/a
-*  @return	n/a
-*/
-// global var
-var map = null;
+	/*
+	*  document ready
+	*
+	*  This function will render each map when the document is ready (page has loaded)
+	*
+	*  @type	function
+	*  @date	8/11/2013
+	*  @since	5.0.0
+	*
+	*  @param	n/a
+	*  @return	n/a
+	*/
+	// global var
+	var map = null;
 
-$(document).ready(function(){
+	$(document).ready(function(){
 
 	$('.map-container').each(function(){
 		// create map
@@ -1050,9 +1052,9 @@ $(document).ready(function(){
 
 	    infowindow.close();
 
-    	if(!$this.hasClass('active-category')){
-    		
-    		$('.map-filter a').removeClass('active-category');
+	  	if(!$this.hasClass('active-category')){
+	  		
+	  		$('.map-filter a').removeClass('active-category');
 	    	$this.addClass('active-category');
 
 			for (var i=0; i<map.markers.length; i++) {
@@ -1078,11 +1080,13 @@ $(document).ready(function(){
 		// center map
 		center_map( map );
 
-    });
+	  });
 
-   
+	 
 
-});
+	});
+
+};
 }
 function youtube(){
 
@@ -1346,9 +1350,10 @@ function navigation() {
 
 			} else {
 
-				$('body').removeClass('open-navigation').addClass('closed-navigation');
+				// $('body').removeClass('open-navigation').addClass('closed-navigation');
 
 			}
+			console.log("not else");
 
 		} else {
 

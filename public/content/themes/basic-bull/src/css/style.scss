@@ -1,57 +1,98 @@
-// 1. Configuration and helpers
+/* --------------------------------------------------------------
+# 0. Vendor files
+-------------------------------------------------------------- */
 @import
-    'utilities/_fonts',
-    'utilities/_variables',
-    'utilities/_color-schemes',
-    'utilities/_mixins',
-    'utilities/_grid';
+    '0-vendor/_grid-v4';
+/*    '0-vendor/tool/utilities/_variables',
+    '0-vendor/tool/base/_typography',
+    '0-vendor/tool/layouts/_main',
+    '0-vendor/tool/components/_buttons',
+    '0-vendor/tool/components/_loader',
+    '0-vendor/tool/components/_header',
+    '0-vendor/tool/components/_prism',
+    '0-vendor/tool/components/_code',
+    '0-vendor/tool/navigation/_multi-level-push';*/
 
-// 2. Base
+/* --------------------------------------------------------------
+# 1. Fonts, variables, mixins, functions and extends
+-------------------------------------------------------------- */
 @import
-    'base/_reset',
-    'base/_typography',
-    'base/_helpers';
+    '1-settings/_fonts';
 
-// 3. Tool - Layouts
 @import
-    'layouts/_main';
+    '1-settings/variables/_colors',
+    '1-settings/variables/_transitions',
+    '1-settings/variables/_typography',
+    '1-settings/variables/_sizing',
+    '1-settings/variables/_layout';
 
-// 4. Components
 @import
-    'components/_buttons',
-    'components/_forms',
-    'components/_links',
-    'components/_tables',
-    'components/_lists',
-    'components/_backgrounds',
-    'components/_tooltips',
-    'components/_accordions',
-    'components/_tabs',
-    'components/_social-media',
-    'components/_media',
-    'components/_maps',
-    'components/_carousels';
+    '1-settings/mixins/_typography',
+    '1-settings/mixins/_layout',
+    '1-settings/mixins/_spacing',
+    '1-settings/mixins/_borders',
+    '1-settings/mixins/_inputs',
+    '1-settings/mixins/_transitions',
+    '1-settings/mixins/_backgrounds',
+    '1-settings/functions/_bem-setup',
+    '1-settings/functions/_colors',
+    '1-settings/functions/_typography',
+    '1-settings/functions/_borders',
+    '1-settings/extends/_buttons';
 
-// 5. Tool - Configuration and helpers
 @import
-    'tool/utilities/_variables';
+    '1-settings/functions/_bem-setup',
+    '1-settings/functions/_colors',
+    '1-settings/functions/_typography',
+    '1-settings/functions/_borders';
 
-// 6. Tool - Base
 @import
-    'tool/base/_typography';
+    '1-settings/extends/_buttons';
 
-// 7. Tool - Layouts
+/* --------------------------------------------------------------
+# 2. Base/reset for normalizing accross browers and devices
+-------------------------------------------------------------- */
 @import
-    'tool/layouts/_main';
+    '2-base/_reset',
+    '2-base/_typography';
 
-// 8. Tool - Components
+/* --------------------------------------------------------------
+# 3. "Small" elements used to build larger components
+-------------------------------------------------------------- */
 @import
-    'tool/components/_buttons',
-    'tool/components/_loader',
-    'tool/components/_header',
-    'tool/components/_prism',
-    'tool/components/_code';
+    '3-elements/_lists',
+    '3-elements/_links',
+    '3-elements/_buttons',
+    '3-elements/_inputs',
+    '3-elements/_tables',
+    '3-elements/_backgrounds',
+    '3-elements/_media',
+    '3-elements/_maps',
+    '3-elements/_tooltips';
 
-// 9. Tool - Navigation
+/* --------------------------------------------------------------
+# 4. Components
+-------------------------------------------------------------- */
 @import
-    'tool/navigation/_multi-level-push';
+    '4-components/_header',
+    '4-components/_footer',
+    '4-components/_forms',
+    '4-components/_accordions',
+    '4-components/_tabs',
+    '4-components/_social-media',
+    '4-components/_carousels';
+
+/* --------------------------------------------------------------
+# 5. Layouts
+-------------------------------------------------------------- */
+@import
+    '5-layout/_general',
+    '5-layout/_navigation';
+
+/* --------------------------------------------------------------
+# 6. Utilities, helpers and modifiers to extend prior ideas
+-------------------------------------------------------------- */
+@import
+    '6-utilities/_accessibility',
+    '6-utilities/_alignment',
+    '6-utilities/_positioning';

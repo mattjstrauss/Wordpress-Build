@@ -17,6 +17,7 @@ class NF_Database_Migrations
         $this->migrations[ 'relationships' ] = new NF_Database_Migrations_Relationships();
         $this->migrations[ 'settings' ]      = new NF_Database_Migrations_Settings();
         $this->migrations[ 'upgrades' ]      = new NF_Database_Migrations_Upgrades();
+        $this->migrations[ 'chunks' ]        = new NF_Database_Migrations_Chunks();
     }
 
     public function migrate()
@@ -25,8 +26,28 @@ class NF_Database_Migrations
             $migration->_run();
         }
     }
+    
+    /**
+     * Function to run all our stage one changes.
+     */
+    public function do_stage_one()
+    {
+        foreach( $this->migrations as $migration ) {
+            $migration->_stage_one();
+        }
+    }
 
-    public function nuke( $areYouSure = FALSE, $areYouReallySure = FALSE )
+    /**
+     * This function drops ninja forms tables and options
+     * 
+     * @param $areYouSure
+     * @param $areYouReallySure
+     * @param $nuke_multisite
+     * 
+     * @since 2.9.34
+     * @updated 3.3.16
+     */
+    public function nuke( $areYouSure = FALSE, $areYouReallySure = FALSE, $nuke_multisite = TRUE )
     {
         if( ! $areYouSure || ! $areYouReallySure ) return;
 
@@ -36,13 +57,18 @@ class NF_Database_Migrations
             $this->_nuke();
             return;
         }
+        // adding this to make sure we don't nuke ALL subsites when upgrading one subsite
+        if ( $nuke_multisite ) {
+            $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
 
-        $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
-
-        foreach( $blog_ids as $blog_id ){
-            switch_to_blog( $blog_id );
+            foreach( $blog_ids as $blog_id ){
+                switch_to_blog( $blog_id );
+                $this->_nuke();
+                restore_current_blog(); // Call after EVERY switch_to_blog().
+            }
+        } else {
             $this->_nuke();
-            restore_current_blog(); // Call after EVERY switch_to_blog().
+            return;
         }
     }
 

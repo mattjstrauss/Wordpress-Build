@@ -24,7 +24,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 		 *
 		 * @access private
 		 */
-		private $plugin_build = 4095;
+		private $plugin_build = 4108;
 
 		/**
 		 * Used to distinguish between a user modifying settings and the API modifying settings (such as from Sync
@@ -50,8 +50,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 			$current_time_gmt,
 			$is_iwp_call,
 			$request_type,
-			$wp_upload_dir,
-			$storage_dir;
+			$wp_upload_dir;
 
 
 		/**
@@ -161,13 +160,6 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 			//Admin bar links
 			if ( ! ITSEC_Modules::get_setting( 'global', 'hide_admin_bar' ) ) {
 				add_action( 'admin_bar_menu', array( $this, 'modify_admin_bar' ), 99 );
-			}
-
-			$disabled = defined( 'ITSEC_DISABLE_PASSWORD_REQUIREMENTS') && ITSEC_DISABLE_PASSWORD_REQUIREMENTS;
-
-			if ( ! $disabled && has_action( 'itsec_validate_password' ) ) {
-				$pass_requirements = new ITSEC_Lib_Password_Requirements();
-				$pass_requirements->run();
 			}
 
 			$login_interstitial = new ITSEC_Lib_Login_Interstitial();
@@ -328,8 +320,13 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 			}
 
 			ITSEC_Modules::register_module( 'network-brute-force', "$path/modules/ipcheck", 'default-active' );
+
+			if ( ! defined( 'ITSEC_DISABLE_PASSWORD_REQUIREMENTS') || ! ITSEC_DISABLE_PASSWORD_REQUIREMENTS ) {
+				ITSEC_Modules::register_module( 'password-requirements', "$path/modules/password-requirements/", 'always-active' );
+			}
+
 			ITSEC_Modules::register_module( 'ssl', "$path/modules/ssl" );
-			ITSEC_Modules::register_module( 'strong-passwords', "$path/modules/strong-passwords", 'default-active' );
+			ITSEC_Modules::register_module( 'strong-passwords', "$path/modules/strong-passwords", 'always-active' );
 			ITSEC_Modules::register_module( 'system-tweaks', "$path/modules/system-tweaks" );
 			ITSEC_Modules::register_module( 'wordpress-salts', "$path/modules/salts", 'always-active' );
 			ITSEC_Modules::register_module( 'wordpress-tweaks', "$path/modules/wordpress-tweaks", 'default-active' );
@@ -606,11 +603,21 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 			return $url;
 		}
 
-		public static function get_logs_page_url( $filter = false ) {
+		public static function get_logs_page_url( $module = false, $type = false ) {
 			$url = network_admin_url( 'admin.php?page=itsec-logs' );
 
-			if ( ! empty( $filter ) ) {
-				$url = add_query_arg( array( 'filters' => rawurlencode( "module|{$filter}" ) ), $url );
+			$filters = array();
+
+			if ( $module ) {
+				$filters[] = rawurlencode("module|{$module}");
+			}
+
+			if ( $type ) {
+				$filters[] = rawurlencode( "type|{$type}" );
+			}
+
+			if ( $filters ) {
+				$url = add_query_arg( array( 'filters' => $filters ), $url );
 			}
 
 			return $url;
@@ -743,26 +750,56 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 		 * Retrieve and/or create a directory for ITSEC to store data.
 		 *
 		 * @param string $dir Optionally specify an additional sub-directory.
+		 * @param bool   $public Whether to get the public version of the directory.
 		 *
 		 * @return string
 		 */
-		public static function get_storage_dir( $dir = '' ) {
-			$self = self::get_instance();
+		public static function get_storage_dir( $dir = '', $public = false ) {
 
 			require_once( self::get_core_dir() . '/lib/class-itsec-lib-directory.php' );
 
-			if ( ! isset( $self->storage_dir ) ) {
-				$wp_upload_dir = self::get_wp_upload_dir();
+			$wp_upload_dir = self::get_wp_upload_dir();
 
-				$self->storage_dir = $wp_upload_dir['basedir'] . '/ithemes-security/';
+			$storage_dir = $wp_upload_dir['basedir'];
+
+			if ( $public ) {
+				$storage_dir .= '/ithemes-security-public/';
+			} else {
+				$storage_dir .= '/ithemes-security/';
 			}
 
-			$dir = $self->storage_dir . $dir;
+			$dir = $storage_dir . $dir;
 			$dir = rtrim( $dir, '/' );
 
 			ITSEC_Lib_Directory::create( $dir );
 
 			return $dir;
+		}
+
+		/**
+		 * Get the URL to the directory that ITSEC stores data in.
+		 *
+		 * @param string $dir
+		 * @param bool   $public Whether to get the public version of the directory.
+		 *
+		 * @return string
+		 */
+		public static function get_storage_url( $dir = '', $public = false ) {
+
+			self::get_storage_dir( $dir );
+
+			$upload_dir = self::get_wp_upload_dir();
+			$base       = untrailingslashit( $upload_dir['baseurl'] );
+
+			$url = $base;
+
+			if ( $public ) {
+				$url .= '/ithemes-security-public/';
+			} else {
+				$url .= '/ithemes-security/';
+			}
+
+			return $url . $dir;
 		}
 
 		public static function doing_data_upgrade() {

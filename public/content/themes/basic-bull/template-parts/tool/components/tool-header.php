@@ -10,13 +10,13 @@
 
 			</a>
 
-			<a href="#" class="menu-button">
+		</div><!-- .site-branding -->
+
+		<a href="#" class="menu-button">
 				
 				<span class="bars"></span>
 
 			</a>
-
-		</div><!-- .site-branding -->
 
 		<?php
 		
@@ -27,7 +27,7 @@
 
 		?>
 
-			<div class="site-search" role="search">
+			<div class="site-search menu-search" role="search">
 
 				<?php get_template_part( 'template-parts/forms/site', 'search' ); ?>
 

@@ -29,9 +29,10 @@ function navigation() {
 
 			} else {
 
-				$('body').removeClass('open-navigation').addClass('closed-navigation');
+				// $('body').removeClass('open-navigation').addClass('closed-navigation');
 
 			}
+			console.log("not else");
 
 		} else {
 

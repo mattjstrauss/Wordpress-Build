@@ -40,7 +40,7 @@ $(document).ready(function(){
 	generalCarousels();
 
 	// Maps
-	maps();
+	// maps();
 
 	// Add admin-link to Wordpress link to prevent Barba
  	$('a').each( function() {

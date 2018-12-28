@@ -13,18 +13,21 @@ if ( ! function_exists( 'basic_bull_scripts_and_styles' ) ) {
 		wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css' );
 		
 		// Remove jQuery that Wordpress installs and add the desired version of jQuery on the "frontend"
-
+		
 		if ( !is_admin() ) {
 
 			wp_deregister_script('jquery');
 			
-			wp_enqueue_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", array(), false, true);
+			// wp_enqueue_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", array(), false, true);
+
+			// Local version in case I have to work without internet
+			wp_enqueue_script('jquery', get_template_directory_uri() . '/js/lib/jquery.min.js', array(), false, true);
 
 		}
 
 		// Google maps
 
-		wp_enqueue_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC5GKwjbFzIKnBlp-tktYQnusP6At1jD5Q', array( 'jquery' ), null, true);
+		// wp_enqueue_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC5GKwjbFzIKnBlp-tktYQnusP6At1jD5Q', array( 'jquery' ), null, true);
 
 		// Include TweenMax library
 

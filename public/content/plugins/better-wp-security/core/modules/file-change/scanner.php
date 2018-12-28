@@ -21,7 +21,6 @@ do_action( 'itsec_load_file_change_scanner' );
 class ITSEC_File_Change_Scanner {
 
 	const DESTROYED = 'itsec_file_change_scan_destroyed';
-	const FILE_LIST = 'itsec_file_list';
 
 	const C_ADMIN = 'admin';
 	const C_INCLUDES = 'includes';
@@ -101,7 +100,7 @@ class ITSEC_File_Change_Scanner {
 
 		$scheduler = $scheduler ? $scheduler : ITSEC_Core::get_scheduler();
 
-		if ( self::is_running( $scheduler ) ) {
+		if ( self::is_running( $scheduler, $user_initiated ) ) {
 			return new WP_Error( 'itsec-file-change-scan-already-running', __( 'A File Change scan is currently in progress.', 'better-wp-security' ) );
 		}
 
@@ -125,15 +124,24 @@ class ITSEC_File_Change_Scanner {
 	 * Check if a scan is running.
 	 *
 	 * @param ITSEC_Scheduler
+	 * @param bool $user_initiated Whether the user initiated run is running for the scheduled loop scan.
 	 *
 	 * @return bool
 	 */
-	public static function is_running( $scheduler = null ) {
+	public static function is_running( $scheduler = null, $user_initiated = null ) {
 
 		$scheduler = $scheduler ? $scheduler : ITSEC_Core::get_scheduler();
 
-		if ( $scheduler->is_single_scheduled( 'file-change-fast', null ) ) {
-			return true;
+		if ( true === $user_initiated ) {
+			if ( $scheduler->is_single_scheduled( 'file-change-fast' ) ) {
+				return true;
+			}
+		} elseif ( false === $user_initiated ) {
+			if ( $scheduler->is_single_scheduled( 'file-change' ) ) {
+				return true;
+			}
+		} elseif ( null === $user_initiated ) {
+			return $scheduler->is_single_scheduled( 'file-change' ) || $scheduler->is_single_scheduled( 'file-change-fast' );
 		}
 
 		return ! ITSEC_File_Change::make_progress_storage()->is_empty();
@@ -287,7 +295,7 @@ class ITSEC_File_Change_Scanner {
 		$job_data['step']  = $store['step'];
 		$job_data['chunk'] = $store['chunk'];
 
-		if ( 'get-files' === $job_data['step'] && self::C_ADMIN === $job_data['chunk'] ) {
+		if ( 1 === $job_data['loop_item'] || ( 'get-files' === $job_data['step'] && self::C_ADMIN === $job_data['chunk'] ) ) {
 			ITSEC_Log::add_debug( 'file_change', 'recovery-failed-first-loop' );
 
 			self::abort();
@@ -319,8 +327,10 @@ class ITSEC_File_Change_Scanner {
 
 	/**
 	 * Abort an in-progress scan.
+	 *
+	 * @param bool $user_initiated
 	 */
-	public static function abort() {
+	public static function abort( $user_initiated = false ) {
 		$storage = ITSEC_File_Change::make_progress_storage();
 
 		if ( 'file-change-fast' === $storage->get( 'id' ) ) {
@@ -334,11 +344,20 @@ class ITSEC_File_Change_Scanner {
 			ITSEC_Log::add_process_stop( $process, array( 'aborted' => true ) );
 		}
 
-		ITSEC_Log::add_fatal_error( 'file_change', 'file-scan-aborted', array(
-			'id'    => $storage->get( 'id' ),
-			'step'  => $storage->get( 'step' ),
-			'chunk' => $storage->get( 'chunk' ),
-		) );
+		if ( $user_initiated ) {
+			$user = get_current_user_id();
+			ITSEC_Log::add_warning( 'file_change', "file-scan-aborted::{$user}", array(
+				'id'    => $storage->get( 'id' ),
+				'step'  => $storage->get( 'step' ),
+				'chunk' => $storage->get( 'chunk' ),
+			) );
+		} else {
+			ITSEC_Log::add_fatal_error( 'file_change', 'file-scan-aborted', array(
+				'id'    => $storage->get( 'id' ),
+				'step'  => $storage->get( 'step' ),
+				'chunk' => $storage->get( 'chunk' ),
+			) );
+		}
 
 		$storage->clear();
 		update_site_option( self::DESTROYED, ITSEC_Core::get_current_time_gmt() );
