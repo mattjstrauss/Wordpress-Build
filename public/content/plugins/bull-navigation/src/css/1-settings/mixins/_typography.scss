@@ -1,0 +1,17 @@
+// ==============================================================
+// Mixins - Typography
+// ==============================================================
+
+// Font styling shorthand
+// Usage:
+// @include font(fira, bold-lg);
+@mixin font($group, $variant: regular, $properties: family weight style size, $font-stack: $base-font-stacks) {
+  $font-properties: map-deep-get($font-stack, $group, $variant);
+  @if $font-properties {
+    @each $property, $values in $font-properties {
+      @if contains($properties, $property) {
+        font-#{$property}: map-get($font-properties, $property);
+      }
+    }
+  }
+}

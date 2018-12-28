@@ -1,0 +1,48 @@
+{
+    "key": "group_5ade45dfc8404",
+    "title": "Layout",
+    "fields": [
+        {
+            "key": "field_5ade45dfcdf5b",
+            "label": "Layout",
+            "name": "layout",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "col-sm-12": "One Column",
+                "col-sm-6": "Two Columns",
+                "col-sm-6 col-md-4": "Three Columns",
+                "col-sm-6 col-md-4 col-lg-3": "Four Columns"
+            },
+            "allow_null": 0,
+            "default_value": "none",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "Layouts that can be applied throughout.",
+    "modified": 1524577009
+}

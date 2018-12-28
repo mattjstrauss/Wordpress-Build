@@ -1,0 +1,167 @@
+// ==============================================================
+// Header
+// ==============================================================
+
+// Sites header
+// --------------------------------------------------
+
+.site-header {
+	background: $black;
+	padding: 20px;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 10;
+	overflow: scroll;
+  transform: translateX(-80%);
+	transition: all .3s $cbTrans;
+	display: flex;
+	width: 325px;
+	[class*="fixed-header-"] & {
+		position: fixed;
+	} 
+	.site-header-container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 0;
+		position: relative;
+	}
+	.site-branding,
+	.site-search,
+	.site-social-links {
+		flex-shrink: 0;
+	}
+	.site-navigation {
+		flex-grow: 1;
+		overflow-y: auto;
+		padding: 20px 0;
+	}
+	.navigation-container {
+		position: relative;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		color: $white;
+		font-size: .75em;
+		font-weight: 400;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		transition: all 0.5s $cbTrans;
+		&.breadcrumb {
+			display: none;
+			padding: 10px 0;
+			&:before {
+				display: inline-block;
+				content: "«";
+			}
+			&:last-of-type{
+				display: inline-block;
+				font-size: .55em;
+			}
+		}
+	}
+	.main-menu {
+		&.inactive-menu-group {
+			transform: translateX(-100%);
+		}
+	}
+	.main-menu .sub-menu {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  z-index: 1;
+	  width: 100%;
+	  transform: translateX(200%);
+	  &.active-menu-group {
+			transform: translateX(100%);
+	  }
+	  &.inactive-menu-group {
+			transform: translateX(0%);
+	  }
+	}
+	.menu {
+		transition: .4s ease all;
+	}
+	.open-navigation & {
+		transform: translateX(0%);
+	}
+	.breadcrub-wrapper {
+		display: block;
+	}
+	.site-utilities {
+		padding: 10px 0;
+		font-size: .55em;
+		position: relative;
+   	.settings-button {
+ 			position: absolute;
+  		bottom: 0;
+  		right: 0;
+  		transition: all 0.5s $cbTrans;
+  		transform: rotate(0deg);
+  		transform-origin: center center;
+   	}
+		.icon, svg {
+			display: inline-block;
+			height: 40px;
+			width: 40px;
+		}
+		svg {
+			fill: white;
+			float: right;
+		}
+   	.admin-link {
+  		display: block;
+  		opacity: 0;
+  		visibility: hidden;
+  		padding: 5px 0;
+		}
+		&.active-utilities {
+			.admin-link {
+				opacity: 1;
+				visibility: visible;
+			}
+			.settings-button {
+				transform: rotate(45deg);
+			}
+		}
+  }
+}
+
+// Sites branding
+// --------------------------------------------------
+
+.site-branding {
+  display: block;
+  width: 100%;
+  a {
+		position: relative;
+		display: block;
+		width: 60px;
+		height: 60px;
+	}
+  svg {
+  	height: 100%;
+  	width: 100%;
+  	display: block;
+  	margin: 0 auto;
+  	fill: white;
+  	transition: all 0.5s $cbTrans;
+  }
+}
+
+// Navigation buttons
+// --------------------------------------------------
+
+.menu-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+

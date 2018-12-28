@@ -1,0 +1,49 @@
+{
+    "key": "group_5ac7d20cea875",
+    "title": "Color Scheme",
+    "fields": [
+        {
+            "key": "field_5ac7d21ac612b",
+            "label": "Color Scheme",
+            "name": "color_scheme",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "N\/A",
+                "white": "White",
+                "gray": "Gray",
+                "blue": "Blue",
+                "red": "Red"
+            },
+            "allow_null": 0,
+            "default_value": "none",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "Color scheme that can be applied throughout.",
+    "modified": 1528663206
+}

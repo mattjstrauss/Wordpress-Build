@@ -1,0 +1,69 @@
+// ==============================================================
+// Mixins - Layout
+// ==============================================================
+
+// Horiziontal block center
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Floats
+@mixin float($direction) {
+	float: $direction;
+}
+
+// Positioning
+@mixin position( $type, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+	position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  transform: translate()
+}
+
+// Clearfix: http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix() {
+  &:before,
+  &:after {
+  content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Vertically align
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Center align
+@mixin center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Horizontal align
+@mixin horizontal-align {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Simple translates
+@mixin translate($x, $y) {
+  transform: translate($x,$y);
+}
+
+// Rotates
+@mixin rotate($deg) {
+  transform: rotate($deg);
+}

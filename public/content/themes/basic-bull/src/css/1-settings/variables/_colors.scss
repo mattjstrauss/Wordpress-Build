@@ -1,0 +1,31 @@
+// ==============================================================
+// Variables - Colors
+// ==============================================================
+
+// Primary colors
+$red:                           #ff4343;
+$orange:                        #ffc843;
+$green:                         #43ffad;
+$blue:                          #43bfff;
+$yellow:                        #f4ff43;
+$purple:                        #de43ff;
+$white:                         #ffffff;
+$black:                         #000000;
+$gray:                          lighten($black, 50%);
+$grayDark:                      darken($gray, 15%);
+$grayLight:                     lighten($gray, 45%);
+
+// Links
+$linkColor:                     $blue;
+$linkColorHover:                darken($blue, .3);
+
+// Color map variable used the color functions
+$colors: () !default;
+$colors: (
+  red: $red,
+  orange: $orange,
+  green: $green,
+  blue: $blue,
+  yellow: $yellow,
+  purple: $purple
+);

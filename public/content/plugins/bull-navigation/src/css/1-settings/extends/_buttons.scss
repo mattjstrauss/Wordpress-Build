@@ -1,0 +1,80 @@
+// ==============================================================
+// Extends - Buttons
+// ==============================================================
+
+%button {
+  background-color: $yellow;
+  border: none;
+  box-sizing: border-box;
+  color: $black;
+  display: inline-block;
+  padding: 10px 29px;
+  position: relative;
+  min-width: 134px;
+  border-radius: 0;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out,
+  color 0.15s ease-in-out,
+  box-shadow 0.1s ease-in-out;
+  // This fixes a bug which resulted in a thin black artifact remaining after
+  // you've hovered over the button and the moved the cursor away (Chrome on
+  // macOS), mostly likely due to the browser using the GPU for rendering the
+  // animation transition, but the CPU for rendering the normal button state.
+  // This forces the browser to always use the GPU.
+  transform: translateZ(0);
+
+  &:after {
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: border-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  &:hover:not(:disabled) {
+    box-shadow: 3px 3px 0 $black;
+  }
+  &:active {
+    background-color: $black;
+    color: $yellow;
+    &,
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  &[disabled]:disabled {
+    background-color: $gray;
+    color: $gray;
+    cursor: not-allowed;
+  }
+}
+
+%button--with-focus {
+  &:focus:not(:active) {
+    &:after {
+      border: 3px solid $blue;
+    }
+  }
+}
+
+%button--grow {
+  width: 100%;
+}
+
+%button--large {
+  padding: 18px 29px;
+  &#{bem-b-m(button, secondary)}:after {
+    border-width: 4px;
+  }
+}

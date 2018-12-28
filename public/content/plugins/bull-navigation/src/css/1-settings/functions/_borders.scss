@@ -1,0 +1,20 @@
+// ==============================================================
+// Functions - Borders
+// ==============================================================
+
+// Borders for all sides with all colors to create extends
+// Usage .border-bottom-stream-gray
+// @extend %border-{COLOR-VARIABLE}--{SIZE VARIABLE};
+// @extend %border-{SIDE}--{COLOR-VARIABLE}-{SIZE VARIABLE};
+@each $color, $colorValue in $colors {
+	@each $borderWidth, $width in $borderWidths {
+		%border-#{$color}--#{$borderWidth} {
+	    @include border(#{$width}, solid, #{$colorValue});
+	  }
+	  @each $alignment, $position in $alignments {
+		  %border-#{$alignment}--#{$color}-#{$borderWidth} {
+		    @include border(#{$width}, solid, #{$colorValue}, #{$alignment});
+		  }
+		}
+	}
+}

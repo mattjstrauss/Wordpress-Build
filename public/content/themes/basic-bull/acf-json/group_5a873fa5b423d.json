@@ -1,0 +1,185 @@
+{
+    "key": "group_5a873fa5b423d",
+    "title": "Social Media",
+    "fields": [
+        {
+            "key": "field_5a873fabc2881",
+            "label": "Links",
+            "name": "links",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5a874cf0c2884",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Link",
+            "sub_fields": [
+                {
+                    "key": "field_5a874cf0c2884",
+                    "label": "Selection",
+                    "name": "source_selection",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "amazon": "Amazon",
+                        "app-store": "App Store",
+                        "apple-store": "Apple Store",
+                        "apple-music": "Apple Music",
+                        "bandcamp": "Bandcamp",
+                        "behance": "Behance",
+                        "creative-commons": "Creative Commons",
+                        "dribbble": "Dribbble",
+                        "dropbox": "Dropbox",
+                        "facebook": "Facebook",
+                        "flickr": "Flickr",
+                        "foursquare": "Foursquare",
+                        "google-play": "Google Play",
+                        "google-plus": "Google Plus",
+                        "instagram": "Instagram",
+                        "kickstarter": "Kickstarter",
+                        "lastfm": "Last.fm",
+                        "linkedin": "LinkedIn",
+                        "medium": "Medium",
+                        "meetup": "Meetup",
+                        "myspace": "MySpace",
+                        "pandora": "Pandora",
+                        "pinterest": "Pinterest",
+                        "shazam": "Shazam",
+                        "skype": "Skype",
+                        "snapchat": "Snapchat",
+                        "soundcloud": "Soundcloud",
+                        "spotify": "Spotify",
+                        "tumblr": "Tumblr",
+                        "twitter": "Twitter",
+                        "vimeo": "Vimeo",
+                        "yelp": "Yelp",
+                        "youtube": "YouTube",
+                        "other": "Other"
+                    },
+                    "default_value": [],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5a8750e732ad3",
+                    "label": "Logo",
+                    "name": "source_logo",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a874cf0c2884",
+                                "operator": "==",
+                                "value": "other"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5a8741c7c2882",
+                    "label": "Link URL",
+                    "name": "source_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a874cf0c2884",
+                                "operator": "!=",
+                                "value": ""
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5a8741e8c2883",
+                    "label": "Link Text",
+                    "name": "source_link_text",
+                    "type": "text",
+                    "instructions": "This is optional should custom link text be desired.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a874cf0c2884",
+                                "operator": "!=",
+                                "value": ""
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "A group of links to various Networks, Associations and Affiliates.",
+    "modified": 1522695463
+}

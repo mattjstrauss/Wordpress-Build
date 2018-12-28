@@ -1,0 +1,39 @@
+// ==============================================================
+// Mixins - Borders
+// ==============================================================
+
+// Border w/ direction varients
+@mixin border($size, $style, $color, $direction: null) {
+  @if $direction == null {
+    border: $size $style $color;
+  } @else {
+    border-#{$direction}: $size $style $color;
+  }
+}
+
+// Rounded corners (border-radius)
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  background-clip: padding-box;  
+}
+
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+	border-bottom-right-radius: $radius;
+	border-top-right-radius: $radius;
+	background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+	border-bottom-right-radius: $radius;
+	border-bottom-left-radius: $radius;
+	background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+	border-bottom-left-radius: $radius;
+	border-top-left-radius: $radius;
+	background-clip: padding-box;
+}

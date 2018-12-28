@@ -1,0 +1,15 @@
+// ==============================================================
+// Navigation 
+// ==============================================================
+
+.fixed-header-left {
+	.site-content {
+		padding: 83px 0 0 325px;
+		transition: all .3s $cbTrans;
+	}
+	&.closed-navigation {
+		.site-content {
+			padding: 83px 0 0 65px;
+		}
+	}
+}

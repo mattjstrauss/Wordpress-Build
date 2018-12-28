@@ -1,0 +1,72 @@
+{
+    "key": "group_5ace1e8c80941",
+    "title": "Sizing and Spacing",
+    "fields": [
+        {
+            "key": "field_5ace1e958ca43",
+            "label": "Spacing - Top",
+            "name": "spacing_top",
+            "type": "button_group",
+            "instructions": "How much space would you like before the contents of this component?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default-spacing": "Default",
+                "small-spacing": "Small",
+                "medium-spacing": "Medium",
+                "large-spacing": "Large"
+            },
+            "allow_null": 0,
+            "default_value": "default-spacing",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5b06f788854b1",
+            "label": "Spacing - Bottom",
+            "name": "spacing_bottom",
+            "type": "button_group",
+            "instructions": "How much space would you like after the contents of this component?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default-spacing": "Default",
+                "small-spacing": "Small",
+                "medium-spacing": "Medium",
+                "large-spacing": "Large"
+            },
+            "allow_null": 0,
+            "default_value": "default-spacing",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "To control the size and spacing of components.",
+    "modified": 1527602611
+}

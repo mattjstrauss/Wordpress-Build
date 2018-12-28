@@ -1,0 +1,217 @@
+// ==============================================================
+// Variables - Typography
+// ==============================================================
+
+// Font families
+$systemFont:						      "Fira-Sans", Helvetica, Arial, sans-serif;
+$body-font-family:						$systemFont;
+
+// Font sizes
+$base-font-size:            	14px;
+$xs-font-size:								12px;
+$sm-font-size:								13px;
+$md-font-size:								16px;
+$lg-font-size:								18px;
+
+// Body sizes
+$body-font-size:							$base-font-size;
+$xs-body-font-size:						$xs-font-size;
+$sm-body-font-size:						$sm-font-size;
+$lg-body-font-size:						$md-font-size;
+
+// Heading sizes
+$heading-font-size:						$lg-font-size;
+$lg-heading-font-size:				$base-font-size * 1.625;
+
+// Callout sizes
+$callout-stat-font-size:			$lg-font-size * 2;
+$callout-body-font-size:			$md-font-size * 1.375;
+	
+
+// Line heights
+$base-line-height:            1.4;
+$body-line-height:            $base-line-height;
+
+
+// Font weights
+$normal-font-weight:					400;
+$light-font-weight:						300;
+$bold-font-weight:						600;
+$heavy-font-weight:           700;
+
+// Font stack maps used for mixins and functions
+// Based on concept found here: https://gist.github.com/fabricelejeune/bcdd3d4725d4e4cea672
+$base-font-stacks: () !default;
+$base-font-stacks: (
+  // Fira
+	fira: (
+    light: (
+      family: $body-font-family,
+      weight: $light-font-weight,
+      style: normal
+    ),
+
+    light-italic: (
+      family: $body-font-family,
+      weight: $light-font-weight,
+      style: italic,
+      size: $body-font-size
+    ),
+    light-italic-xs: (
+      family: $body-font-family,
+      weight: $light-font-weight,
+      style: italic,
+      size: $xs-body-font-size
+    ),
+    light-italic-sm: (
+      family: $body-font-family,
+      weight: $light-font-weight,
+      style: italic,
+      size: $sm-body-font-size
+    ),
+    light-italic-lg: (
+      family: $body-font-family,
+      weight: $light-font-weight,
+      style: italic,
+      size: $lg-body-font-size
+    ),
+    regular: (
+      family: $body-font-family,
+      weight: $normal-font-weight,
+      style: normal
+    ),
+    regular-xs: (
+      family: $body-font-family,
+      weight: $normal-font-weight,
+      style: normal,
+      size: $xs-body-font-size
+    ),
+    regular-sm: (
+      family: $body-font-family,
+      weight: $normal-font-weight,
+      style: normal,
+      size: $sm-body-font-size
+    ),
+    regular-lg: (
+      family: $body-font-family,
+      weight: $normal-font-weight,
+      style: normal,
+      size: $lg-body-font-size
+    ),
+    regular-italic: (
+      family: $body-font-family,
+      weight: $normal-font-weight,
+      style: italic
+    ),
+    regular-italic-xs: (
+      family: $body-font-family,
+      weight: $normal-font-weight,
+      style: italic,
+      size: $xs-body-font-size
+    ),
+    regular-italic-sm: (
+      family: $body-font-family,
+      weight: $normal-font-weight,
+      style: italic,
+      size: $sm-body-font-size
+    ),
+    regular-italic-lg: (
+      family: $body-font-family,
+      weight: $normal-font-weight,
+      style: italic,
+      size: $lg-body-font-size
+    ),
+    bold: (
+      family: $body-font-family,
+      weight: $bold-font-weight,
+      style: normal
+    ),
+    bold-xs: (
+      family: $body-font-family,
+      weight: $bold-font-weight,
+      style: normal,
+      size: $xs-body-font-size
+    ),
+    bold-sm: (
+      family: $body-font-family,
+      weight: $bold-font-weight,
+      style: normal,
+      size: $sm-body-font-size
+    ),
+    bold-lg: (
+      family: $body-font-family,
+      weight: $bold-font-weight,
+      style: normal,
+      size: $lg-body-font-size
+    ),
+    bold-italic: (
+      family: $body-font-family,
+      weight: $bold-font-weight,
+      style: italic,
+    ),
+    bold-italic-xs: (
+      family: $body-font-family,
+      weight: $bold-font-weight,
+      style: italic,
+      size: $xs-body-font-size
+    ),
+    bold-italic-sm: (
+      family: $body-font-family,
+      weight: $bold-font-weight,
+      style: italic,
+      size: $sm-body-font-size
+    ),
+    bold-italic-lg: (
+      family: $body-font-family,
+      weight: $bold-font-weight,
+      style: italic,
+      size: $lg-body-font-size
+    ),
+    heavy: (
+      family: $body-font-family,
+      weight: $heavy-font-weight,
+      style: normal
+    ),
+    heavy-xs: (
+      family: $body-font-family,
+      weight: $heavy-font-weight,
+      style: normal,
+      size: $xs-body-font-size
+    ),
+    heavy-sm: (
+      family: $body-font-family,
+      weight: $heavy-font-weight,
+      style: normal,
+      size: $sm-body-font-size
+    ),
+    heavy-lg: (
+      family: $body-font-family,
+      weight: $heavy-font-weight,
+      style: normal,
+      size: $lg-body-font-size
+    ),
+    heavy-italic: (
+      family: $body-font-family,
+      weight: $heavy-font-weight,
+      style: italic
+    ),
+    heavy-italic-xs: (
+      family: $body-font-family,
+      weight: $heavy-font-weight,
+      style: italic,
+      size: $xs-body-font-size
+    ),
+    heavy-italic-sm: (
+      family: $body-font-family,
+      weight: $heavy-font-weight,
+      style: italic,
+      size: $sm-body-font-size
+    ),
+    heavy-italic-lg: (
+      family: $body-font-family,
+      weight: $heavy-font-weight,
+      style: italic,
+      size: $lg-body-font-size
+    )
+  )
+);

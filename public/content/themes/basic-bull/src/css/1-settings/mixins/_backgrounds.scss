@@ -1,0 +1,13 @@
+/* --------------------------------------------------------------
+# Background(s)
+-------------------------------------------------------------- */
+
+@mixin background($size, $position, $repeat) {
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $position;
+}
+
+@mixin cover {
+	background-size: cover;
+}

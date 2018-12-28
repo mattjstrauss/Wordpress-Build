@@ -1,0 +1,284 @@
+{
+    "key": "group_5ae874eb09acf",
+    "title": "Media Modal",
+    "fields": [
+        {
+            "key": "field_5ae874eb11f00",
+            "label": "Media Type",
+            "name": "media_type",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "video": "Video",
+                "image": "Image"
+            },
+            "allow_null": 0,
+            "default_value": "image",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5aeb24de22d3d",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "When applicable, this will be used a poster (visual preview) for videos should that content exist without a poster already in place.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ae874eb11f1b",
+            "label": "Video Source",
+            "name": "video_source",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "embed": "Embed (iFrame)",
+                "upload": "File Upload"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5ae874eb11f33",
+            "label": "Audio Source",
+            "name": "audio_source",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "!=",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "!=",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "service": "Streaming Service",
+                "upload": "File Upload"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5ae874eb11f4a",
+            "label": "Media URL",
+            "name": "video_embed",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "==",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_5ae874eb11f1b",
+                        "operator": "!=",
+                        "value": "upload"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_5ae874eb11f61",
+            "label": "Media URL",
+            "name": "audio_embed",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "!=",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "!=",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_5ae874eb11f79",
+            "label": "Media File",
+            "name": "video_file",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "==",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_5ae874eb11f1b",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ae874eb11f90",
+            "label": "Media File",
+            "name": "audio_file",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "!=",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "!=",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ae874eb11fd6",
+            "label": "Media Caption",
+            "name": "media_caption",
+            "type": "wysiwyg",
+            "instructions": "<small>Note: This will override the image current caption.<\/small>",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ae874eb11f00",
+                        "operator": "!=",
+                        "value": "none"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "A media group used for created media modal components.",
+    "modified": 1525367466
+}

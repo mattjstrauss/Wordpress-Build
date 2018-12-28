@@ -1,0 +1,52 @@
+{
+    "key": "group_5aea20cbb6c3f",
+    "title": "Columns",
+    "fields": [
+        {
+            "key": "field_5aea20cbbc873",
+            "label": "Columns",
+            "name": "columns",
+            "type": "button_group",
+            "instructions": "How many column(s) would you like this to span?<br>\r\n<small>Note that to form even rows you must have groups of numbers that add up to 12<\/small>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "col-sm-6 col-md-3": "3",
+                "col-sm-6 col-md-4": "4",
+                "col-sm-6 col-md-5": "5",
+                "col-sm-6 col-md-6": "6",
+                "col-sm-6 col-md-7": "7",
+                "col-sm-6 col-md-8": "8",
+                "col-sm-6 col-md-9": "9",
+                "col-sm-12": "12"
+            },
+            "allow_null": 0,
+            "default_value": "col-sm-6 col-md-4",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "Layouts that can be applied throughout.",
+    "modified": 1525380869
+}

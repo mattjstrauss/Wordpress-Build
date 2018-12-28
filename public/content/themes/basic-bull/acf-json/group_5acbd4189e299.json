@@ -1,0 +1,321 @@
+{
+    "key": "group_5acbd4189e299",
+    "title": "Background",
+    "fields": [
+        {
+            "key": "field_5acbd44b4515b",
+            "label": "Background Type",
+            "name": "background_type",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "color-background": "Color Background",
+                "image-background": "Image Background",
+                "video-background": "Video Background"
+            },
+            "allow_null": 0,
+            "default_value": "none",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5acbd4f84515c",
+            "label": "Video Source",
+            "name": "background_video_source",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "video-background"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "embed": "Embed (iFrame)",
+                "upload": "File Upload"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5acbd53b4515d",
+            "label": "Video URL",
+            "name": "background_video_embed",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "video-background"
+                    },
+                    {
+                        "field": "field_5acbd4f84515c",
+                        "operator": "!=",
+                        "value": "upload"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_5acbd57345160",
+            "label": "Video File",
+            "name": "background_video_file",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "video-background"
+                    },
+                    {
+                        "field": "field_5acbd4f84515c",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5acbd5a545162",
+            "label": "Image",
+            "name": "background_image",
+            "type": "image",
+            "instructions": "When using a video file as a background, this will be used as a \"poster\" or preview image while the video loads.<br><small>It is mandatory when uploading a video file but optional if embeding a video from YouTube or Vimeo<\/small>",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "image-background"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "video-background"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ace279e8184c",
+            "label": "Image Focal Point (Vertical)",
+            "name": "background_position_vertical",
+            "type": "button_group",
+            "instructions": "Where is the vertical focal point of this image located?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "image-background"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Top",
+                "center": "Middle",
+                "bottom": "Bottom"
+            },
+            "allow_null": 0,
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5ace2acc09cf1",
+            "label": "Image Focal Point (Horizontal)",
+            "name": "background_position_horizontal",
+            "type": "button_group",
+            "instructions": "Where is the horizontal focal point of this image located?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "image-background"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "center": "Middle",
+                "right": "Right"
+            },
+            "allow_null": 0,
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5acbd658ea8d9",
+            "label": "Overlay",
+            "name": "background_overlay",
+            "type": "true_false",
+            "instructions": "Would you like to enable a overlay?\r\n<small>This will use the color selected and lower its opacity and place it over the image or video.<\/small>",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "image-background"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "video-background"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5acbd6a9ea8dc",
+            "label": "Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "This will override the background from the color scheme above if selected.<br>\r\n<small>When the overlay is enabled, this is the base color used to tint the overlay.<\/small>",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "color-background"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "image-background"
+                    },
+                    {
+                        "field": "field_5acbd658ea8d9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5acbd44b4515b",
+                        "operator": "==",
+                        "value": "video-background"
+                    },
+                    {
+                        "field": "field_5acbd658ea8d9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ccc"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "A stand alone background used for components.",
+    "modified": 1528664144
+}

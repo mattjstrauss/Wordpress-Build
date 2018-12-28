@@ -1,0 +1,27 @@
+// ==============================================================
+// Mixins - Spacing
+// ==============================================================
+
+$type: margin;
+$sides: seperate;
+@mixin space($type, $sides: $sides, $top: null, $right: null, $bottom: null, $left: null) {
+  @if $type == padding {
+  	@if $sides == equal {
+			padding: $top;
+		} @else {
+			padding-top: $top;
+	  	padding-right: $right;
+	  	padding-bottom: $bottom;
+	  	padding-left: $left;
+		} 
+  } @else if $type == margin {
+  	@if $sides == equal {
+			margin: $top;
+		} @else {
+			margin-top: $top;
+	  	margin-right: $right;
+	  	margin-bottom: $bottom;
+	  	margin-left: $left;
+		} 
+  }
+}

@@ -1,0 +1,298 @@
+/*==============================================================
+# Carousels
+==============================================================*/
+
+.carousel-component {
+    float: left;
+    width: 100%;
+    .component-content {
+        position: relative;
+    }
+    .component-container {
+        max-width: 986px;
+        margin: 0 auto;
+        padding: 0 50px;
+    }
+    figcaption {
+        opacity: 0;
+        transition: .4s ease all;
+    }
+    .slick-current {
+        figcaption {
+            opacity: 1;
+        }
+    }
+    .slide-background-image {
+        @include cover;
+        height: 0;
+        padding-bottom: 60%;
+        overflow: hidden;
+    }
+}
+
+/* Slick Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    user-select: none;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    outline: none;
+    [dir="rtl"] & {
+        float: right;
+    }
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+.slick-dotted.slick-slider {
+    margin-bottom: 60px;
+    .featured-carousel & {
+        margin-bottom: 0;
+    }
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+/* Arrows */
+
+.slick-prev,
+.slick-next,
+.slick-arrow {
+    position: absolute;
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    /*background: transparent;
+    color: transparent;*/
+    color: $grayDark;
+    background: $white;
+    border-radius: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    z-index: 5;
+    svg {
+        float: left;
+        width: 100%;
+        height: 100%;
+    }
+    &:hover, &:focus {
+        /*outline: none;
+        background: transparent;
+        color: transparent;*/
+        &:before {
+            opacity: .9;
+        }
+    }
+    &.slick-disabled:before {
+        opacity: .5;
+    }
+    &:before {
+        font-size: 20px;
+        line-height: 1;
+        color: red;
+        opacity: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.slick-prev,
+.previous-button.slick-arrow {
+    left: -50px;
+    .image-carousel & {
+        left: -50px;
+    }
+}
+
+.slick-next,
+.next-button.slick-arrow {
+    right: -50px;
+    .image-carousel & {
+        right: -50px;
+    }
+}
+
+/* Carousel "Dots" */
+
+.slick-dots {
+    position: absolute;
+    bottom: -50px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li {
+        position: relative;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+        button {
+            border: 0;
+            background: transparent;
+            display: block;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 0px;
+            cursor: pointer;
+            letter-spacing: 0;
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            &:hover, &:focus {
+                outline: none;
+                background: transparent;
+                &:before,
+                &:after {
+                    opacity: .9;
+                }
+            }
+            &:before,
+            &:after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+                overflow: hidden;
+                transition: .4s ease all;
+                backface-visibility: hidden;
+            }
+            &:before {
+                background: $gray;
+                z-index: 5;
+                transform: translate3d(-50%, -50%, 0) scale(.65);
+            }
+            &:after {
+                background: transparent;
+                border-radius: 100%;
+                z-index: 4;
+                box-shadow: 0 0 0 2px white;
+                transform: translate3d(-50%, -50%, 0) scale(0);
+            }
+        }
+        &.slick-active button {
+            &:before {
+                transform: translate3d(-50%, -50%, 0) scale(.45);
+                background: $grayDark;
+            }
+            &:after {
+                transform: translate3d(-50%, -50%, 0) scale(1);
+                box-shadow: 0 0 0 2px $grayDark;
+            }
+        }
+    }
+    .carousel-hero & {
+        li {
+            button {
+                &:before {
+                    background: $white;
+                }
+            }
+            &.slick-active button {
+                &:before {
+                    transform: translate3d(-50%, -50%, 0) scale(.45);
+                    background: $grayDark;
+                }
+                &:after {
+                    transform: translate3d(-50%, -50%, 0) scale(1);
+                    box-shadow: 0 0 0 2px $grayDark;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+// ==============================================================
+// Functions - BEM setup
+// This module provides functions for generating BEM selectors where:
+// 
+// - Modifiers can be applied to both blocks and elements.
+// - Modifiers (e.g. `block__blue`) are more specific than just the block (`block`).
+// - Blocks are automatically and appropriately prefixed (`st-block`).
+// - Selectors include more than two levels of nesting.
+// 
+// This was inspired by this article:
+//   https://mindtheshift.wordpress.com/2014/10/15/getting-the-best-out-of-bem-with-sass/
+// 
+// Unlike the code provided by the article, this is compatible with our version of
+// SASS.
+// ==============================================================
+
+$bem__block-prefix: "st-v2-" !default;
+$bem__element-prefix: "__" !default;
+$bem__modifier-prefix: "--" !default;
+
+@function bem-b($b) {
+  @return ".#{$bem__block-prefix}#{$b}"
+}
+
+@function bem-e($b, $e) {
+  @return "#{bem-b($b)}#{$bem__element-prefix}#{$e}"
+}
+
+@function bem-e-m($b, $e, $m) {
+  @return "#{bem-e($b, $e)}#{bem-e($b, $e)}#{$bem__modifier-prefix}#{$m}"
+}
+
+@function bem-b-e($b, $e) {
+  @return "#{bem-b($b)} #{bem-e($b, $e)}"
+}
+
+@function bem-m($b, $m) {
+  @return "#{bem-b($b)}#{$bem__modifier-prefix}#{$m}"
+}
+
+@function bem-b-m($b, $m) {
+  @return "#{bem-b($b)}#{bem-m($b, $m)}"
+}
+
+@function bem-b-m-e($b, $m, $e) {
+  @return "#{bem-b-m($b, $m)} #{bem-e($b, $e)}"
+}
+
+@function bem-b-e-m($b, $e, $m) {
+  @return "#{bem-b($b)} #{bem-e-m($b, $e, $m)}"
+}
+
+@function bem-b-m-e-m($b, $m, $e, $em) {
+  @return "#{bem-b-m($b, $m)} #{bem-e-m($b, $e, $em)}"
+}

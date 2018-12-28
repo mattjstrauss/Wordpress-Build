@@ -1,0 +1,8 @@
+// ==============================================================
+// Mixins - Transitions
+// ==============================================================
+
+// Simple Transitions
+@mixin trans($property, $time, $effect) {
+  transition: $property $time $effect;
+}

@@ -1,0 +1,72 @@
+/*==============================================================
+# Color Schemes
+==============================================================*/
+
+.white-scheme {
+    background-color: $white;
+}
+.red-scheme {
+    background-color: $red;
+    color: $white;
+    h1, h2, h3, h4, h5, h6 {
+        a {
+            color: $white;
+        }
+    }
+}
+.green-scheme {
+    color: $green;
+    h1, h2, h3, h4, h5, h6 {
+        a {
+            color: $green;
+        }
+    }
+}
+.yellow-scheme {
+    background-color: $yellow;
+    color: $grayDark;
+    h1, h2, h3, h4, h5, h6 {
+        a {
+            color: $red;
+        }
+    }
+}
+.blue-scheme {
+    background-color: $blue;
+    color: $white;
+    h1, h2, h3, h4, h5, h6 {
+        a {
+            color: $white;
+        }
+    }
+}
+.trans-red-scheme {
+    border: 1px solid;
+    border-color: $red;
+}
+.trans-blue-scheme {
+    border: 1px solid;
+    border-color: $blue;
+}
+
+p {
+    .trans-pink-scheme & {
+        color: $red;
+    }
+    .trans-blue-scheme & {
+        color: $blue;
+    }
+}
+
+.page-gray-scheme {
+    background-color: $grayLight;
+}
+.page-blue-scheme {
+    background-color: $blue;
+}
+.page-red-scheme {
+    background-color: $red;
+}
+.page-yellow-scheme {
+    background-color: $yellow;
+}

@@ -1,0 +1,115 @@
+/*==============================================================
+# Backgrounds
+==============================================================*/
+
+.section {
+    position: relative;
+    float: left;
+    width: 100%;
+    .background-component {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    &.section-featured-video {
+        .background-component {
+            @include break(small) {
+                position: relative;
+                height: 0;
+                padding-bottom: 60%;
+                margin: 0 calc(15px);
+                width: calc(100% - 30px);
+            }
+        }
+    }
+    .component {
+        z-index: 1;
+        &.background-component {
+            z-index: 0;
+        }
+    }
+}
+.image-background,
+.color-background,
+.background-overlay,
+.background-color {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.image-background {
+    z-index: 1;
+    @include bdg-cover;
+    &.top-left {
+        background-position: left top;
+    }
+    &.top-center {
+        background-position: center top;
+    }
+    &.top-right {
+        background-position: right top;
+    }
+    &.center-left {
+        background-position: left center;
+    }
+    &.center-right {
+        background-position: right center;
+    }
+    &.bottom-left {
+        background-position: left bottom;
+    }
+    &.bottom-center {
+        background-position: center bottom;
+    }
+    &.bottom-right {
+        background-position: right bottom;
+    }
+}
+.background-color {
+    z-index: -1;
+}
+.color-background {
+    z-index: 1;
+}
+.video-background {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    video,
+    iframe {
+        width: auto;
+        height: auto;
+        min-height: 100%;
+        min-width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+    .embed-background-video {
+        height: 0;
+        padding-bottom: 60%;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+}
+.background-overlay {
+    z-index: 3;
+    opacity: .5;
+}
+
+
+
